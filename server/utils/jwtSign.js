@@ -1,5 +1,4 @@
 const { sign } = require('jsonwebtoken');
-require('env2')('.env');
 
 const signTokenPromise = (theToken) => new Promise((resolve, reject) => {
   sign(theToken, process.env.SECRET_KEY, (error, token) => {
@@ -10,5 +9,4 @@ const signTokenPromise = (theToken) => new Promise((resolve, reject) => {
     }
   });
 });
-
 module.exports = { signTokenPromise };

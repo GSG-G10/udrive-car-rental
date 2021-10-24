@@ -1,3 +1,4 @@
-const { signTokenPromise } = require('./jwt');
+const { signTokenPromise } = require('./jwtSign');
+const { verifyTokenPromise } = require('./jwtVerify');
 
-module.exports = { signTokenPromise };
+module.exports = { signTokenPromise, verifyTokenPromise };
