@@ -1,2 +1,3 @@
-const auth = require('./auth')
-module.exports ={auth}
+const auth = require('./auth');
+
+module.exports = { auth };
