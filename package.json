@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "cd server && npm run start",
-    "dev": "cd server && npm run dev",
-    "start:client": "cd client && npm start",
-    "lint:client": "cd client && npm run lint",
-    "lint:fix": "cd client && npm run lint:fix && cd ../server && npm run lint:fix",
-    "lint:server": "cd server && npm run lint",
-    "lint": "lint:client && lint:server",
-    "test": "cd server && npm run test"
+  "dependencies": {
+    "cross-env": "^7.0.3"
   },
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
+  },
+  "scripts": {
+    "lint-fix": "cd server && npm run lint-fix"
+  },
+  "pre-commit": [
+    "lint-fix"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GSG-G10/udrive-car-rental.git"
@@ -22,12 +24,6 @@
   "bugs": {
     "url": "https://github.com/GSG-G10/udrive-car-rental/issues"
   },
-  "homepage": "https://github.com/GSG-G10/udrive-car-rental#readme",
-  "devDependencies": {
-    "pre-commit": "^1.2.2"
-  },
-  "pre-commit": [
-    "lint:fix",
-    "test"
-  ]
+
+  "homepage": "https://github.com/GSG-G10/udrive-car-rental#readme"
 }
