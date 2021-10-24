@@ -1,7 +1,7 @@
 
 INSERT INTO users (name,email,password, is_admin ,phone) VALUES
-('Rawand','rawandgaradh1234@Gmail.com','144c9defac04969c7bfad8efaa8ea194',false,0592320547),
-('Lina','lina1234@Gmail.com','lina',true,0592320547);
+('Rawand','rawandgaradh1234@Gmail.com','$2a$10$52GzekWOKfKyP88XMygOvu0AJeW9Mn/rRVBe0zhrG1VzgiWhwA/im',false,0592320547),
+('Lina','lina1234@Gmail.com','$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y',true,0592320547);
 
 INSERT INTO types (name,image) VALUES 
 ('Seden','https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-honda-civic-sedan-1558453497.jpg?crop=1xw:0.9997727789138833xh;center,top&resize=980:*'),
