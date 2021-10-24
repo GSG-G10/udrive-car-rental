@@ -4,17 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "env2": "^2.2.2",
-    "eslint": "^8.0.1",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.14"
-  },
-  "devDependencies": {
     "cross-env": "^7.0.3"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "pre-commit": "^1.2.2"
   },
+  "scripts": {
+    "lint-fix": "cd server && npm run lint-fix"
+  },
+  "pre-commit": [
+    "lint-fix"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GSG-G10/udrive-car-rental.git"
