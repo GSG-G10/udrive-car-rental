@@ -10,11 +10,11 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "lint-fix": "cd server && npm run lint-fix",
+    "lint": "cd server && npm run lint",
     "lint-client" : "cd client && npm run lint"
   },
   "pre-commit": [
-    "lint-fix",
+    "lint",
     "lint-client"
   ],
   "repository": {
