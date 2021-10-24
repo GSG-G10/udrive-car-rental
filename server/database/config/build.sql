@@ -24,7 +24,7 @@ CREATE TABLE cars (
     door int,
      types_id int REFERENCES types(id),
      brands_id int REFERENCES brands(id),
-     release_type int,
+     release_year int,
     gearbox VARCHAR(100),
     price  int,
     seats int,
@@ -35,7 +35,7 @@ CREATE TABLE cars (
 CREATE TABLE rentals (
     id SERIAL PRIMARY KEY,
     users_id int REFERENCES users(id),
-    cars_id   int REFERENCES cars(id),
+    cars_id int REFERENCES cars(id),
     pick_up_date_time timestamp,
     pick_of_date_time timestamp,
     total_price int
