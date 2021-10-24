@@ -22,10 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "cd .. && husky install client/.husky",
     "lint": "eslint -c .eslintrc.js --ext .js,.jsx .",
-    "lint:fix": "npm run lint -- --fix",
-    "lint:staged": "lint-staged"
+    "lint:fix": "npm run lint -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -51,8 +49,6 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^11.2.3"
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
