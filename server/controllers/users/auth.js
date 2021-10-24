@@ -1,24 +1,33 @@
 const bcrypt = require('bcrypt');
-const checkEmail = require('../../utils/index');
-const { loginValidtion } = require('../../database/queries/index');
-const { createToken } = require('../../utils/createToken');
+const { loginValidtion } = require('../../utils/validation/index');
+const { checkEmail } = require('../../database/queries/index');
+const { signTokenPromise } = require('../../utils/index');
 
-exports.auth = async (req, res) => {
-  // validate data before log in
-  const { error } = await loginValidtion(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  // check if the email exists
-  const user = await checkEmail(req.body.email);
-  if (user.rowCount === 0) return res.status(400).json({ success: false, msg: 'Invalid Email, you have to sign up first!' });
-
-  // check password
-  const dbPassword = user.rows[0].password;
-  const validPassword = await bcrypt.compare(req.body.password, dbPassword);
-  if (!validPassword) return res.status(400).json({ success: false, msg: 'Incorrect password' });
-
-  // create token and store it in cookies
-  const { id, name } = user.rows[0];
-  createToken(id, name, process.env.TOKEN_SERCRET, res);
-  res.json({ success: true, message: 'you are logged in now!' });
+const auth = async (req, res, next) => {
+  try {
+    const { password, email } = req.body;
+    await loginValidtion.validateAsync(req.body);
+    const { rows } = await checkEmail(email, '');
+    if (!rows.length) {
+      throw new Error({ message: 'invalid email or password', status: 401 });
+    }
+    const compared = await bcrypt.compare(password, rows[0].password);
+    if (!compared) {
+      throw new Error({ message: 'invalid email or password', status: 401 });
+    }
+    const token = await signTokenPromise(email, rows[0].id, rows[0].is_admin, rows[0].name);
+    res.cookie('token', token);
+    return res.json({ message: 'logged in successfully' });
+  } catch (err) {
+    if (err.details) {
+      res.status(442).json({
+        msg: err.details[0].message,
+        status: 442,
+      });
+    } else {
+      return next(err);
+    }
+  }
 };
+
+module.exports = auth;
