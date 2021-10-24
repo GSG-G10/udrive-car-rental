@@ -1,0 +1,28 @@
+{
+  "name": "udrive-car-rental",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "eslint": "^8.0.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G10/udrive-car-rental.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G10/udrive-car-rental/issues"
+  },
+  "homepage": "https://github.com/GSG-G10/udrive-car-rental#readme"
+}
