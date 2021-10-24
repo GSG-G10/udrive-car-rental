@@ -10,7 +10,8 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "lint-fix": "cd server && npm run lint-fix"
+    "lint-fix": "cd server && npm run lint-fix",
+    "lint-fix-client" : "cd client && npm run lint:fix"
   },
   "pre-commit": [
     "lint-fix"
@@ -24,6 +25,5 @@
   "bugs": {
     "url": "https://github.com/GSG-G10/udrive-car-rental/issues"
   },
-
   "homepage": "https://github.com/GSG-G10/udrive-car-rental#readme"
 }
