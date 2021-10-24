@@ -11,11 +11,11 @@
   },
   "scripts": {
     "lint-fix": "cd server && npm run lint-fix",
-    "lint-fix-client" : "cd client && npm run lint:fix"
+    "lint-client" : "cd client && npm run lint"
   },
   "pre-commit": [
     "lint-fix",
-    "lint-fix-client"
+    "lint-client"
   ],
   "repository": {
     "type": "git",
