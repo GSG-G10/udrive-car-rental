@@ -12,3 +12,4 @@ const signTokenPromise = (theToken) => new Promise((resolve, reject) => {
 });
 
 module.exports = { signTokenPromise };
+
