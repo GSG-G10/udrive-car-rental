@@ -14,7 +14,8 @@
     "lint-fix-client" : "cd client && npm run lint:fix"
   },
   "pre-commit": [
-    "lint-fix"
+    "lint-fix",
+    "lint-fix-client"
   ],
   "repository": {
     "type": "git",
