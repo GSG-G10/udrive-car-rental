@@ -5,7 +5,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    isAdmin BOOLEAN,
+    is_admin BOOLEAN,
     phone int
 );
 CREATE TABLE types (
