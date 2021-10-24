@@ -9,7 +9,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
-    is_admin BOOLEAN DEFAULT false,
+    is_admin BOOLEAN DEFAULT FALSE,
     phone INT
 );
 CREATE TABLE types (
@@ -23,11 +23,11 @@ CREATE TABLE brands (
     image TEXT
 );
 CREATE TABLE cars (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY ,
     name VARCHAR(100) NOT NULL,
     door INT,
-    types_id INT REFERENCES types(id),
-    brands_id INT REFERENCES brands(id),
+    types_id INT REFERENCES types(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    brands_id INT REFERENCES brands(id) ON UPDATE CASCADE ON DELETE CASCADE,
     release_year INT,
     gearbox VARCHAR(100),
     price INT,
@@ -38,10 +38,10 @@ CREATE TABLE cars (
 );
 CREATE TABLE rentals (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id),
-    cars_id INT REFERENCES cars(id),
-    pick_up_date_time TIMESTAMP,
-    pick_of_date_time TIMESTAMP,
+    users_id INT REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    cars_id INT REFERENCES cars(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    pick_up_date_time TIMESTAMPTZ,
+    pick_of_date_time TIMESTAMPTZ,
     total_price INT
 );
 COMMIT;
