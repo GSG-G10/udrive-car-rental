@@ -9,22 +9,23 @@ The user see list of cars, brand cars and types, he can choose a car to rent, ed
 
 ## User Stories 📋
 **AS a User:**
-1- I want to be able sign in/up and logout the site.
-2- I can see all cars and it's information(type/colors/discription/number)
-3- I want to be able filter cars by price and search about specific car.
-4- I want to be able rent any car I want.
-5- I want to be able see all cars I rented it before.
-6- I want to be able delete pending car for him.
-7- I want to be able edit pending car for him.
+1.  I want to be able sign in/up and logout the site.
+1.  I can see all cars and it's information(type/colors/discription/number)
+1.  I want to be able filter cars by price and search about specific car.
+1.  I want to be able rent any car I want.
+1.  I want to be able see all cars I rented it before.
+1.  I want to be able delete pending car for him.
+1.  I want to be able edit pending car for him.
 
 **AS an Admin**
-1- I want to be able sign in/up and logout the site.
-2- I want to be able to add new car to site.
-3- I want to be able to see pendding car.
-4- I want to be able to delete any car.
-5- I want to be able to edit to any car details.
-6- I want to be able to add type of cars.
-7- I want to be able to add brand of cars.
+1. I want to be able sign in/up and logout the site.
+1. I want to be able to add new car to site.
+1. I want to be able to see pendding car.
+1. I want to be able to delete any car.
+1. I want to be able to edit to any car details.
+1. I want to be able to add type of cars.
+1. I want to be able to add brand of cars.
+
 
 
 
