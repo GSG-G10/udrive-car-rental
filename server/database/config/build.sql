@@ -45,3 +45,4 @@ CREATE TABLE rentals (
     total_price INT
 );
 COMMIT;
+
