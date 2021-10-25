@@ -30,16 +30,5 @@ describe('login', () => {
         return done();
       });
   });
-  test('post login returns a status code of 200', (done) => {
-    request(app)
-      .post('/api/v1/login')
-      .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345678hyghyg' })
-      .expect(401)
-      .expect('Content-Type', /json/)
-      .end((err) => {
-        if (err) return done(err);
-        return done();
-      });
-  });
 });
 afterAll(() => connection.end());
