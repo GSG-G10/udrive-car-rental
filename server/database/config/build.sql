@@ -44,5 +44,12 @@ CREATE TABLE rentals (
     pick_of_date_time TIMESTAMPTZ,
     total_price INT
 );
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    comment TEXT,
+    rentals_id INT REFERENCES rentals(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    rate INT
+   
+);
 COMMIT;
 
