@@ -8,7 +8,7 @@ const isAuth = async (req, res, next) => {
       req.user = userToken;
       return next();
     }
-    throw new Error({ status: 401, msg: 'Unauthorized' });
+    throw new Error({ message: 'Unauthorized', status: 401 });
   } catch (err) {
     return next(err);
   }
