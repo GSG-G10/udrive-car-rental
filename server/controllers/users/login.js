@@ -1,12 +1,14 @@
 const bcrypt = require('bcrypt');
-const { loginValidtion } = require('../../utils/validation/index');
+const { loginValidation } = require('../../utils/validation');
 const { checkEmail } = require('../../database/queries/index');
 const { signTokenPromise } = require('../../utils/index');
 
-const auth = async (req, res, next) => {
+const login = async (req, res, next) => {
   try {
     const { password, email } = req.body;
-    await loginValidtion.validateAsync(req.body);
+    console.log(req.body);
+    await loginValidation.validateAsync(req.body);
+
     const { rows } = await checkEmail(email, '');
     if (!rows.length) {
       throw new Error({ message: 'invalid email or password', status: 401 });
@@ -30,4 +32,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-module.exports = auth;
+module.exports = { login };
