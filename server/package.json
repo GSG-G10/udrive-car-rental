@@ -21,14 +21,14 @@
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.7.1",
-    "supertest": "^6.1.6"
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.2",
     "jest": "^27.3.1",
+    "supertest": "^6.1.6",
     "nodemon": "^2.0.14"
   }
 }

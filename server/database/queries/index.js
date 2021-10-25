@@ -1,4 +1,6 @@
 const { getBrandsQueries } = require('./getBrandsQueries');
 const checkEmail = require('./checkEmail');
 
-module.exports = { checkEmail, getBrandsQueries };
+const { getTypeQueries } = require('./getTypeQueries');
+
+module.exports = { checkEmail, getTypeQueries, getBrandsQueries };

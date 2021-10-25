@@ -1,0 +1,16 @@
+/* eslint-disable no-undef */
+const request = require('supertest');
+const app = require('../app');
+
+test('get type returns a status code of 200', (done) => {
+  request(app)
+    .get('/api/v1/type')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      if (err) return done(err);
+      expect(res.body.length).toBe(5);
+      return done();
+    });
+});
+jest.setTimeout(15000);

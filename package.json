@@ -18,13 +18,14 @@
     "start": "cd server && npm run start",
     "dev": "cd server && npm run dev",
     "test": "cd server && npm t",
-
     "lint-fix": "cd server && npm run lint-fix",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "package-install": "cd server && npm i && cd ../client && npm i"
   },
   "pre-commit": [
     "lint",
-    "lint-client"
+    "lint-client",
+    "test"
   ],
   "repository": {
     "type": "git",

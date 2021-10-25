@@ -1,3 +1,5 @@
 const { getBrands } = require('./getBrands');
 
-module.exports = { getBrands };
+const { getTypeControllers } = require('./getTypeControllers');
+
+module.exports = { getTypeControllers, getBrands };
