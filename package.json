@@ -7,11 +7,13 @@
     "cross-env": "^7.0.3"
   },
   "devDependencies": {
-    "pre-commit": "^1.2.2"
+    "jest": "^27.3.1",
+    "pre-commit": "^1.2.2",
+    "supertest": "^6.1.6"
   },
   "scripts": {
     "lint": "cd server && npm run lint",
-    "lint-client" : "cd client && npm run lint"
+    "lint-client": "cd client && npm run lint",
     "start": "cd server && npm run start",
     "dev": "cd server && npm run dev",
     "lint-fix": "cd server && npm run lint-fix"
