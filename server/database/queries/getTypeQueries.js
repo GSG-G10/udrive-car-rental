@@ -1,4 +1,4 @@
-const connection = require('./connect');
+const connection = require('../connection');
 
 const getTypeQueries = () => connection.query('SELECT * FROM types');
 
