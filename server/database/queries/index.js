@@ -1,3 +1,5 @@
 const { getReview } = require('./getReview');
 
-module.exports = { getReview };
+const checkEmail = require('./checkEmail');
+
+module.exports = { checkEmail, getReview };

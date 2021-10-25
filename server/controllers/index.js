@@ -1,3 +1,5 @@
 const { getReviewes } = require('./review/getReviewes');
 
-module.exports = { getReviewes };
+const { login } = require('./users');
+
+module.exports = { login, getReviewes };
