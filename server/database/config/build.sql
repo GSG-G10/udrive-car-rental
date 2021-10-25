@@ -49,7 +49,6 @@ CREATE TABLE comments (
     comment TEXT,
     rentals_id INT REFERENCES rentals(id) ON UPDATE CASCADE ON DELETE CASCADE,
     rate INT
-   
 );
 COMMIT;
 
