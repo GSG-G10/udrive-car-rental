@@ -1,18 +1,45 @@
-// const request = require('supertest');
-// const app = require('../routes');
-// const connection = require('../database/connection');
-// const { dbBuild } = require('../database/config/bulid');
+/* eslint-disable no-undef */
+const request = require('supertest');
+const app = require('../app');
+const connection = require('../database/connection');
+const { dbBuild } = require('../database/config/bulid');
 
-// beforeEach(() => dbBuild());
+beforeEach(() => dbBuild());
+describe('login', () => {
+  test('post login returns a status code of 200', (done) => {
+    request(app)
+      .post('/api/v1/login')
+      .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345678' })
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.message).toBe('logged in successfully');
+        return done();
+      });
+  });
 
-// test('post login route', (done) => request(app)
-//   .post('/api/v1/login')
-//   .expect(200)
-//   .expect('Content-Type', /html/)
-//   .end((err, res) => {
-//     if (err) return done(err);
-//     expect(res.rowCount).toBe(5);
-//     done();
-//   }));
-
-// afterAll(() => connection.end());
+  test('post login returns a status code of 200', (done) => {
+    request(app)
+      .post('/api/v1/login')
+      .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345' })
+      .expect(400)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+  test('post login returns a status code of 200', (done) => {
+    request(app)
+      .post('/api/v1/login')
+      .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345678hyghyg' })
+      .expect(401)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+});
+afterAll(() => connection.end());

@@ -22,9 +22,9 @@ const login = async (req, res, next) => {
     return res.json({ message: 'logged in successfully' });
   } catch (err) {
     if (err.details) {
-      res.status(442).json({
+      res.status(400).json({
         msg: err.details[0].message,
-        status: 442,
+        status: 400,
       });
     } else {
       return next(err);
