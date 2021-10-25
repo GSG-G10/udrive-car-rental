@@ -10,6 +10,8 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
+    "start": "cd server && npm run start",
+    "dev": "cd server && npm run dev",
     "lint-fix": "cd server && npm run lint-fix"
   },
   "pre-commit": [
