@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS users,
 types,
 brands,
 cars,
-rentals CASCADE;
+rentals,
+comments CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
