@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "supertest": "^6.1.6"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2"
@@ -12,6 +13,7 @@
   "scripts": {
     "start": "cd server && npm run start",
     "dev": "cd server && npm run dev",
+    "test":"cd server && npm t",
     "lint-fix": "cd server && npm run lint-fix"
   },
   "pre-commit": [
