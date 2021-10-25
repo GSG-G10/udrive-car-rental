@@ -1,10 +1,10 @@
 const { verifyTokenPromise } = require('../../utils');
 
 const isAuth = async (req, res, next) => {
-  const { accessToken } = req.cookies;
+  const { token } = req.cookies;
   try {
-    if (accessToken) {
-      const userToken = await verifyTokenPromise(accessToken);
+    if (token) {
+      const userToken = await verifyTokenPromise(token);
       req.user = userToken;
       return next();
     }
