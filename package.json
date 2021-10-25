@@ -16,7 +16,8 @@
     "lint-client": "cd client && npm run lint",
     "start": "cd server && npm run start",
     "dev": "cd server && npm run dev",
-    "lint-fix": "cd server && npm run lint-fix"
+    "lint-fix": "cd server && npm run lint-fix",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "pre-commit": [
     "lint",
