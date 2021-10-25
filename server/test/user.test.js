@@ -5,21 +5,8 @@ const app = require('../app');
 const { dbBuild } = require('../database/config/bulid');
 const connection = require('../database/connection');
 
-beforeAll(() => dbBuild());
-
-test('get type returns a status code of 200', (done) => {
-  request(app)
-    .get('/api/v1/type')
-    .expect(200)
-    .expect('Content-Type', /json/)
-    .end((err, res) => {
-      if (err) return done(err);
-      expect(res.body.length).toBe(5);
-      return done();
-    });
-});
-
 beforeEach(() => dbBuild());
+
 describe('login', () => {
   test('post login returns a status code of 200', (done) => {
     request(app)
@@ -39,17 +26,6 @@ describe('login', () => {
       .post('/api/v1/login')
       .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345' })
       .expect(400)
-      .expect('Content-Type', /json/)
-      .end((err) => {
-        if (err) return done(err);
-        return done();
-      });
-  });
-  test('post login returns a status code of 200', (done) => {
-    request(app)
-      .post('/api/v1/login')
-      .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345678hyghyg' })
-      .expect(401)
       .expect('Content-Type', /json/)
       .end((err) => {
         if (err) return done(err);
