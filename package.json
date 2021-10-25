@@ -10,10 +10,16 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "lint-fix": "cd server && npm run lint-fix"
+    "lint": "cd server && npm run lint",
+    "lint-client" : "cd client && npm run lint",
+    "start": "cd server && npm run start",
+    "dev": "cd server && npm run dev",
+    "lint-fix": "cd server && npm run lint-fix",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "pre-commit": [
-    "lint-fix"
+    "lint",
+    "lint-client"
   ],
   "repository": {
     "type": "git",
