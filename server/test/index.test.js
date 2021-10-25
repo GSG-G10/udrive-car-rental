@@ -7,7 +7,7 @@ const connection = require('../database/connection');
 
 beforeAll(() => dbBuild());
 
-test('get brands returns a status code of 200', (done) => {
+test('get type returns a status code of 200', (done) => {
   request(app)
     .get('/api/v1/type')
     .expect(200)
