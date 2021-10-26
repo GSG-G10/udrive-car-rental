@@ -44,7 +44,7 @@ describe('auth tests', () => {
         confirmedPassword: 'helloworld',
         phone: '123',
       })
-      .expect(200)
+      .expect(201)
       .expect((response) => expect(response.header['set-cookie'][0].split('=')[0]).toBe('token'))
       .end((err) => {
         if (err) {

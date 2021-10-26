@@ -2,7 +2,7 @@ const connection = require('../../connection');
 
 const signUpQuery = (name, email, password, phone) => {
   const sql = {
-    text: 'INSERT INTO users(name, email, password, phone) VALUES($1,$2,$3,$4) RETURNING *',
+    text: 'INSERT INTO users(name, email, password, phone) VALUES($1,$2,$3,$4) RETURNING id, name, email, is_admin',
     values: [name, email, password, phone],
   };
 
