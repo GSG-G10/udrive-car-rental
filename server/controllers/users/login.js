@@ -11,11 +11,11 @@ const login = async (req, res, next) => {
 
     const { rows } = await checkEmail(email, '');
     if (!rows.length) {
-      return next(boomify(400, 'Login Error', 'invalid email or password'));
+      throw (boomify(400, 'Login Error', 'invalid email or password'));
     }
     const compared = await bcrypt.compare(password, rows[0].password);
     if (!compared) {
-      return next(boomify(400, 'Login Error', 'invalid email or password'));
+      throw (boomify(400, 'Login Error', 'invalid email or password'));
     }
     const token = await signTokenPromise(email, rows[0].id, rows[0].name, rows[0].is_admin);
     res.cookie('token', token);
