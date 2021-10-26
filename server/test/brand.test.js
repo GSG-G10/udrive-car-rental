@@ -15,7 +15,7 @@ test('post admin cars code of status code 200', (done) => {
     ])
     .send({
       name: 'bmw22',
-      image: 'hhhh',
+      image: 'hhh',
     })
     .expect(200)
     .expect('Content-Type', /json/)
