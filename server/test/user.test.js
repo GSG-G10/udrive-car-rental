@@ -53,4 +53,42 @@ describe('auth tests', () => {
         return done();
       });
   });
+
+  test('test sign up endpoint when there is a validation error', (done) => {
+    request(app)
+      .post('/api/v1/signup')
+      .send({
+        name: 'aaamra1',
+        password: 'helloworld',
+        email: 'asdsadasdas',
+        confirmedPassword: 'helloworld',
+        phone: '123',
+      })
+      .expect(422)
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
+
+  test('test sign up endpoint when there email is used', (done) => {
+    request(app)
+      .post('/api/v1/signup')
+      .send({
+        name: 'aaamra1',
+        password: 'helloworld',
+        email: 'rawandgaradh1234@Gmail.com',
+        confirmedPassword: 'helloworld',
+        phone: '123',
+      })
+      .expect(422)
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
 });

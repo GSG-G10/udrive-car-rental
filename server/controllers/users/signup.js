@@ -1,6 +1,6 @@
 const { hash } = require('bcrypt');
 const { signUpQuery } = require('../../database/queries');
-const { signTokenPromise } = require('../../utils');
+const { signTokenPromise, boomify } = require('../../utils');
 const { signUpValidation } = require('../../utils/validation');
 
 const signUp = async (req, res, next) => {
@@ -17,6 +17,22 @@ const signUp = async (req, res, next) => {
 
     return res.status(201).cookie('token', token).json({ message: 'Signed Up Successfully !' });
   } catch (err) {
+    if (err.code === '23505') {
+      return next(boomify(
+        422,
+        'database error',
+        `${err.constraint.split('_')[1]} alerdy in use`,
+      ));
+    }
+
+    if (err.details) {
+      return next(boomify(
+        422,
+        'validation error',
+        err.details[0].message,
+      ));
+    }
+
     return next(err);
   }
 };
