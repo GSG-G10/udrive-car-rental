@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { getReviewes } = require('../controllers/index');
 const {
-  login, clientError, serverError, getTypeControllers,
+  login, clientError, serverError, getTypeControllers, getReviewes, isAuth, authUser,
 } = require('../controllers');
 
-router.post('/login', login);
+router.get('/auth/user', isAuth, authUser);
 
 router.get('/review/:carId', getReviewes);
 
@@ -12,7 +11,7 @@ router.get('/type', getTypeControllers);
 
 router.post('/login', login);
 
-router.get(clientError);
-router.get(serverError);
+router.use(clientError);
+router.use(serverError);
 
 module.exports = router;
