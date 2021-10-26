@@ -1,13 +1,16 @@
 const router = require('express').Router();
-const { getTypeControllers } = require('../controllers/cars');
+const {
+  login, clientError, serverError, getTypeControllers,
+} = require('../controllers/index');
 
 router.get('/type', getTypeControllers);
-const { login } = require('../controllers/index');
 
 router.post('/login', login);
 
 const { getBrands } = require('../controllers/cars');
 
 router.get('/brands', getBrands);
+router.get(clientError);
+router.get(serverError);
 
 module.exports = router;
