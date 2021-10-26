@@ -2,7 +2,7 @@ const connection = require('../connection');
 
 const postTypes = (name, image) => {
   const sql = {
-    text: 'INSERT INTO brands (name,image) VALUES ($1, $2) RETURNING *',
+    text: 'INSERT INTO types (name,image) VALUES ($1, $2) RETURNING *',
     values: [name, image],
   };
 

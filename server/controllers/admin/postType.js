@@ -1,4 +1,4 @@
-const { postTypes } = require('../../database/queries/index');
+const { postTypes } = require('../../database/queries');
 
 const postType = async (req, res, next) => {
   const { name, image } = req.body;
