@@ -3,7 +3,11 @@
 const request = require('supertest');
 const app = require('../app');
 
+const { dbBuild } = require('../database/config/bulid');
+
 const connection = require('../database/connection');
+
+beforeAll(() => dbBuild());
 
 describe('login', () => {
   test('post login returns a status code of 200', (done) => {
