@@ -1,4 +1,4 @@
-const { getReviewes } = require('./review/getReviewes');
+const { getReviewes } = require('./review/index');
 
 const { login } = require('./users');
 

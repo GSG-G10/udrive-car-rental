@@ -2,10 +2,14 @@
 const { getReview } = require('../../database/queries/index');
 
 const getReviewes = async (req, res, next) => {
+  const { carId } = req.params;
   try {
-    const { carId } = req.params;
-    const getDataReview = await getReview(carId);
-    res.json(getDataReview.rows[0]);
+    const { rows: data } = await getReview(carId);
+    return res.json({
+      status: 200,
+      message: 'Reviews retuern successfully',
+      data,
+    });
   } catch (err) {
     return next(err);
   }
