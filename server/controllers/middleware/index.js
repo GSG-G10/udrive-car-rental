@@ -1,3 +1,4 @@
-const inAdmin = require('./isAdmin');
+const isAuth = require('./isAuth');
+const isAdmin = require('./isAdmin');
 
-module.exports = { inAdmin };
+module.exports = { isAuth, isAdmin };

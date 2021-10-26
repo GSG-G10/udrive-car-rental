@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {
   login, clientError, serverError, getTypeControllers,
-} = require('../controllers/index');
+} = require('../controllers');
 
 router.get('/type', getTypeControllers);
 
