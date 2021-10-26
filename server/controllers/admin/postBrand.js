@@ -1,6 +1,6 @@
 const { postBrands } = require('../../database/queries/index');
 
-const postBrand = async (req, res) => {
+const postBrand = async (req, res, next) => {
   const { name, image } = req.body;
   try {
     const { rows: data } = await postBrands(name, image);
@@ -10,7 +10,7 @@ const postBrand = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 };
 module.exports = { postBrand };
