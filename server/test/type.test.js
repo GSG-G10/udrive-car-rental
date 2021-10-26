@@ -8,14 +8,16 @@ const connection = require('../database/connection');
 beforeEach(() => dbBuild());
 afterAll(() => connection.end());
 
-test('get type returns a status code of 200', (done) => {
-  request(app)
-    .get('/api/v1/type')
-    .expect(200)
-    .expect('Content-Type', /json/)
-    .end((err, res) => {
-      if (err) return done(err);
-      expect(res.body.length).toBe(5);
-      return done();
-    });
+describe('Types tests', () => {
+  test('get type returns a status code of 200', (done) => {
+    request(app)
+      .get('/api/v1/type')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.length).toBe(5);
+        return done();
+      });
+  });
 });
