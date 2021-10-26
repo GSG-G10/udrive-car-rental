@@ -3,7 +3,6 @@ const { loginValidation } = require('../../utils/validation');
 const { checkEmail } = require('../../database/queries/index');
 const { signTokenPromise } = require('../../utils/index');
 
-// eslint-disable-next-line consistent-return
 const login = async (req, res, next) => {
   try {
     const { password, email } = req.body;
