@@ -11,7 +11,7 @@ router.get('/review/:carId', getReviewes);
 router.get('/type', getTypeControllers);
 
 router.post('/login', login);
-router.post('/postBrand', isAuth, isAdmin, postBrand);
+router.post('/brand', isAuth, isAdmin, postBrand);
 
 router.get(clientError);
 router.get(serverError);

@@ -6,7 +6,7 @@ const postBrand = async (req, res, next) => {
     const { rows: data } = await postBrands(name, image);
     res.json({
       status: 200,
-      message: 'getBrand retuern successfully',
+      message: 'successfully post brand',
       data,
     });
   } catch (err) {
