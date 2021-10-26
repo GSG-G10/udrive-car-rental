@@ -1,3 +1,3 @@
-const { getBrand } = require('./getBrand');
+const { postBrand } = require('./postBrand');
 
-module.exports = { getBrand };
+module.exports = { postBrand };
