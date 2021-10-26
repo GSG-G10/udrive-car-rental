@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// /* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../app');
 
@@ -23,7 +22,7 @@ describe('login', () => {
       });
   });
 
-  test('post login returns a status code of 200', (done) => {
+  test('post login returns a status code of 400', (done) => {
     request(app)
       .post('/api/v1/login')
       .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345' })
