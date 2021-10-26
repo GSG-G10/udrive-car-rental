@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { getTypeControllers } = require('../controllers/cars');
-const { clientError, serverError } = require('../controllers/errors');
+const {
+  login, clientError, serverError, getTypeControllers,
+} = require('../controllers/index');
 
 router.get('/type', getTypeControllers);
-const { login } = require('../controllers/index');
 
 router.post('/login', login);
 
