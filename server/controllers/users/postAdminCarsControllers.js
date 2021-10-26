@@ -32,7 +32,7 @@ const postAdminCarsControllers = async (req, res, next) => {
       description,
       color,
     );
-    res.status(200).json('INSERT DATA SUCCESSFULLY');
+    res.status(200).json({ message: 'INSERT DATA SUCCESSFULLY' });
   } catch (err) {
     return next(err);
   }

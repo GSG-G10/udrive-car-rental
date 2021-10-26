@@ -1,11 +1,25 @@
 const router = require('express').Router();
-const { getTypeControllers } = require('../controllers/cars');
 const { postAdminCarsControllers } = require('../controllers');
-
-router.get('/type', getTypeControllers);
-const { login } = require('../controllers/index');
+const { getReviewes } = require('../controllers/index');
+const {
+  login,
+  clientError,
+  serverError,
+  getTypeControllers,
+  isAdmin,
+  isAuth,
+} = require('../controllers');
 
 router.post('/login', login);
-router.post('/admin/cars', postAdminCarsControllers);
+
+router.get('/review/:carId', getReviewes);
+
+router.get('/type', getTypeControllers);
+
+router.post('/login', login);
+router.post('/admin/cars', isAuth, isAdmin, postAdminCarsControllers);
+
+router.get(clientError);
+router.get(serverError);
 
 module.exports = router;
