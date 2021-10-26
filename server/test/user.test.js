@@ -32,5 +32,29 @@ describe('login', () => {
         return done();
       });
   });
+
+  test('test auth/user endpoint', (done) => {
+    request(app)
+      .get('/api/v1/auth/user')
+      .set('Cookie', ['token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlJhd2FuZCIsImVtYWlsIjoicmF3YW5kZ2FyYWRoMTIzNEBHbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNTE2MjM5MDIyfQ.sJeNAAtPPgPmiHMxK8wvMXetBaYezyvgIomsXQQSdZU'])
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.id).toBe(1);
+        return done();
+      });
+  });
+
+  test('test auth/user endpoint when there is no token', (done) => {
+    request(app)
+      .get('/api/v1/auth/user')
+      .expect(401)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
 });
 afterAll(() => connection.end());
