@@ -1,5 +1,4 @@
-const { verifyTokenPromise } = require('../../utils');
-const { boomify } = require('../../utils');
+const { verifyTokenPromise, boomify } = require('../../utils');
 
 const isAuth = async (req, res, next) => {
   const { token } = req.cookies;
