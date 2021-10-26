@@ -1,4 +1,5 @@
 const { verifyTokenPromise } = require('../../utils');
+const { boomify } = require('../../utils');
 
 const isAuth = async (req, res, next) => {
   const { token } = req.cookies;
@@ -8,7 +9,7 @@ const isAuth = async (req, res, next) => {
       req.user = userToken;
       return next();
     }
-    throw new Error({ message: 'Unauthorized', status: 401 });
+    throw boomify(401, null, 'Unauthorized');
   } catch (err) {
     return next(err);
   }

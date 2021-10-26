@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS users,
 types,
 brands,
 cars,
+comments,
 rentals CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -49,7 +50,6 @@ CREATE TABLE comments (
     comment TEXT,
     rentals_id INT REFERENCES rentals(id) ON UPDATE CASCADE ON DELETE CASCADE,
     rate INT
-   
 );
 COMMIT;
 
