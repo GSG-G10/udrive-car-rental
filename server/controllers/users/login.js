@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt');
 const { loginValidation } = require('../../utils/validation');
 const { checkEmail } = require('../../database/queries/index');
 const { signTokenPromise } = require('../../utils/index');
+const { boomify } = require('../../utils');
 
-// eslint-disable-next-line consistent-return
 const login = async (req, res, next) => {
   try {
     const { password, email } = req.body;
@@ -11,11 +11,11 @@ const login = async (req, res, next) => {
 
     const { rows } = await checkEmail(email, '');
     if (!rows.length) {
-      throw new Error({ message: 'invalid email or password', status: 401 });
+      throw (boomify(400, 'Login Error', 'invalid email or password'));
     }
     const compared = await bcrypt.compare(password, rows[0].password);
     if (!compared) {
-      throw new Error({ message: 'invalid email or password', status: 401 });
+      throw (boomify(400, 'Login Error', 'invalid email or password'));
     }
     const token = await signTokenPromise(email, rows[0].id, rows[0].name, rows[0].is_admin);
     res.cookie('token', token);
