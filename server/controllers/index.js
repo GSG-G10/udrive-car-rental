@@ -4,8 +4,8 @@ const { serverError, clientError } = require('./errors');
 const { login } = require('./users');
 const { getTypeControllers } = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
-const { postTypes } = require('./admin');
+const { postType } = require('./admin');
 
 module.exports = {
-  login, serverError, clientError, getTypeControllers, getReviewes, isAuth, isAdmin, postTypes,
+  login, serverError, clientError, getTypeControllers, getReviewes, isAuth, isAdmin, postType,
 };
