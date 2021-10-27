@@ -4,8 +4,6 @@ const {
   login, clientError, serverError, getTypeControllers, logout,
 } = require('../controllers');
 
-router.post('/login', login);
-
 router.get('/review/:carId', getReviewes);
 
 router.get('/type', getTypeControllers);
