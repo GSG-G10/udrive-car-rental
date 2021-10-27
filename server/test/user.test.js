@@ -41,7 +41,6 @@ describe('auth tests', () => {
         name: 'aaamra1',
         password: 'helloworld',
         email: 'dev.aaamra@gmail.com',
-        confirmedPassword: 'helloworld',
         phone: '123',
       })
       .expect(201)
@@ -59,9 +58,8 @@ describe('auth tests', () => {
       .post('/api/v1/signup')
       .send({
         name: 'aaamra1',
-        password: 'helloworld',
+        password: 'helloworld123',
         email: 'asdsadasdas',
-        confirmedPassword: 'helloworld',
         phone: '123',
       })
       .expect(422)
@@ -104,7 +102,6 @@ describe('auth tests', () => {
         name: 'aaamra1',
         password: 'helloworld',
         email: 'rawandgaradh1234@Gmail.com',
-        confirmedPassword: 'helloworld',
         phone: '123',
       })
       .expect(422)
