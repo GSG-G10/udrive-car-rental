@@ -1,9 +1,13 @@
 const { getReview } = require('./getReview');
-
-const checkEmail = require('./checkEmail');
 const { getTypeQueries } = require('./getTypeQueries');
 const { getAdminUsers } = require('./getAdminUsers');
+const checkEmail = require('./checkEmail');
+const signUpQuery = require('./users/signUpQuery');
 
 module.exports = {
-  checkEmail, getTypeQueries, getReview, getAdminUsers,
+  checkEmail,
+  signUpQuery,
+  getTypeQueries,
+  getReview,
+  getAdminUsers,
 };
