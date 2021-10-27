@@ -3,10 +3,10 @@ const request = require('supertest');
 const app = require('../app');
 
 const { dbBuild } = require('../database/config/bulid');
+
 const connection = require('../database/connection');
 
-beforeEach(() => dbBuild());
-afterAll(() => connection.end());
+beforeAll(() => dbBuild());
 
 describe('auth tests', () => {
   test('post login returns a status code of 200', (done) => {
@@ -116,3 +116,19 @@ describe('auth tests', () => {
       });
   });
 });
+
+describe('logout', () => {
+  test('get logout returns a status code of 200', (done) => {
+    request(app)
+      .get('/api/v1/logout')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.message).toBe('logged out successfully');
+        return done();
+      });
+  });
+});
+
+afterAll(() => connection.end());
