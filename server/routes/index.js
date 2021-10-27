@@ -5,8 +5,10 @@ const {
   clientError,
   serverError,
   getTypeControllers,
+  getBrands,
+  getReviewes,
   postBrand,
-  isAuth, isAdmin, getReviewes, signUp, logout, postType,
+  isAuth, isAdmin, signUp, logout, postType,
 } = require('../controllers');
 
 router.post('/login', login);
@@ -19,6 +21,8 @@ router.get('/type', getTypeControllers);
 router.post('/login', login);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
+
+router.get('/brands', getBrands);
 router.get('/logout', logout);
 
 router.get(clientError);
