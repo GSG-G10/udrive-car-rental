@@ -16,7 +16,7 @@ const login = async (req, res, next) => {
     if (!compared) {
       throw new Error({ message: 'invalid email or password', status: 401 });
     }
-    const token = await signTokenPromise(email, rows[0].id, rows[0].name, rows[0].is_admin);
+    const token = await signTokenPromise(rows[0].id, rows[0].name, rows[0].is_admin);
     res.cookie('token', token);
     return res.json({ message: 'logged in successfully' });
   } catch (err) {
