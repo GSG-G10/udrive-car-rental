@@ -1,3 +1,4 @@
 const { postType } = require('./postType');
+const { postBrand } = require('./postBrand');
 
-module.exports = { postType };
+module.exports = { postType, postBrand };

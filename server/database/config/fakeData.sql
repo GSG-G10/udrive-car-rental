@@ -1,4 +1,4 @@
-
+BEGIN;
 INSERT INTO users (name,email,password, is_admin ,phone) VALUES
 ('Rawand','rawandgaradh1234@Gmail.com','$2a$10$52GzekWOKfKyP88XMygOvu0AJeW9Mn/rRVBe0zhrG1VzgiWhwA/im',false,0592320547),
 ('Lina','lina1234@Gmail.com','$2a$10$94OU9U7iXIg40LkRkr/j.usaygbitLkPvs6NUrcS7WsuBrup5b7/y',true,0592320547);
@@ -26,3 +26,4 @@ INSERT INTO rentals (users_id,cars_id ,pick_up_date_time, pick_of_date_time,tota
 (2,1,'2021-09-27 01:00:00','2021-09-27 03:00:00',150);
  INSERT INTO comments (comment,rentals_id,rate) VALUES 
  ('This a wonderful car',1,5);
+ COMMIT;

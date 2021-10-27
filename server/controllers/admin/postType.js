@@ -1,15 +1,25 @@
 const { postTypes } = require('../../database/queries');
+const { boomify, typeValidation } = require('../../utils');
 
 const postType = async (req, res, next) => {
-  const { name, image } = req.body;
   try {
+    const { name, image } = await typeValidation.validateAsync(
+      req.body,
+    );
     const { rows: data } = await postTypes(name, image);
-    res.json({
-      status: 200,
+    res.status(201).json({
       message: 'successfully post type',
       data,
     });
   } catch (err) {
+    if (err.details) {
+      return next(boomify(
+        422,
+        'validation error',
+        err.details[0].message,
+      ));
+    }
+
     next(err);
   }
 };
