@@ -5,8 +5,7 @@ const app = require('../app');
 const { dbBuild } = require('../database/config/bulid');
 const connection = require('../database/connection');
 
-beforeEach(() => dbBuild());
-afterAll(() => connection.end());
+beforeAll(() => dbBuild());
 
 describe('Types tests', () => {
   test('get type returns a status code of 200', (done) => {
@@ -21,3 +20,5 @@ describe('Types tests', () => {
       });
   });
 });
+
+afterAll(() => connection.end());
