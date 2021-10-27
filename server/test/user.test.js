@@ -3,10 +3,10 @@ const request = require('supertest');
 const app = require('../app');
 
 const { dbBuild } = require('../database/config/bulid');
+
 const connection = require('../database/connection');
 
-beforeEach(() => dbBuild());
-afterAll(() => connection.end());
+beforeAll(() => dbBuild());
 
 describe('auth tests', () => {
   test('post login returns a status code of 200', (done) => {
@@ -73,7 +73,31 @@ describe('auth tests', () => {
       });
   });
 
-  test('test sign up endpoint when there email is used', (done) => {
+  test('test auth/user endpoint', (done) => {
+    request(app)
+      .get('/api/v1/auth/user')
+      .set('Cookie', [`token=${process.env.TOKEN}`])
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.id).toBe(2);
+        return done();
+      });
+  });
+
+  test('test auth/user endpoint when there is no token', (done) => {
+    request(app)
+      .get('/api/v1/auth/user')
+      .expect(401)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+
+  test('test sign up endpoint when the email is used', (done) => {
     request(app)
       .post('/api/v1/signup')
       .send({
@@ -92,3 +116,19 @@ describe('auth tests', () => {
       });
   });
 });
+
+describe('logout', () => {
+  test('get logout returns a status code of 200', (done) => {
+    request(app)
+      .get('/api/v1/logout')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body.message).toBe('logged out successfully');
+        return done();
+      });
+  });
+});
+
+afterAll(() => connection.end());
