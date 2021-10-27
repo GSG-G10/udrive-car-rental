@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "cross-env": "^7.0.3",
-    "supertest": "^6.1.6"
+    "cross-env": "^7.0.3"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.26.1",
     "pre-commit": "^1.2.2"
   },
   "scripts": {
@@ -19,7 +17,8 @@
     "test": "cd server && npm t",
     "lint-fix": "cd server && npm run lint-fix",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "package-install": "cd server && npm i && cd ../client && npm i"
+    "package-install": "cd server && npm i && cd ../client && npm i",
+    "install": "npm run package-install"
   },
   "pre-commit": [
     "lint",
