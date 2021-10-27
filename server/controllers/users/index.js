@@ -1,4 +1,9 @@
 const { login } = require('./login');
 const { postAdminCarsControllers } = require('./postAdminCarsControllers');
 
-module.exports = { login, postAdminCarsControllers };
+const logout = require('./logout');
+const signUp = require('./signup');
+
+module.exports = {
+  login, signUp, logout, postAdminCarsControllers,
+};

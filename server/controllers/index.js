@@ -1,7 +1,6 @@
+const { login, signUp, logout } = require('./users');
 const { getReviewes } = require('./review/index');
-
 const { serverError, clientError } = require('./errors');
-const { login } = require('./users');
 const { postAdminCarsControllers } = require('./users');
 
 const { getTypeControllers } = require('./cars');
@@ -16,4 +15,6 @@ module.exports = {
   isAuth,
   isAdmin,
   postAdminCarsControllers,
+  signUp,
+  logout,
 };
