@@ -14,7 +14,7 @@ router.get('/type', getTypeControllers);
 
 router.post('/login', login);
 
-router.get(clientError);
-router.get(serverError);
+router.use(clientError);
+router.use(serverError);
 
 module.exports = router;
