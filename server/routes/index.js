@@ -14,6 +14,7 @@ const {
   signUp,
   logout,
   postType,
+  deleteCar,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -31,7 +32,7 @@ router.post('/type', isAuth, isAdmin, postType);
 router.get('/admin/users', getAdminUsersControllers);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
-
+router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
 router.use(clientError);
 router.use(serverError);
 
