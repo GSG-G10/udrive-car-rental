@@ -1,7 +1,7 @@
 const {
   login, signUp, authUser, logout,
 } = require('./users');
-const { getReviewes } = require('./review');
+const { getReviewes, addReviewToCar } = require('./review');
 const { serverError, clientError } = require('./errors');
 const { getTypeControllers, getBrands } = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
@@ -22,4 +22,5 @@ module.exports = {
   logout,
   postType,
   deleteCar,
+  addReviewToCar,
 };
