@@ -1,5 +1,5 @@
 const { login } = require('./login');
-const { postAdminCarsControllers } = require('./postAdminCarsControllers');
+const { addCar } = require('./addCar');
 
 const { authUser } = require('./authUser');
 const { logout } = require('./logout');
@@ -10,5 +10,5 @@ module.exports = {
   signUp,
   authUser,
   logout,
-  postAdminCarsControllers,
+  addCar,
 };

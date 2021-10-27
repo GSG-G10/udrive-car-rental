@@ -3,7 +3,9 @@ const {
   postAdminCarsQueries,
 } = require('../../database/queries/postAdminCarsQueries');
 
-const postAdminCarsControllers = async (req, res, next) => {
+const { addCarValidation } = require('../../utils');
+
+const addCar = async (req, res, next) => {
   const {
     name,
     door,
@@ -17,6 +19,8 @@ const postAdminCarsControllers = async (req, res, next) => {
     description,
     color,
   } = req.body;
+
+  await addCarValidation.validateAsync(req.body);
 
   try {
     await postAdminCarsQueries(
@@ -32,10 +36,10 @@ const postAdminCarsControllers = async (req, res, next) => {
       description,
       color,
     );
-    res.status(200).json({ message: 'INSERT DATA SUCCESSFULLY' });
+    res.status(201).json({ message: 'INSERT DATA SUCCESSFULLY' });
   } catch (err) {
     return next(err);
   }
 };
 
-module.exports = { postAdminCarsControllers };
+module.exports = { addCar };
