@@ -1,5 +1,5 @@
 const connection = require('../connection');
 
-const getAdminUsers = () => connection.query("select * from users WHERE is_admin = 'True' ");
+const getAdminUsers = () => connection.query('SELECT * FROM users ');
 
 module.exports = { getAdminUsers };

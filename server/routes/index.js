@@ -29,7 +29,7 @@ router.post('/login', login);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
 
-router.get('/admin/users', getAdminUsersControllers);
+router.get('/admin/users', isAuth, isAdmin, getAdminUsersControllers);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
 router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
