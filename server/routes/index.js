@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const {
-  login, clientError, serverError, getTypeControllers, getReviewes, isAuth, authUser,
+  login, clientError, serverError, getTypeControllers, getReviewes, isAuth, authUser, signUp,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
+
+router.post('/signup', signUp);
 
 router.get('/review/:carId', getReviewes);
 

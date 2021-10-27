@@ -6,8 +6,9 @@ const { dbBuild } = require('../database/config/bulid');
 const connection = require('../database/connection');
 
 beforeEach(() => dbBuild());
+afterAll(() => connection.end());
 
-describe('login', () => {
+describe('auth tests', () => {
   test('post login returns a status code of 200', (done) => {
     request(app)
       .post('/api/v1/login')
@@ -24,7 +25,7 @@ describe('login', () => {
   test('post login returns a status code of 400', (done) => {
     request(app)
       .post('/api/v1/login')
-      .send({ email: 'rawandgaradh1234@Gmail.com', password: '12345' })
+      .send({ email: 'rawandgaradh12333@Gmail.com', password: '12345' })
       .expect(400)
       .expect('Content-Type', /json/)
       .end((err) => {
@@ -33,15 +34,54 @@ describe('login', () => {
       });
   });
 
+  test('test sign up endpoint', (done) => {
+    request(app)
+      .post('/api/v1/signup')
+      .send({
+        name: 'aaamra1',
+        password: 'helloworld',
+        email: 'dev.aaamra@gmail.com',
+        confirmedPassword: 'helloworld',
+        phone: '123',
+      })
+      .expect(201)
+      .expect((response) => expect(response.header['set-cookie'][0].split('=')[0]).toBe('token'))
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
+
+  test('test sign up endpoint when there is a validation error', (done) => {
+    request(app)
+      .post('/api/v1/signup')
+      .send({
+        name: 'aaamra1',
+        password: 'helloworld',
+        email: 'asdsadasdas',
+        confirmedPassword: 'helloworld',
+        phone: '123',
+      })
+      .expect(422)
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
+
   test('test auth/user endpoint', (done) => {
     request(app)
       .get('/api/v1/auth/user')
-      .set('Cookie', ['token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlJhd2FuZCIsImVtYWlsIjoicmF3YW5kZ2FyYWRoMTIzNEBHbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNTE2MjM5MDIyfQ.sJeNAAtPPgPmiHMxK8wvMXetBaYezyvgIomsXQQSdZU'])
+      .set('Cookie', [`token=${process.env.TOKEN}`])
       .expect(200)
       .expect('Content-Type', /json/)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res.body.id).toBe(1);
+        expect(res.body.id).toBe(2);
         return done();
       });
   });
@@ -56,5 +96,23 @@ describe('login', () => {
         return done();
       });
   });
+
+  test('test sign up endpoint when the email is used', (done) => {
+    request(app)
+      .post('/api/v1/signup')
+      .send({
+        name: 'aaamra1',
+        password: 'helloworld',
+        email: 'rawandgaradh1234@Gmail.com',
+        confirmedPassword: 'helloworld',
+        phone: '123',
+      })
+      .expect(422)
+      .end((err) => {
+        if (err) {
+          return done(err);
+        }
+        return done();
+      });
+  });
 });
-afterAll(() => connection.end());
