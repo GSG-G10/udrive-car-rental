@@ -1,4 +1,3 @@
-require('env2')('.env');
 /* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../app');
