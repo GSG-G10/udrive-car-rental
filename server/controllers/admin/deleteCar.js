@@ -1,4 +1,25 @@
-const deleteCar = () => {
+const { deleteCars } = require('../../database/queries/index');
+const { boomify } = require('../../utils');
 
+const deleteCar = async (req, res, next) => {
+  const { carId } = req.params;
+
+  try {
+    const { rows: data } = await deleteCars(carId);
+    res.status(200).json({
+      message: 'car deleted successfully',
+      data,
+    });
+  } catch (err) {
+    if (err.details) {
+      return next(boomify(
+        422,
+        'validation error',
+        err.details[0].message,
+      ));
+    }
+
+    next(err);
+  }
 };
 module.exports = { deleteCar };
