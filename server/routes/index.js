@@ -1,6 +1,6 @@
 const router = require('express').Router();
-
 const {
+  authUser,
   login,
   clientError,
   serverError,
@@ -11,7 +11,8 @@ const {
   isAuth, isAdmin, signUp, logout, postType,
 } = require('../controllers');
 
-router.post('/login', login);
+router.get('/auth/user', isAuth, authUser);
+
 router.post('/signup', signUp);
 
 router.get('/review/:carId', getReviewes);
@@ -25,7 +26,7 @@ router.post('/type', isAuth, isAdmin, postType);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
 
-router.get(clientError);
-router.get(serverError);
+router.use(clientError);
+router.use(serverError);
 
 module.exports = router;
