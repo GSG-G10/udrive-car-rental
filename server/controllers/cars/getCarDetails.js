@@ -6,7 +6,7 @@ const getCarDetails = async (req, res, next) => {
   try {
     if (id > 0) {
       const { rows } = await getCarDetailsQuery(id);
-      res.json({ data: rows });
+      return res.json({ data: rows });
     }
     throw boomify(400, 'Bad Request', 'Bad Request');
   } catch (err) {

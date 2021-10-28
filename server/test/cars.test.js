@@ -29,8 +29,9 @@ describe('Cars', () => {
               img_car: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-tesla-model-3-101-1574807022.jpg?crop=0.745xw:0.610xh;0.0208xw,0.387xh&resize=1200:*',
               description: 'Tesla has singlehandedly changed the electric-car landscape, and the Model 3 is the least expensive way to get one of the companys tech wonders in your driveway.',
               color: 'black',
-              types_name: 'Seden',
-              brands_name: 'Tesla',
+              type: 'Seden',
+              brand: 'Tesla',
+              rate: '5.0000000000000000',
             },
           ],
         };
