@@ -6,7 +6,7 @@ require('env2')('.env');
 
 const { TOKEN } = process.env;
 
-const { dbBuild } = require('../database/config/bulid');
+const { dbBuild } = require('../database/config/build');
 const connection = require('../database/connection');
 
 beforeEach(() => dbBuild());

@@ -8,4 +8,7 @@ const dbBuild = () => {
   const sqlFake = readFileSync(join(__dirname, 'fakeData.sql')).toString();
   return connection.query(sql).then(() => connection.query(sqlFake));
 };
+if (process.env.NODE_ENV === 'development') {
+  dbBuild();
+}
 module.exports = { dbBuild };
