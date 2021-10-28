@@ -8,7 +8,7 @@ const {
   getBrands,
   getReviewes,
   postBrand,
-  isAuth, isAdmin, signUp, logout, postType, deleteCar, pendingRentals,
+  isAuth, isAdmin, signUp, logout, postType, deleteCar, pendingRentals, historyRentals,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -28,6 +28,7 @@ router.get('/logout', logout);
 router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
 
 router.get('/rentals', isAuth, pendingRentals);
+router.get('/rentals/history', isAuth, historyRentals);
 
 router.use(clientError);
 router.use(serverError);
