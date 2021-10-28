@@ -10,6 +10,5 @@ const dbBuild = () => {
 };
 if (process.env.NODE_ENV === 'development') {
   dbBuild();
-} else {
-  module.exports = { dbBuild };
 }
+module.exports = { dbBuild };
