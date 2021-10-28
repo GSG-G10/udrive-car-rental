@@ -39,18 +39,6 @@ describe('Cars', () => {
         return done();
       });
   });
-
-  test('get carDetails returns a status code of 404', (done) => {
-    request(app)
-      .get('/api/v1/cars/200')
-      .expect(404)
-      .expect('Content-Type', /json/)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res.status).toBe(404);
-        return done();
-      });
-  });
 });
 
 afterAll(() => connection.end());
