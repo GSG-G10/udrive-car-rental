@@ -6,8 +6,9 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "kill": "kill -9 $(lsof -t -i:3000)",
+    "kill": "kill -9 $(lsof -t -i:4000)",
     "test": "cross-env NODE_ENV=test jest --runInBand",
+    "db:build": "cross-env NODE_ENV=development node ./database/config/build.js",
     "lint": "eslint -c .eslintrc.json --ext .js .",
     "lint-fix": "npm run lint -- --fix"
   },
@@ -17,6 +18,7 @@
     "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
     "env2": "^2.2.2",
     "express": "^4.17.1",
     "joi": "^17.4.2",

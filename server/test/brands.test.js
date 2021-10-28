@@ -2,19 +2,19 @@
 const request = require('supertest');
 const app = require('../app');
 
-const { dbBuild } = require('../database/config/bulid');
+const { dbBuild } = require('../database/config/build');
 const connection = require('../database/connection');
 
-beforeEach(() => dbBuild());
+beforeAll(() => dbBuild());
 
-test('get type returns a status code of 200', (done) => {
+test('get brands returns a status code of 200', (done) => {
   request(app)
-    .get('/api/v1/type')
+    .get('/api/v1/brands')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
       if (err) return done(err);
-      expect(res.body.length).toBe(5);
+      expect(res.body.data.length).toBe(5);
       return done();
     });
 });
