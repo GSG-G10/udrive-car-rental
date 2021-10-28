@@ -6,7 +6,7 @@ const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
 const { postTypes } = require('./postTypes');
 const signUpQuery = require('./users/signUpQuery');
-const { pendingRentalsQuery } = require('./rentals');
+const { pendingRentalsQuery, historyRentalsQuery } = require('./rentals');
 
 module.exports = {
   checkEmail,
@@ -17,5 +17,5 @@ module.exports = {
   postTypes,
   getBrandsQueries,
   pendingRentalsQuery,
-
+  historyRentalsQuery,
 };
