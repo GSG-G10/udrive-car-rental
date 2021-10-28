@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const { getReviewes } = require('../controllers/index');
 const {
-  login, clientError, serverError, getTypeControllers, getCarDetailsController,
+  login, clientError, serverError, getTypeControllers, getCarDetails,
 } = require('../controllers');
 
 router.post('/login', login);
 
 router.get('/review/:carId', getReviewes);
 
-router.get('/cars/:id', getCarDetailsController);
+router.get('/cars/:id', getCarDetails);
 
 router.get('/type', getTypeControllers);
 

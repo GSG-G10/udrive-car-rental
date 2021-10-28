@@ -1,4 +1,4 @@
 const { getTypeControllers } = require('./getTypeControllers');
-const getCarDetailsController = require('./getCarDetailsControllers');
+const getCarDetails = require('./getCarDetails');
 
-module.exports = { getTypeControllers, getCarDetailsController };
+module.exports = { getTypeControllers, getCarDetails };

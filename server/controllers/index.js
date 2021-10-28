@@ -2,7 +2,7 @@ const { getReviewes } = require('./review/index');
 
 const { serverError, clientError } = require('./errors');
 const { login } = require('./users');
-const { getTypeControllers, getCarDetailsController } = require('./cars');
+const { getTypeControllers, getCarDetails } = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
 
 module.exports = {
@@ -13,5 +13,5 @@ module.exports = {
   getReviewes,
   isAuth,
   isAdmin,
-  getCarDetailsController,
+  getCarDetails,
 };
