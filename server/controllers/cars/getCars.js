@@ -5,7 +5,6 @@ const getCars = async (req, res, next) => {
     const { rows } = await getCarsQuery(req.query);
     res.json({ data: rows });
   } catch (err) {
-    console.log(err);
     next(err);
   }
 };
