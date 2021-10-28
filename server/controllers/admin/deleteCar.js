@@ -1,4 +1,4 @@
-const { deleteCars } = require('../../database/queries/index');
+const { deleteCars } = require('../../database/queries');
 const { boomify } = require('../../utils');
 
 const deleteCar = async (req, res, next) => {
@@ -6,7 +6,10 @@ const deleteCar = async (req, res, next) => {
 
   try {
     const { rows: data } = await deleteCars(carId);
-    res.status(200).json({
+    if (!data.length) {
+      throw boomify(400, 'Bad Request', 'There is no cars found to delete');
+    }
+    res.json({
       message: 'car deleted successfully',
       data,
     });

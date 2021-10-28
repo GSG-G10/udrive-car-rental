@@ -1,4 +1,3 @@
-require('env2')('.env');
 /* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../app');
@@ -9,9 +8,9 @@ const connection = require('../database/connection');
 const { TOKEN } = process.env;
 beforeEach(() => dbBuild());
 
-test('post admin cars code of status code 200', (done) => {
+test('delete admin cars code of status code 200', (done) => {
   request(app)
-    .delete('/api/v1/admin/Car/2')
+    .delete('/api/v1/admin/car/2')
     .set('Cookie', [`token= ${TOKEN}`,
 
     ])
@@ -24,4 +23,17 @@ test('post admin cars code of status code 200', (done) => {
     });
 });
 
+test('delete admin cars code of status code 404', (done) => {
+  request(app)
+    .delete('/api/v1/admin/car/1155')
+    .set('Cookie', [`token= ${TOKEN}`,
+    ])
+    .expect(400)
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      if (err) return done(err);
+      expect(res.status).toBe(400);
+      return done();
+    });
+});
 afterAll(() => connection.end());
