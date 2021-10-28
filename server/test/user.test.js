@@ -2,7 +2,7 @@
 const request = require('supertest');
 const app = require('../app');
 
-const { dbBuild } = require('../database/config/bulid');
+const { dbBuild } = require('../database/config/build');
 
 const connection = require('../database/connection');
 
@@ -40,6 +40,7 @@ describe('auth tests', () => {
       .send({
         name: 'aaamra1',
         password: 'helloworld',
+        confirmedPassword: 'helloworld',
         email: 'dev.aaamra@gmail.com',
         phone: '123',
       })
@@ -60,6 +61,7 @@ describe('auth tests', () => {
         name: 'aaamra1',
         password: 'helloworld123',
         email: 'asdsadasdas',
+        confirmedPassword: 'hellowrold123',
         phone: '123',
       })
       .expect(422)
@@ -100,8 +102,9 @@ describe('auth tests', () => {
       .post('/api/v1/signup')
       .send({
         name: 'aaamra1',
-        password: 'helloworld',
+        password: 'helloworld123',
         email: 'rawandgaradh1234@Gmail.com',
+        confirmedPassword: 'hellowrold123',
         phone: '123',
       })
       .expect(422)

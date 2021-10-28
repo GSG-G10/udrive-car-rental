@@ -1,3 +1,4 @@
+require('env2')('.env'); // we need this to bulid database out of app.js file
 const { Pool } = require('pg');
 
 const {
