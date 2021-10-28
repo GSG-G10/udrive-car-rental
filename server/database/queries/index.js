@@ -17,5 +17,4 @@ module.exports = {
   postTypes,
   getBrandsQueries,
   getCarsQuery,
-
 };

@@ -8,10 +8,11 @@ const {
   getBrands,
   getReviewes,
   postBrand,
-  isAuth, isAdmin, signUp, logout, postType, deleteCar,
+  isAuth, isAdmin, signUp, logout, postType, deleteCar, getCars,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
+router.get('/cars', getCars);
 
 router.post('/signup', signUp);
 
