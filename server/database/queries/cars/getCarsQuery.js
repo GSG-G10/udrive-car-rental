@@ -35,7 +35,7 @@ const getCarsQuery = ({
                       AND NOT ($8 <= r.pick_up_date_time AND $9 >= r.pick_of_date_time)
                     )
                 )
-        group by c.id, r.id,t.name;
+        GROUP BY c.id, r.id,t.name;
     `,
     values: [brandId, typeId, minPrice, maxPrice, `%${name}%`, seats, `%${gearbox}%`, startDate, endDate],
   };
