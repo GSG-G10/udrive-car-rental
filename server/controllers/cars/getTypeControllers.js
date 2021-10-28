@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 const { getTypeQueries } = require('../../database/queries');
 
 const getTypeControllers = async (req, res, next) => {

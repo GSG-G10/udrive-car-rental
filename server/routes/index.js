@@ -8,7 +8,13 @@ const {
   getBrands,
   getReviewes,
   postBrand,
-  isAuth, isAdmin, signUp, logout, postType, deleteCar,
+  isAuth,
+  isAdmin,
+  signUp,
+  logout,
+  postType,
+  deleteCar,
+  getCarAdminByName,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -22,6 +28,8 @@ router.get('/type', getTypeControllers);
 router.post('/login', login);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
+
+router.get('/car/name', isAuth, isAdmin, getCarAdminByName);
 
 router.get('/brands', getBrands);
 router.get('/logout', logout);
