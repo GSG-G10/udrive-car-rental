@@ -3,6 +3,7 @@ const request = require('supertest');
 const app = require('../app');
 
 const { dbBuild } = require('../database/config/build');
+
 const { TOKEN } = process.env;
 
 const connection = require('../database/connection');
