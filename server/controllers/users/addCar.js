@@ -1,10 +1,8 @@
-/* eslint-disable consistent-return */
 const {
   postAdminCarsQueries,
 } = require('../../database/queries/postAdminCarsQueries');
-const { boomify } = require('../../utils');
 
-const { addCarValidation } = require('../../utils');
+const { addCarValidation, boomify } = require('../../utils');
 
 const addCar = async (req, res, next) => {
   try {
