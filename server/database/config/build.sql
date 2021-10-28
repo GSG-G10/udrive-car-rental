@@ -48,7 +48,7 @@ CREATE TABLE rentals (
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     comment TEXT,
-    rentals_id INT REFERENCES rentals(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    car_id INT REFERENCES cars(id) ON UPDATE CASCADE ON DELETE CASCADE,
     rate INT
 );
 COMMIT;
