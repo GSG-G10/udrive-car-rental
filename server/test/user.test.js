@@ -2,7 +2,7 @@
 const request = require('supertest');
 const app = require('../app');
 
-const { dbBuild } = require('../database/config/bulid');
+const { dbBuild } = require('../database/config/build');
 
 const connection = require('../database/connection');
 
