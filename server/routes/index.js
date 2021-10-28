@@ -8,7 +8,7 @@ const {
   getBrands,
   getReviewes,
   postBrand,
-  isAuth, isAdmin, signUp, logout, postType,
+  isAuth, isAdmin, signUp, logout, postType, addRentalController,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -22,7 +22,7 @@ router.get('/type', getTypeControllers);
 router.post('/login', login);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
-
+router.post('/rentals', addRentalController);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
 

@@ -6,6 +6,7 @@ const { serverError, clientError } = require('./errors');
 const { getTypeControllers, getBrands } = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
 const { postBrand, postType } = require('./admin');
+const { addRentalController } = require('./rentals');
 
 module.exports = {
   login,
@@ -21,4 +22,5 @@ module.exports = {
   signUp,
   logout,
   postType,
+  addRentalController,
 };
