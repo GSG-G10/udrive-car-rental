@@ -3,7 +3,7 @@ require('env2')('.env');
 const request = require('supertest');
 const app = require('../app');
 
-const { dbBuild } = require('../database/config/bulid');
+const { dbBuild } = require('../database/config/build');
 const connection = require('../database/connection');
 
 const { TOKEN } = process.env;
@@ -11,7 +11,7 @@ beforeEach(() => dbBuild());
 
 test('post rentals history reviews :rentalsId code of status code 200', (done) => {
   request(app)
-    .post('/api/v1/rentals/history/reviews/1')
+    .post('/api/v1/reviews/1')
     .set('Cookie', [`token= ${TOKEN}`])
     .send({
       comment: 'bmw',

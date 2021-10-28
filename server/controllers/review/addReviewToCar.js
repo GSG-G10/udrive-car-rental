@@ -1,21 +1,15 @@
-const {
-  postReviewsRentalsId,
-} = require('../../database/queries/postReviewsRentalsId');
+const { postReviewsRentalsId } = require('../../database/queries');
 
-const {
-  rentalsIdValidation,
-  commentAndRateValidation,
-} = require('../../utils');
+const { commentAndRateValidation } = require('../../utils');
 
 const addReviewToCar = async (req, res, next) => {
   try {
-    const { rentalsId } = await rentalsIdValidation.validateAsync(req.params);
-    const { comment, rate } = await commentAndRateValidation.validateAsync(
-      req.body,
+    const { rentalsId, comment, rate } = await commentAndRateValidation.validateAsync(
+      { ...req.params, ...req.body },
     );
     await postReviewsRentalsId(comment, rentalsId, rate);
     res.json({
-      status: 200,
+      status: 201,
       message: 'Review submitted successfully',
     });
   } catch (err) {

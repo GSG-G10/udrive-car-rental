@@ -32,7 +32,7 @@ router.post('/type', isAuth, isAdmin, postType);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
 router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
-router.post('/rentals/history/reviews/:rentalsId', isAuth, addReviewToCar);
+router.post('/reviews/:rentalsId', isAuth, addReviewToCar);
 
 router.use(clientError);
 router.use(serverError);
