@@ -1,9 +1,10 @@
 const Joi = require('joi');
 
 const rentalValidation = Joi.object({
-  pick_up_date_time: Joi.string().isoDate(),
-  pick_of_date_time: Joi.string().isoDate,
-  total_price: Joi.number().positive(),
+  carId: Joi.number().integer(),
+  userId: Joi.number().integer(),
+  pickUpDateTime: Joi.string().isoDate(),
+  pickOffDateTime: Joi.string().isoDate,
 });
 
 module.exports = rentalValidation;
