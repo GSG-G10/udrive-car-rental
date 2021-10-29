@@ -3,7 +3,11 @@ const {
 } = require('./users');
 const { getReviewes } = require('./review');
 const { serverError, clientError } = require('./errors');
-const { getTypeControllers, getBrands } = require('./cars');
+const {
+  getTypeControllers,
+  getBrands,
+  deleteTypeControllers,
+} = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
 const { postBrand, postType, deleteCar } = require('./admin');
 
@@ -22,4 +26,5 @@ module.exports = {
   logout,
   postType,
   deleteCar,
+  deleteTypeControllers,
 };
