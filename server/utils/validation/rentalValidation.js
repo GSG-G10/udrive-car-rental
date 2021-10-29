@@ -1,8 +1,7 @@
 const Joi = require('joi');
 
 const rentalValidation = Joi.object({
-  carId: Joi.number().integer().positive(),
-  userId: Joi.number().integer(),
+  location: Joi.string(),
   pickUpDateTime: Joi.string().isoDate(),
   pickOffDateTime: Joi.string().isoDate(),
 });
