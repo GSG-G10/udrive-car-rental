@@ -25,7 +25,9 @@ router.post('/type', isAuth, isAdmin, postType);
 router.post('/rentals', addRentalController);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
-
+router.get('/test', isAuth, (req, res) => {
+  res.json(req.user);
+});
 router.use(clientError);
 router.use(serverError);
 
