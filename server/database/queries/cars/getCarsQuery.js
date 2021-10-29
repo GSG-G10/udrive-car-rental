@@ -13,7 +13,7 @@ const getCarsQuery = ({
           c.price,
           c.img_car,
           t.name as type,
-          (SELECT AVG(rate) FROM comments WHERE rentals_id = r.id) as rate
+          (SELECT AVG(rate) FROM comments INNER JOIN rentals ON rentals.id = comments.rentals_id WHERE rentals.cars_id = c.id) as rate
         FROM
         cars c 
         LEFT JOIN rentals r ON c.id = r.cars_id
@@ -35,7 +35,7 @@ const getCarsQuery = ({
                       AND NOT ($8 <= r.pick_up_date_time AND $9 >= r.pick_of_date_time)
                     )
                 )
-        GROUP BY c.id, r.id,t.name;
+        GROUP BY c.id, t.name;
     `,
     values: [brandId, typeId, minPrice, maxPrice, `%${name}%`, seats, `%${gearbox}%`, startDate, endDate],
   };
