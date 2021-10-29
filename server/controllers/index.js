@@ -1,9 +1,11 @@
-const { getReviewes } = require('./review/index');
-
+const {
+  login, signUp, authUser, logout,
+} = require('./users');
+const { getReviewes } = require('./review');
 const { serverError, clientError } = require('./errors');
-const { login } = require('./users');
-const { getTypeControllers, getCarDetails } = require('./cars');
+const { getTypeControllers, getCarDetails, getBrands } = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
+const { postBrand, postType, deleteCar } = require('./admin');
 
 module.exports = {
   login,
@@ -14,4 +16,11 @@ module.exports = {
   isAuth,
   isAdmin,
   getCarDetails,
+  authUser,
+  getBrands,
+  postBrand,
+  signUp,
+  logout,
+  postType,
+  deleteCar,
 };
