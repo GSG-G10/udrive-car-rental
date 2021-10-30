@@ -37,6 +37,7 @@ CREATE TABLE rentals (
     id SERIAL PRIMARY KEY,
     users_id INT REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     cars_id INT REFERENCES cars(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    location TEXT,
     pick_up_date_time TIMESTAMPTZ,
     pick_of_date_time TIMESTAMPTZ,
     total_price INT

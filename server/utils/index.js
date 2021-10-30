@@ -4,6 +4,7 @@ const boomify = require('./boomify');
 const {
   brandValiadtion,
   typeValidation,
+  rentalValidation,
   addCarValidation,
 } = require('./validation');
 
@@ -13,5 +14,6 @@ module.exports = {
   boomify,
   brandValiadtion,
   typeValidation,
+  rentalValidation,
   addCarValidation,
 };
