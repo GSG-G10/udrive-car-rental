@@ -1,5 +1,4 @@
 const { sign } = require('jsonwebtoken');
-require('env2')('.env');
 
 const signTokenPromise = (id, name, isAdmin) => new Promise((resolve, reject) => {
   sign({

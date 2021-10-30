@@ -1,10 +1,11 @@
 const { login } = require('./login');
 const { getAdminUsersControllers } = require('./getAdminUsersControllers');
 
-const { logout } = require('./logout');
-const { signUp } = require('./signup');
+const { addCar } = require('./addCar');
 
 const { authUser } = require('./authUser');
+const { logout } = require('./logout');
+const { signUp } = require('./signup');
 
 module.exports = {
   login,
@@ -12,4 +13,5 @@ module.exports = {
   authUser,
   logout,
   getAdminUsersControllers,
+  addCar,
 };
