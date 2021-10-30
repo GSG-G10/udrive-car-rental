@@ -9,10 +9,15 @@ const {
 const { getReviewes, getHomeReview, addReviewToCar } = require('./review');
 
 const { serverError, clientError } = require('./errors');
-
 const {
-  getTypeControllers, getBrands, getCars, getCarDetails,
+  getTypeControllers,
+  getBrands,
+  deleteTypeControllers,
+  getCars,
+  getCarDetails,
+  getCarAdminByName,
 } = require('./cars');
+
 const { isAuth, isAdmin } = require('./middleware');
 
 const { addRentalController } = require('./rentals');
@@ -38,9 +43,11 @@ module.exports = {
   postType,
   addRentalController,
   deleteCar,
+  deleteTypeControllers,
   pendingRentals,
   historyRentals,
   getCars,
   addReviewToCar,
+  getCarAdminByName,
   getHomeReview,
 };
