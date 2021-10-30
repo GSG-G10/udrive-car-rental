@@ -11,7 +11,7 @@
     "lint-client": "cd client && npm run lint",
     "start": "cd server && npm run start",
     "dev": "cd server && npm run dev",
-    "test": "cd server && npm t",
+    "test": "cd server && npm t ",
     "lint-fix": "cd server && npm run lint-fix",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "package-install": "cd server && npm i && cd ../client && npm i",
@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/GSG-G10/udrive-car-rental/issues"
   },
-  "homepage": "https://github.com/GSG-G10/udrive-car-rental#readme"
+  "homepage": "https://github.com/GSG-G10/udrive-car-rental#readme",
+  "dependencies": {
+    "supertest": "^6.1.6"
+  }
 }
