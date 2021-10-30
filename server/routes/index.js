@@ -1,14 +1,23 @@
 const router = require('express').Router();
+const { addCar } = require('../controllers');
+
 const {
   authUser,
   login,
   clientError,
   serverError,
   getTypeControllers,
-  getBrands,
   getReviewes,
+  getBrands,
   postBrand,
-  isAuth, isAdmin, signUp, logout, postType, deleteCar,
+  isAuth,
+  isAdmin,
+  signUp,
+  logout,
+  postType,
+  deleteCar,
+  getCarAdminByName,
+  getHomeReview,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -20,12 +29,16 @@ router.get('/review/:carId', getReviewes);
 router.get('/type', getTypeControllers);
 
 router.post('/login', login);
+router.post('/admin/cars', isAuth, isAdmin, addCar);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
 
+router.get('/admin/cars', isAuth, isAdmin, getCarAdminByName);
+
+router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
-router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
+router.delete('/admin/car/:carId', isAuth, isAdmin, deleteCar);
 router.use(clientError);
 router.use(serverError);
 
