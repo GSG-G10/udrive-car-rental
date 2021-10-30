@@ -1,5 +1,7 @@
 const { getBrands } = require('./getBrands');
 const { getTypeControllers } = require('./getTypeControllers');
+const { updateCarControllers } = require('./updateCarControllers');
+
 const { deleteTypeControllers } = require('./deleteTypeControllers');
 
 const { getCars } = require('./getCars');
@@ -14,4 +16,5 @@ module.exports = {
   getCarDetails,
   deleteTypeControllers,
   getCarAdminByName,
+  updateCarControllers,
 };

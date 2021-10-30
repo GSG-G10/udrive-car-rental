@@ -12,6 +12,7 @@ const { serverError, clientError } = require('./errors');
 const {
   getTypeControllers,
   getBrands,
+  updateCarControllers,
   deleteTypeControllers,
   getCars,
   getCarDetails,
@@ -43,6 +44,7 @@ module.exports = {
   postType,
   addRentalController,
   deleteCar,
+  updateCarControllers,
   deleteRental,
   deleteTypeControllers,
   pendingRentals,
