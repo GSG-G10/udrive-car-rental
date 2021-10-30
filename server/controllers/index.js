@@ -1,3 +1,6 @@
+const { isAuth, isAdmin } = require('./middleware');
+const { serverError, clientError } = require('./errors');
+
 const {
   login,
   signUp,
@@ -6,9 +9,12 @@ const {
   addCar,
   getAdminUsersControllers,
 } = require('./users');
-const { getReviewes, getHomeReview, addReviewToCar } = require('./review');
 
-const { serverError, clientError } = require('./errors');
+const {
+  getReviewes,
+  getHomeReview, addReviewToCar,
+} = require('./review');
+
 const {
   getTypeControllers,
   getBrands,
@@ -19,11 +25,13 @@ const {
   getCarAdminByName,
 } = require('./cars');
 
-const { isAuth, isAdmin } = require('./middleware');
+const {
+  postBrand, postType, deleteCar, deleteBrand,
+} = require('./admin');
 
-const { addRentalController } = require('./rentals');
-const { postBrand, postType, deleteCar, deleteBrand } = require('./admin');
-const { pendingRentals, historyRentals, deleteRental } = require('./rentals');
+const {
+  pendingRentals, historyRentals, deleteRental, addRentalController,
+} = require('./rentals');
 
 module.exports = {
   login,

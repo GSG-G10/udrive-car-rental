@@ -9,7 +9,7 @@ beforeEach(() => dbBuild());
 
 test('get type returns a status code of 200', (done) => {
   request(app)
-    .get('/api/v1/review/1')
+    .get('/api/v1/reviews/1')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {

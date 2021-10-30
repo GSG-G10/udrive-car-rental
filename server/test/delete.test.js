@@ -10,7 +10,7 @@ beforeEach(() => dbBuild());
 
 test('delete admin cars code of status code 200', (done) => {
   request(app)
-    .delete('/api/v1/admin/car/2')
+    .delete('/api/v1/admin/cars/2')
     .set('Cookie', [`token= ${TOKEN}`,
 
     ])
@@ -25,7 +25,7 @@ test('delete admin cars code of status code 200', (done) => {
 
 test('delete admin cars code of status code 404', (done) => {
   request(app)
-    .delete('/api/v1/admin/car/1155')
+    .delete('/api/v1/admin/cars/1155')
     .set('Cookie', [`token= ${TOKEN}`,
     ])
     .expect(400)
