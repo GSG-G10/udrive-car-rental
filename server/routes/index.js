@@ -22,7 +22,7 @@ router.get('/type', getTypeControllers);
 router.post('/login', login);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
-router.delete('/brands/:brandId', isAuth, isAdmin, deleteBrand);
+router.delete('/admin/brands/:brandId', isAuth, isAdmin, deleteBrand);
 
 router.get('/brands', getBrands);
 router.get('/logout', logout);
