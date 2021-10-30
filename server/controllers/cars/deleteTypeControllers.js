@@ -5,7 +5,7 @@ const deleteTypeControllers = async (req, res, next) => {
     const { typeId } = req.params;
     await deleteTypes(typeId);
     res.json({
-      status: 201,
+      status: 200,
       message: 'Car Type Deleted Successfully',
     });
   } catch (err) {

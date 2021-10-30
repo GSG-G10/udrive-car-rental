@@ -29,7 +29,7 @@ test('post admin cars code of status code 200', (done) => {
 
 test('DELETE admin type code of status code 200', (done) => {
   request(app)
-    .delete('/api/v1/delete/type/3')
+    .delete('/api/v1/admin/deleteType/2')
     .set('Cookie', [`token= ${TOKEN}`])
     .expect(200)
     .expect('Content-Type', /json/)
