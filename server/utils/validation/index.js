@@ -5,5 +5,9 @@ const { typeValidation } = require('./typeValidation');
 const { updateCarValidation } = require('./updateCarValidation');
 
 module.exports = {
-  loginValidation, signUpValidation, brandValiadtion, typeValidation,updateCarValidation,
+  loginValidation,
+  signUpValidation,
+  brandValiadtion,
+  typeValidation,
+  updateCarValidation,
 };

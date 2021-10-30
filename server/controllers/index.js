@@ -1,4 +1,6 @@
-const { login, signUp, authUser, logout } = require('./users');
+const {
+  login, signUp, authUser, logout,
+} = require('./users');
 const { getReviewes } = require('./review');
 const { serverError, clientError } = require('./errors');
 const {
