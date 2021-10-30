@@ -15,6 +15,7 @@ const {
   deleteTypeControllers,
   getCars,
   getCarDetails,
+  getCarAdminByName,
 } = require('./cars');
 
 const { isAuth, isAdmin } = require('./middleware');
@@ -47,5 +48,6 @@ module.exports = {
   historyRentals,
   getCars,
   addReviewToCar,
+  getCarAdminByName,
   getHomeReview,
 };

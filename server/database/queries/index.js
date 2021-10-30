@@ -8,6 +8,7 @@ const { postReviewsRentalsId } = require('./postReviewsRentalsId');
 const { getAdminUsers } = require('./getAdminUsers');
 const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
+const { getCarByName } = require('./getCarByName');
 const { postTypes } = require('./postTypes');
 const { deleteTypes } = require('./deleteTypes');
 const signUpQuery = require('./users/signUpQuery');
@@ -37,6 +38,7 @@ module.exports = {
   addRentalQuery,
   checkDateTimeQuery,
   getCarDetailsQuery,
+  getCarByName,
   postAdminCarsQueries,
   getHomeReviews,
   deleteCars,
