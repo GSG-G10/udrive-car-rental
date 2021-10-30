@@ -26,6 +26,7 @@ const {
   getCars,
   pendingRentals,
   historyRentals,
+  deleteRental,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -53,6 +54,7 @@ router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
 router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
+router.delete('/rentals/:rentalId', isAuth, deleteRental);
 router.delete(
   '/admin/deleteType/:typeId',
   isAuth,

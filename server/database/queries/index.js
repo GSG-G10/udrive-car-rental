@@ -12,11 +12,12 @@ const { getCarByName } = require('./getCarByName');
 const { postTypes } = require('./postTypes');
 const { deleteTypes } = require('./deleteTypes');
 const signUpQuery = require('./users/signUpQuery');
-const { pendingRentalsQuery, historyRentalsQuery } = require('./rentals');
-
 const { getCarsQuery } = require('./cars/getCarsQuery');
 
-const { addRentalQuery, checkDateTimeQuery } = require('./rentals');
+const {
+  addRentalQuery, checkDateTimeQuery, pendingRentalsQuery, historyRentalsQuery,
+} = require('./rentals');
+const { deleteRentalQuery } = require('./rentals');
 
 const { getHomeReviews } = require('./getHomeReviews');
 const { deleteCars } = require('./deleteCars');
@@ -42,4 +43,5 @@ module.exports = {
   postAdminCarsQueries,
   getHomeReviews,
   deleteCars,
+  deleteRentalQuery,
 };
