@@ -2,7 +2,7 @@
 const request = require('supertest');
 const app = require('../app');
 
-const { dbBuild } = require('../database/config/bulid');
+const { dbBuild } = require('../database/config/build');
 
 const connection = require('../database/connection');
 
@@ -40,8 +40,8 @@ describe('auth tests', () => {
       .send({
         name: 'aaamra1',
         password: 'helloworld',
-        email: 'dev.aaamra@gmail.com',
         confirmedPassword: 'helloworld',
+        email: 'dev.aaamra@gmail.com',
         phone: '123',
       })
       .expect(201)
@@ -59,9 +59,9 @@ describe('auth tests', () => {
       .post('/api/v1/signup')
       .send({
         name: 'aaamra1',
-        password: 'helloworld',
+        password: 'helloworld123',
         email: 'asdsadasdas',
-        confirmedPassword: 'helloworld',
+        confirmedPassword: 'hellowrold123',
         phone: '123',
       })
       .expect(422)
@@ -97,14 +97,26 @@ describe('auth tests', () => {
       });
   });
 
+  test('test get admin users returns a status code of 200', (done) => {
+    request(app)
+      .get('/api/v1/auth/user')
+      .set('Cookie', [`token=${process.env.TOKEN}`])
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+
   test('test sign up endpoint when the email is used', (done) => {
     request(app)
       .post('/api/v1/signup')
       .send({
         name: 'aaamra1',
-        password: 'helloworld',
+        password: 'helloworld123',
         email: 'rawandgaradh1234@Gmail.com',
-        confirmedPassword: 'helloworld',
+        confirmedPassword: 'hellowrold123',
         phone: '123',
       })
       .expect(422)

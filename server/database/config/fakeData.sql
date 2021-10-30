@@ -24,6 +24,12 @@ INSERT INTO cars (name,door,types_id,brands_id,release_year,gearbox,price,seats,
 
 INSERT INTO rentals (users_id,cars_id, location ,pick_up_date_time, pick_of_date_time,total_price) VALUES 
 (2, 1, 'Gaza', '2021-09-27 01:00:00', '2021-09-27 03:00:00', 150);
+INSERT INTO rentals (users_id,cars_id ,pick_up_date_time, pick_of_date_time,total_price) VALUES 
+(2,3,'2021-12-27 01:00:00','2021-12-27 03:00:00',150);
+
 INSERT INTO comments (comment,rentals_id,rate) VALUES 
-('This a wonderful car',1,5);
+('This a wonderful car',1,5),
+('This a wonderful car',2,4),
+('This a wonderful car',1,4),
+('This a wonderful car',1,3);
 COMMIT;
