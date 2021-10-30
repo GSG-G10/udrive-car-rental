@@ -7,6 +7,7 @@ const { getBrandsQueries } = require('./getBrandsQueries');
 const { postReviewsRentalsId } = require('./postReviewsRentalsId');
 const { getAdminUsers } = require('./getAdminUsers');
 const { postBrands } = require('./postBrands');
+const deleteBrandQuery = require('./deleteBrandQuery');
 const checkEmail = require('./checkEmail');
 const { getCarByName } = require('./getCarByName');
 const { postTypes } = require('./postTypes');
@@ -36,6 +37,7 @@ module.exports = {
   postBrands,
   postTypes,
   getBrandsQueries,
+  deleteBrandQuery,
   updateCarData,
   deleteTypes,
   pendingRentalsQuery,
