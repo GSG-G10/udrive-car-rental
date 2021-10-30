@@ -2,8 +2,8 @@ const { getCarByName } = require('../../database/queries');
 
 const getCarAdminByName = async (req, res, next) => {
   try {
-    const { carName } = req.query;
-    const { rows } = await getCarByName(carName);
+    const { name } = req.query;
+    const { rows } = await getCarByName(name);
     res.json({
       data: rows,
       status: 200,

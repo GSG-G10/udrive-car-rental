@@ -3,23 +3,18 @@ const request = require('supertest');
 const app = require('../app');
 
 const { dbBuild } = require('../database/config/build');
-
-const { TOKEN } = process.env;
-
 const connection = require('../database/connection');
 
-beforeEach(() => dbBuild());
+beforeAll(() => dbBuild());
 
-test('get car name returns a status code of 200', (done) => {
+test('show review in home returns a status code of 200', (done) => {
   request(app)
-    .get('/api/v1/admin/cars')
-    .set('Cookie', [`token= ${TOKEN}`])
-
+    .get('/api/v1/reviewHome')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
       if (err) return done(err);
-      expect(res.body.message).toBe('give car successfully');
+      expect(res.body.message).toBe('Reviews retuern in home successfully');
       return done();
     });
 });
