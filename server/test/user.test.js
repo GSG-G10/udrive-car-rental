@@ -97,6 +97,18 @@ describe('auth tests', () => {
       });
   });
 
+  test('test get admin users returns a status code of 200', (done) => {
+    request(app)
+      .get('/api/v1/auth/user')
+      .set('Cookie', [`token=${process.env.TOKEN}`])
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+
   test('test sign up endpoint when the email is used', (done) => {
     request(app)
       .post('/api/v1/signup')
