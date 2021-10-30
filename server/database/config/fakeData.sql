@@ -28,6 +28,7 @@ INSERT INTO rentals (users_id,cars_id ,pick_up_date_time, pick_of_date_time,tota
 
 INSERT INTO comments (comment,rentals_id,rate) VALUES 
 ('This a wonderful car',1,5),
-('This a wonderful car',2,4);
-
+('This a wonderful car',2,4),
+('This a wonderful car',1,4),
+('This a wonderful car',1,3);
 COMMIT;
