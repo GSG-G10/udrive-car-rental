@@ -11,7 +11,7 @@ beforeEach(() => dbBuild());
 
 test('update car data of status code 200', (done) => {
   request(app)
-    .put('/api/v1/update/car/4')
+    .put('/api/v1/admin/cars/4')
     .set('Cookie', [`token= ${TOKEN}`])
     .send({
       name: 'BMW',

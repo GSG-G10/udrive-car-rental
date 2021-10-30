@@ -49,11 +49,11 @@ router.post('/rentals/:carId', isAuth, addRentalController);
 
 router.get('/admin/users', isAuth, isAdmin, getAdminUsersControllers);
 
-router.put('/update/car/:carId', isAuth, isAdmin, updateCarControllers);
+router.put('/admin/cars/:carId', isAuth, isAdmin, updateCarControllers);
 
 router.get('/brands', getBrands);
 router.get('/logout', logout);
-router.delete('/admin/deleteCar/:carId', isAuth, isAdmin, deleteCar);
+router.delete('/admin/cars/:carId', isAuth, isAdmin, deleteCar);
 router.get('/admin/cars', isAuth, isAdmin, getCarAdminByName);
 
 router.get('/reviewHome', getHomeReview);
