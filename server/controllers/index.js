@@ -1,10 +1,21 @@
 const {
-  login, signUp, authUser, logout,
+  login,
+  signUp,
+  authUser,
+  logout,
+  addCar,
+  getAdminUsersControllers,
 } = require('./users');
-const { getReviewes } = require('./review');
+const { getReviewes, getHomeReview, addReviewToCar } = require('./review');
+
 const { serverError, clientError } = require('./errors');
-const { getTypeControllers, getBrands } = require('./cars');
+
+const {
+  getTypeControllers, getBrands, getCars, getCarDetails,
+} = require('./cars');
 const { isAuth, isAdmin } = require('./middleware');
+
+const { addRentalController } = require('./rentals');
 const { postBrand, postType, deleteCar } = require('./admin');
 const { pendingRentals, historyRentals } = require('./rentals');
 
@@ -16,13 +27,20 @@ module.exports = {
   getReviewes,
   isAuth,
   isAdmin,
+  getCarDetails,
+  getAdminUsersControllers,
+  signUp,
+  logout,
+  addCar,
   authUser,
   getBrands,
   postBrand,
-  signUp,
-  logout,
   postType,
+  addRentalController,
   deleteCar,
   pendingRentals,
   historyRentals,
+  getCars,
+  addReviewToCar,
+  getHomeReview,
 };

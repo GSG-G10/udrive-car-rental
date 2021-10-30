@@ -1,4 +1,9 @@
 const { historyRentalsQuery } = require('./historyRintalsQuery');
 const { pendingRentalsQuery } = require('./pendingRentalsQuery');
 
-module.exports = { pendingRentalsQuery, historyRentalsQuery };
+const addRentalQuery = require('./addRentalQuery');
+const checkDateTimeQuery = require('./checkDateTimeQuery');
+
+module.exports = {
+  addRentalQuery, checkDateTimeQuery, pendingRentalsQuery, historyRentalsQuery,
+};
