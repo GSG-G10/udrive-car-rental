@@ -17,7 +17,7 @@ router.post('/signup', signUp);
 
 router.get('/review/:carId', getReviewes);
 
-router.get('/cars/:id', getCarDetails);
+router.get('/cars/:carId', getCarDetails);
 
 router.get('/type', getTypeControllers);
 
