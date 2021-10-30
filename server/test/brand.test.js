@@ -27,4 +27,30 @@ test('post admin cars code of status code 200', (done) => {
     });
 });
 
+test('delete brand by brand id ', (done) => {
+  request(app)
+    .delete('/api/v1/admin/brands/1')
+    .set('Cookie', [`token=${TOKEN}`])
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      if (err) return done(err);
+      expect(res.body.message).toBe('Brand deleted successfully !');
+      return done();
+    });
+});
+
+test('delete brand by brand id, return 400 statusCode ', (done) => {
+  request(app)
+    .delete('/api/v1/admin/brands/10')
+    .set('Cookie', [`token=${TOKEN}`])
+    .expect(400)
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      if (err) return done(err);
+      expect(res.body.message).toBe('Some thing went wrong !');
+      return done();
+    });
+});
+
 afterAll(() => connection.end());
