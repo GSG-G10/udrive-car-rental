@@ -23,6 +23,18 @@ describe('test pending and history rentals', () => {
         return done();
       });
   });
+
+  test('history rentals', (done) => {
+    request(app)
+      .get('/api/v1/rentals/history')
+      .set('Cookie', [`token= ${TOKEN}`])
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
 });
 
 test('delete rental by rental id ', (done) => {
@@ -71,18 +83,6 @@ describe('Post rentls tests', () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res.status).toBe(400);
-        return done();
-      });
-  });
-
-  test('history rentals', (done) => {
-    request(app)
-      .get('/api/v1/rentals/history')
-      .set('Cookie', [`token= ${TOKEN}`])
-      .expect(200)
-      .expect('Content-Type', /json/)
-      .end((err) => {
-        if (err) return done(err);
         return done();
       });
   });
