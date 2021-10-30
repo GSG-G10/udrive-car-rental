@@ -4,6 +4,7 @@ const { getReview } = require('./getReview');
 const getCarDetailsQuery = require('./getCarDetailsQuery');
 const { getBrandsQueries } = require('./getBrandsQueries');
 
+const { postReviewsRentalsId } = require('./postReviewsRentalsId');
 const { getAdminUsers } = require('./getAdminUsers');
 const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
@@ -23,6 +24,7 @@ module.exports = {
   postBrands,
   postTypes,
   getBrandsQueries,
+  postReviewsRentalsId,
   addRentalQuery,
   checkDateTimeQuery,
   getCarDetailsQuery,

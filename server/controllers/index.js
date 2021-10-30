@@ -1,13 +1,13 @@
 const {
   login,
   signUp,
-  logout,
-  getAdminUsersControllers,
   authUser,
+  logout,
   addCar,
+  getAdminUsersControllers,
 } = require('./users');
+const { getReviewes, getHomeReview, addReviewToCar } = require('./review');
 
-const { getReviewes, getHomeReview } = require('./review');
 const { serverError, clientError } = require('./errors');
 
 const { getTypeControllers, getBrands, getCarDetails } = require('./cars');
@@ -35,5 +35,6 @@ module.exports = {
   postType,
   addRentalController,
   deleteCar,
+  addReviewToCar,
   getHomeReview,
 };

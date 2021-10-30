@@ -17,6 +17,7 @@ const {
   logout,
   postType,
   deleteCar,
+  addReviewToCar,
   getHomeReview,
   getCarDetails,
   addRentalController,
@@ -42,6 +43,9 @@ router.get('/admin/users', isAuth, isAdmin, getAdminUsersControllers);
 router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
+router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
+router.post('/reviews/:rentalsId', isAuth, addReviewToCar);
+
 router.delete('/admin/car/:carId', isAuth, isAdmin, deleteCar);
 router.use(clientError);
 router.use(serverError);
