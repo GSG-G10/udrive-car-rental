@@ -7,6 +7,7 @@ const {
   clientError,
   serverError,
   getTypeControllers,
+  getAdminUsersControllers,
   getReviewes,
   getBrands,
   postBrand,
@@ -31,6 +32,8 @@ router.post('/login', login);
 router.post('/admin/cars', isAuth, isAdmin, addCar);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
+
+router.get('/admin/users', isAuth, isAdmin, getAdminUsersControllers);
 router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);

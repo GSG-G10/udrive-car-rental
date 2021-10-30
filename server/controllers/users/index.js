@@ -1,4 +1,6 @@
 const { login } = require('./login');
+const { getAdminUsersControllers } = require('./getAdminUsersControllers');
+
 const { addCar } = require('./addCar');
 
 const { authUser } = require('./authUser');
@@ -10,5 +12,6 @@ module.exports = {
   signUp,
   authUser,
   logout,
+  getAdminUsersControllers,
   addCar,
 };

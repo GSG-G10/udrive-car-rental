@@ -1,10 +1,12 @@
 const {
   login,
   signUp,
-  authUser,
   logout,
+  getAdminUsersControllers,
+  authUser,
   addCar,
 } = require('./users');
+
 const { getReviewes, getHomeReview } = require('./review');
 const { serverError, clientError } = require('./errors');
 
@@ -20,12 +22,13 @@ module.exports = {
   getReviewes,
   isAuth,
   isAdmin,
+  getAdminUsersControllers,
+  signUp,
+  logout,
   addCar,
   authUser,
   getBrands,
   postBrand,
-  signUp,
-  logout,
   postType,
   deleteCar,
   getHomeReview,
