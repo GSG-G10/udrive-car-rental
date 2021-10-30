@@ -1,6 +1,8 @@
-const { getBrandsQueries } = require('./getBrandsQueries');
-const { getReview } = require('./getReview');
+const { postAdminCarsQueries } = require('./postAdminCarsQueries');
 const { getTypeQueries } = require('./getTypeQueries');
+const { getReview } = require('./getReview');
+const { getBrandsQueries } = require('./getBrandsQueries');
+
 const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
 const { postTypes } = require('./postTypes');
@@ -13,10 +15,10 @@ module.exports = {
   signUpQuery,
   getTypeQueries,
   getReview,
-  postBrands,
+  postAdminCarsQueries,
   postTypes,
   getBrandsQueries,
+  postBrands,
   getHomeReviews,
   deleteCars,
-
 };
