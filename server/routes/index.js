@@ -18,6 +18,7 @@ const {
   postType,
   deleteCar,
   getHomeReview,
+  getCarDetails,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -25,6 +26,8 @@ router.get('/auth/user', isAuth, authUser);
 router.post('/signup', signUp);
 
 router.get('/review/:carId', getReviewes);
+
+router.get('/cars/:carId', getCarDetails);
 
 router.get('/type', getTypeControllers);
 

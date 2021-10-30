@@ -1,6 +1,7 @@
 const { postAdminCarsQueries } = require('./postAdminCarsQueries');
 const { getTypeQueries } = require('./getTypeQueries');
 const { getReview } = require('./getReview');
+const getCarDetailsQuery = require('./getCarDetailsQuery');
 const { getBrandsQueries } = require('./getBrandsQueries');
 
 const { getAdminUsers } = require('./getAdminUsers');
@@ -20,6 +21,7 @@ module.exports = {
   postBrands,
   postTypes,
   getBrandsQueries,
+  getCarDetailsQuery,
   postAdminCarsQueries,
   getHomeReviews,
   deleteCars,
