@@ -20,6 +20,7 @@ const {
   addReviewToCar,
   getHomeReview,
   getCarDetails,
+  addRentalController,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -36,6 +37,7 @@ router.post('/login', login);
 router.post('/admin/cars', isAuth, isAdmin, addCar);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
+router.post('/rentals/:carId', isAuth, addRentalController);
 
 router.get('/admin/users', isAuth, isAdmin, getAdminUsersControllers);
 router.get('/reviewHome', getHomeReview);

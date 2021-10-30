@@ -6,6 +6,7 @@ const {
   typeValidation,
   rentalsIdValidation,
   commentAndRateValidation,
+  rentalValidation,
   addCarValidation,
 } = require('./validation');
 
@@ -17,5 +18,6 @@ module.exports = {
   typeValidation,
   rentalsIdValidation,
   commentAndRateValidation,
+  rentalValidation,
   addCarValidation,
 };
