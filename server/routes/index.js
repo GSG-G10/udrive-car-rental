@@ -16,6 +16,7 @@ const {
   logout,
   postType,
   deleteCar,
+  getHomeReview,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -30,10 +31,10 @@ router.post('/login', login);
 router.post('/admin/cars', isAuth, isAdmin, addCar);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
-
+router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
-router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
+router.delete('/admin/car/:carId', isAuth, isAdmin, deleteCar);
 router.use(clientError);
 router.use(serverError);
 

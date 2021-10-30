@@ -7,6 +7,8 @@ const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
 const { postTypes } = require('./postTypes');
 const signUpQuery = require('./users/signUpQuery');
+const { getHomeReviews } = require('./getHomeReviews');
+const { deleteCars } = require('./deleteCars');
 
 module.exports = {
   checkEmail,
@@ -14,7 +16,9 @@ module.exports = {
   getTypeQueries,
   getReview,
   postAdminCarsQueries,
-  postBrands,
   postTypes,
   getBrandsQueries,
+  postBrands,
+  getHomeReviews,
+  deleteCars,
 };

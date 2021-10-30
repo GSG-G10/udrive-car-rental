@@ -5,7 +5,7 @@ const {
   logout,
   addCar,
 } = require('./users');
-const { getReviewes } = require('./review');
+const { getReviewes, getHomeReview } = require('./review');
 const { serverError, clientError } = require('./errors');
 
 const { getTypeControllers, getBrands } = require('./cars');
@@ -28,4 +28,5 @@ module.exports = {
   logout,
   postType,
   deleteCar,
+  getHomeReview,
 };
