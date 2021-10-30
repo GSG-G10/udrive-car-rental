@@ -3,9 +3,13 @@ const request = require('supertest');
 const app = require('../app');
 
 const { dbBuild } = require('../database/config/build');
+
 const connection = require('../database/connection');
 
-beforeEach(() => dbBuild());
+beforeAll(() => dbBuild());
+
+afterAll(() => connection.end());
+
 describe('Cars', () => {
   test('get carDetails returns a status code of 200', (done) => {
     request(app)
@@ -31,7 +35,7 @@ describe('Cars', () => {
               color: 'gray',
               type: 'Sports Car',
               brand: 'Ferrai',
-              rate: '4.0000000000000000',
+              rate: null,
               pick_up_date_time: '2021-12-26T23:00:00.000Z',
               pick_of_date_time: '2021-12-27T01:00:00.000Z',
             },
@@ -54,6 +58,15 @@ describe('Cars', () => {
         return done();
       });
   });
-});
 
-afterAll(() => connection.end());
+  test('get cars end point with 200 status', (done) => {
+    request(app)
+      .get('/api/v1/cars')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err) => {
+        if (err) return done(err);
+        return done();
+      });
+  });
+});

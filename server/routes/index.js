@@ -21,9 +21,11 @@ const {
   getHomeReview,
   getCarDetails,
   addRentalController,
+  getCars,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
+router.get('/cars', getCars);
 
 router.post('/signup', signUp);
 

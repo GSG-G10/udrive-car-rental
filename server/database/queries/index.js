@@ -10,6 +10,8 @@ const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
 const { postTypes } = require('./postTypes');
 const signUpQuery = require('./users/signUpQuery');
+const { getCarsQuery } = require('./cars/getCarsQuery');
+
 const { addRentalQuery, checkDateTimeQuery } = require('./rentals');
 
 const { getHomeReviews } = require('./getHomeReviews');
@@ -24,6 +26,7 @@ module.exports = {
   postBrands,
   postTypes,
   getBrandsQueries,
+  getCarsQuery,
   postReviewsRentalsId,
   addRentalQuery,
   checkDateTimeQuery,
