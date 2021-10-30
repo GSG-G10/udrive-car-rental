@@ -2,10 +2,10 @@ const { getCarDetailsQuery } = require('../../database/queries');
 const { boomify } = require('../../utils');
 
 const getCarDetails = async (req, res, next) => {
-  const { id } = req.params;
+  const { carId } = req.params;
   try {
-    if (id > 0) {
-      const { rows } = await getCarDetailsQuery(id);
+    if (carId > 0) {
+      const { rows } = await getCarDetailsQuery(carId);
       return res.json({ data: rows });
     }
     throw boomify(400, 'Bad Request', 'Bad Request');
