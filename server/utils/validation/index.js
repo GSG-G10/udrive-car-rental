@@ -3,6 +3,7 @@ const { signUpValidation } = require('./signUpValidation');
 const { brandValiadtion } = require('./brandValiadtion');
 const { typeValidation } = require('./typeValidation');
 const { commentAndRateValidation } = require('./commentAndRateValidation');
+const { addCarValidation } = require('./addCarValidation');
 
 module.exports = {
   loginValidation,
@@ -10,4 +11,5 @@ module.exports = {
   brandValiadtion,
   typeValidation,
   commentAndRateValidation,
+  addCarValidation,
 };
