@@ -1,3 +1,6 @@
 const { getReviewes } = require('./getReviewes');
+const { addReviewToCar } = require('./addReviewToCar');
 
-module.exports = { getReviewes };
+const { getHomeReview } = require('./getHomeReview');
+
+module.exports = { getReviewes, getHomeReview, addReviewToCar };
