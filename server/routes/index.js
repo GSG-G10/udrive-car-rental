@@ -7,6 +7,7 @@ const {
   clientError,
   serverError,
   getTypeControllers,
+  getAdminUsersControllers,
   getReviewes,
   getBrands,
   postBrand,
@@ -18,6 +19,7 @@ const {
   deleteCar,
   addReviewToCar,
   getHomeReview,
+  getCarDetails,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -26,12 +28,16 @@ router.post('/signup', signUp);
 
 router.get('/review/:carId', getReviewes);
 
+router.get('/cars/:carId', getCarDetails);
+
 router.get('/type', getTypeControllers);
 
 router.post('/login', login);
 router.post('/admin/cars', isAuth, isAdmin, addCar);
 router.post('/brand', isAuth, isAdmin, postBrand);
 router.post('/type', isAuth, isAdmin, postType);
+
+router.get('/admin/users', isAuth, isAdmin, getAdminUsersControllers);
 router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
