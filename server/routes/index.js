@@ -22,6 +22,8 @@ const {
   getCarDetails,
   addRentalController,
   getCars,
+  pendingRentals,
+  historyRentals,
 } = require('../controllers');
 
 router.get('/auth/user', isAuth, authUser);
@@ -46,6 +48,10 @@ router.get('/reviewHome', getHomeReview);
 router.get('/brands', getBrands);
 router.get('/logout', logout);
 router.delete('/admin/deleteCar/carId', isAuth, isAdmin, deleteCar);
+
+router.get('/rentals', isAuth, pendingRentals);
+router.get('/rentals/history', isAuth, historyRentals);
+
 router.post('/reviews/:rentalsId', isAuth, addReviewToCar);
 
 router.delete('/admin/car/:carId', isAuth, isAdmin, deleteCar);

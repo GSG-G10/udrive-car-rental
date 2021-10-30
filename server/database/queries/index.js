@@ -10,6 +10,8 @@ const { postBrands } = require('./postBrands');
 const checkEmail = require('./checkEmail');
 const { postTypes } = require('./postTypes');
 const signUpQuery = require('./users/signUpQuery');
+const { pendingRentalsQuery, historyRentalsQuery } = require('./rentals');
+
 const { getCarsQuery } = require('./cars/getCarsQuery');
 
 const { addRentalQuery, checkDateTimeQuery } = require('./rentals');
@@ -26,6 +28,8 @@ module.exports = {
   postBrands,
   postTypes,
   getBrandsQueries,
+  pendingRentalsQuery,
+  historyRentalsQuery,
   getCarsQuery,
   postReviewsRentalsId,
   addRentalQuery,

@@ -17,6 +17,7 @@ const { isAuth, isAdmin } = require('./middleware');
 
 const { addRentalController } = require('./rentals');
 const { postBrand, postType, deleteCar } = require('./admin');
+const { pendingRentals, historyRentals } = require('./rentals');
 
 module.exports = {
   login,
@@ -37,6 +38,8 @@ module.exports = {
   postType,
   addRentalController,
   deleteCar,
+  pendingRentals,
+  historyRentals,
   getCars,
   addReviewToCar,
   getHomeReview,
