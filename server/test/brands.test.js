@@ -11,6 +11,19 @@ const { TOKEN } = process.env;
 beforeAll(() => dbBuild());
 
 afterAll(() => connection.end());
+
+test('get brands returns a status code of 200', (done) => {
+  request(app)
+    .get('/api/v1/brands')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      if (err) return done(err);
+      expect(res.body.data.length).toBe(5);
+      return done();
+    });
+});
+
 test('add new brand returns 201', (done) => {
   request(app)
     .post('/api/v1/admin/brands')
