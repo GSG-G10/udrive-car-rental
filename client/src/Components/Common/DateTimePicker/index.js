@@ -4,7 +4,10 @@ import moment from 'moment';
 
 export default function DateTimePickerComp() {
   const [dateTime, setDateTime] = useState(moment().format('yyyy-MM-DDThh:mm'));
-
+  console.log(dateTime);
+  const onChangeHnadler = (e) => {
+    setDateTime(e.target.value);
+  };
   return (
     <TextField
       id="datetime-local"
@@ -15,9 +18,7 @@ export default function DateTimePickerComp() {
       InputLabelProps={{
         shrink: true,
       }}
-      onChange={(newValue) => {
-        setDateTime(newValue.target.value);
-      }}
+      onChange={onChangeHnadler}
     />
   );
 }
