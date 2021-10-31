@@ -4,7 +4,7 @@ import { Switch, Router } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Switch>
         <Router expect path="/">
           home page
@@ -12,7 +12,7 @@ function App() {
         <Router expect path="/dashboard">
           dashboard page
         </Router>
-        <Router expect path="/cars">
+        <Router expect path="/cars/:carId">
           cars page
         </Router>
         <Router expect path="/carDetails">
@@ -32,6 +32,9 @@ function App() {
         </Router>
         <Router expect path="/addCar">
           add cars page
+        </Router>
+        <Router expect path="*">
+          404 Not Found
         </Router>
       </Switch>
     </div>
