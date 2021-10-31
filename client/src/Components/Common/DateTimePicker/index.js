@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import moment from 'moment';
 
-export default function DateTimePickerComp() {
+export default function DateTimePicker() {
   const [dateTime, setDateTime] = useState(moment().format('yyyy-MM-DDThh:mm'));
 
   const onChangeHnadler = (e) => {
