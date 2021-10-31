@@ -11,8 +11,8 @@ beforeEach(() => dbBuild());
 
 test('post admin cars code of status code 200', (done) => {
   request(app)
-    .post('/api/v1/type')
-    .set('Cookie', [`token= ${TOKEN}`])
+    .post('/api/v1/admin/types')
+    .set('Cookie', [`token=${TOKEN}`])
     .send({
       name: 'Seden',
       image:
@@ -29,7 +29,7 @@ test('post admin cars code of status code 200', (done) => {
 
 test('DELETE admin type code of status code 200', (done) => {
   request(app)
-    .delete('/api/v1/admin/deleteType/2')
+    .delete('/api/v1/admin/types/2')
     .set('Cookie', [`token= ${TOKEN}`])
     .expect(200)
     .expect('Content-Type', /json/)

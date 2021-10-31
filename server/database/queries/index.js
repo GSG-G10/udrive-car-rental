@@ -23,9 +23,11 @@ const {
   pendingRentalsQuery,
   historyRentalsQuery,
 } = require('./rentals');
+
 const { deleteRentalQuery } = require('./rentals');
 
 const { getHomeReviews } = require('./getHomeReviews');
+
 const { deleteCars } = require('./deleteCars');
 
 module.exports = {
