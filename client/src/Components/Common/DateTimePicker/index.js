@@ -4,7 +4,7 @@ import moment from 'moment';
 
 export default function DateTimePickerComp() {
   const [dateTime, setDateTime] = useState(moment().format('yyyy-MM-DDThh:mm'));
-  console.log(dateTime);
+
   const onChangeHnadler = (e) => {
     setDateTime(e.target.value);
   };
