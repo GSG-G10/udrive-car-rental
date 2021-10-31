@@ -3,11 +3,13 @@ const request = require('supertest');
 const app = require('../app');
 
 const { dbBuild } = require('../database/config/build');
+
 const connection = require('../database/connection');
 
 const { TOKEN } = process.env;
 
 beforeAll(() => dbBuild());
+
 afterAll(() => connection.end());
 
 test('get brands returns a status code of 200', (done) => {
