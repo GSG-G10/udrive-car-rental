@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
-import moment from 'moment';
 
-export default function DateTimePicker() {
-  const [dateTime, setDateTime] = useState(moment().format('yyyy-MM-DDThh:mm'));
-
-  const onChangeHnadler = (e) => {
-    setDateTime(e.target.value);
-  };
+function DateTimePicker({ dateTime, onChangeHnadler }) {
   return (
     <TextField
       id="datetime-local"
@@ -22,3 +17,10 @@ export default function DateTimePicker() {
     />
   );
 }
+
+DateTimePicker.propTypes = {
+  dateTime: PropTypes.string.isRequired,
+  onChangeHnadler: PropTypes.func.isRequired,
+};
+
+export default DateTimePicker;

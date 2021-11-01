@@ -6,11 +6,11 @@ const pendingRentalsQuery = (userId) => connection.query(
       c.name,
       r.total_price as price, 
       r.pick_up_date_time as start_date, 
-      r.pick_of_date_time as end_date,
+      r.pick_off_date_time as end_date,
       c.color 
     FROM rentals r 
-    INNER JOIN cars c ON c.id = r.cars_id 
-    WHERE r.users_id = $1 AND r.pick_of_date_time > NOW()
+    INNER JOIN cars c ON c.id = r.car_id 
+    WHERE r.user_id = $1 AND r.pick_off_date_time > NOW()
   `,
   [userId],
 );
