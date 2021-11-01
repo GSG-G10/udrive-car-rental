@@ -9,7 +9,7 @@ function CarDetails({
 }) {
   return (
     <div className="container">
-      <Typography gutterBottom variant="h5" component="div" className="car-name">
+      <Typography gutterBottom variant="h3" component="div" className="car-name">
         {name}
       </Typography>
       <Rating name="read-only" sx={{ fontSize: '1.3rem' }} value={rate} readOnly />
