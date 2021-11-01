@@ -1,0 +1,25 @@
+.image-card-container{
+  width: 32%;
+  position: relative;
+  color: white;
+  transition: all 0.5s;
+  border-radius: 0.5rem;
+  height: 16rem;
+  background: center center/cover no-repeat padding-box;
+  box-shadow: 2px 2px 8px 2px rgb(163 163 163);
+  cursor: pointer;
+}
+
+.image-card-container:hover{
+  filter: brightness(0.8);
+}
+
+.image-card-name{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px #000000;
+}

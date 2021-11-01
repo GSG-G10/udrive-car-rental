@@ -13,26 +13,26 @@ const getCarsQuery = ({
           c.price,
           c.img_car,
           t.name as type,
-          (SELECT AVG(rate) FROM comments INNER JOIN rentals ON rentals.id = comments.rentals_id WHERE rentals.cars_id = c.id) as rate
+          (SELECT AVG(rate) FROM reviews INNER JOIN rentals ON rentals.id = reviews.rental_id WHERE rentals.car_id = c.id) as rate
         FROM
         cars c 
-        LEFT JOIN rentals r ON c.id = r.cars_id
-        LEFT JOIN types t ON t.id = c.types_id
+        LEFT JOIN rentals r ON c.id = r.car_id
+        LEFT JOIN types t ON t.id = c.type_id
         WHERE 
-            ($1 = -1 OR c.brands_id = $1) 
-            AND ($2 = -1 OR c.types_id = $2)
+            ($1 = -1 OR c.brand_id = $1) 
+            AND ($2 = -1 OR c.type_id = $2)
             AND (c.price >= $3 AND c.price <= $4)
             AND (c.name LIKE $5)
             AND ($6  = -1 OR c.seats = $6)
             AND (c.gearbox LIKE $7)
             AND (
                   ($8 = NOW() AND $9 = NOW())
-                  OR (r.pick_up_date_time IS NULL OR r.pick_of_date_time IS NULL)
+                  OR (r.pick_up_date_time IS NULL OR r.pick_off_date_time IS NULL)
                   OR
                     (  
-                      ($8 NOT BETWEEN r.pick_up_date_time AND r.pick_of_date_time) 
-                      AND ($9 NOT BETWEEN r.pick_up_date_time AND r.pick_of_date_time) 
-                      AND NOT ($8 <= r.pick_up_date_time AND $9 >= r.pick_of_date_time)
+                      ($8 NOT BETWEEN r.pick_up_date_time AND r.pick_off_date_time) 
+                      AND ($9 NOT BETWEEN r.pick_up_date_time AND r.pick_off_date_time) 
+                      AND NOT ($8 <= r.pick_up_date_time AND $9 >= r.pick_off_date_time)
                     )
                 )
         GROUP BY c.id, t.name;
