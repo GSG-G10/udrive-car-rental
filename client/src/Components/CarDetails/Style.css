@@ -1,0 +1,24 @@
+.attribute{
+    color: #777;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+.description{
+    font-weight: bold;
+}
+.paragraph-description{
+    text-align: left;
+    font-size: 15px;
+    width: 30%;
+}
+.container{
+    padding-left: 30px;
+}
+.box1{
+    display: flex;
+    flex-direction: row;
+}
+.car-name{
+    font-weight: bold;
+}
