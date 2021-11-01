@@ -21,7 +21,7 @@ test('get car reviews returns 200', (done) => {
     });
 });
 
-test('add new review returns 200', (done) => {
+test('add new review returns 201', (done) => {
   request(app)
     .post('/api/v1/reviews/1')
     .set('Cookie', [`token= ${TOKEN}`])
@@ -29,7 +29,7 @@ test('add new review returns 200', (done) => {
       comment: 'bmw',
       rate: 5,
     })
-    .expect(200)
+    .expect(201)
     .expect('Content-Type', /json/)
     .end((err, res) => {
       if (err) return done(err);
