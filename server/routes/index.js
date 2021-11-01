@@ -1,12 +1,13 @@
 const router = require('express').Router();
-const { addCar } = require('../controllers');
 
 const {
   authUser,
+  addCar,
   login,
   clientError,
   serverError,
   getTypeControllers,
+  getAdminUsersControllers,
   getReviewes,
   getBrands,
   postBrand,
@@ -16,29 +17,65 @@ const {
   logout,
   postType,
   deleteCar,
+  updateCarControllers,
+  deleteTypeControllers,
+  addReviewToCar,
   getCarAdminByName,
   getHomeReview,
+  getCarDetails,
+  addRentalController,
+  getCars,
+  pendingRentals,
+  historyRentals,
+  deleteRental,
+  deleteBrand,
 } = require('../controllers');
 
-router.get('/auth/user', isAuth, authUser);
-
-router.post('/signup', signUp);
-
-router.get('/review/:carId', getReviewes);
-
-router.get('/type', getTypeControllers);
-
+// auth routes
 router.post('/login', login);
-router.post('/admin/cars', isAuth, isAdmin, addCar);
-router.post('/brand', isAuth, isAdmin, postBrand);
-router.post('/type', isAuth, isAdmin, postType);
+router.post('/signup', signUp);
+router.get('/logout', logout);
 
-router.get('/admin/cars', isAuth, isAdmin, getCarAdminByName);
+// cars
+router.get('/cars', getCars);
+router.get('/cars/:carId', getCarDetails);
+
+router.get('/types', getTypeControllers);
+
+router.get('/brands', getBrands);
 
 router.get('/reviewHome', getHomeReview);
-router.get('/brands', getBrands);
-router.get('/logout', logout);
-router.delete('/admin/car/:carId', isAuth, isAdmin, deleteCar);
+router.get('/reviews/:carId', getReviewes);
+
+// ****** protected routes ******
+
+router.use(isAuth);
+
+router.get('/auth/user', authUser);
+
+router.get('/rentals', pendingRentals);
+router.get('/rentals/history', historyRentals);
+router.post('/rentals/:carId', addRentalController);
+router.delete('/rentals/:rentalId', deleteRental);
+
+router.post('/reviews/:rentalsId', addReviewToCar);
+
+// admin routes
+router.use(isAdmin);
+
+router.get('/admin/users', getAdminUsersControllers);
+
+router.get('/admin/cars', getCarAdminByName);
+router.post('/admin/cars', addCar);
+router.put('/admin/cars/:carId', updateCarControllers);
+router.delete('/admin/cars/:carId', deleteCar);
+
+router.post('/admin/brands', postBrand);
+router.delete('/admin/brands/:brandId', deleteBrand);
+
+router.post('/admin/types', postType);
+router.delete('/admin/types/:typeId', deleteTypeControllers);
+
 router.use(clientError);
 router.use(serverError);
 
