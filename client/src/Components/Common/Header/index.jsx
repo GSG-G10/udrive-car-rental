@@ -1,45 +1,35 @@
 import React from 'react';
 import './style.css';
+import PropTypes from 'prop-types';
 
-function Header() {
+function Header({
+  img, header, description, component,
+}) {
   return (
-    <div className="img">
+    <div className="img" style={{ backgroundImage: `url(${img})` }}>
       <div className="container">
         <div className="header">
-          <h1>First Class Car Rental & Limousine Services</h1>
+          <h1>{header}</h1>
         </div>
         <div className="description">
-          <p>
-            We offer professional car rental & limousine services in our range
-            of high-end vehicles
-          </p>
+          <p>{description}</p>
         </div>
-        <div className="time">
-          <div
-            style={{
-              width: '200px',
-              height: '50px',
-              backgroundColor: 'red',
-            }}
-          />
-          <div
-            style={{
-              width: '200px',
-              height: '50px',
-              backgroundColor: 'red',
-            }}
-          />
-          <div
-            style={{
-              width: '200px',
-              height: '50px',
-              backgroundColor: 'red',
-            }}
-          />
-        </div>
+        <div className="component">{component}</div>
       </div>
     </div>
   );
 }
+Header.defaultProps = {
+  img: '',
+  header: '',
+  description: '',
+  component: '',
+};
+Header.propTypes = {
+  img: PropTypes.string,
+  header: PropTypes.string,
+  description: PropTypes.string,
+  component: PropTypes.node,
+};
 
 export default Header;

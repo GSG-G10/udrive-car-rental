@@ -1,11 +1,13 @@
 .img {
-  background-image: url('https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandcarrental/demo/wp-content/uploads/2017/01/IMG_3496bfree.jpg');
+  background:center center/cover no-repeat;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   object-fit: cover;
   color: white;
   display: flex;
   justify-content: center;
+  width: '200px';
+  height: '50px';
 }
 
 .container {
@@ -13,26 +15,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
-  width: 80%;
+  width: 100%;
 }
 
 .header {
-  font-size: 22px;
-  padding-bottom: 2rem;
+  font-size: 25px;
+  padding-bottom: 3rem;
 }
 
 .description {
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   font-size: 23px;
 }
 
-.time {
+.component {
   display: flex;
   flex-direction: row;
-  padding: 0 1rem;
-}
-
-.time * {
   padding: 0 1rem;
 }
