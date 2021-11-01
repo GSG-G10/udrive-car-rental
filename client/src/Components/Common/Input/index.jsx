@@ -14,7 +14,7 @@ function Input({ label = 'inter your value', width = '1.5' }) {
       size="small"
     >
       <TextField
-        style={{ margin: '15px', width: `${width * 200}px` }}
+        style={{ width: `${width * 200}px` }}
         id="outlined-number"
         label={label}
         size="small"
