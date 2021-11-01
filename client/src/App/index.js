@@ -1,42 +1,55 @@
 import React from 'react';
 import './style.css';
-import { Switch, Router } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
+import { ProvideAuth } from './use-auth';
+import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 
 function App() {
   return (
     <div className="App">
-      <Switch>
-        <Router expect path="/">
-          home page
-        </Router>
-        <Router expect path="/dashboard">
-          dashboard page
-        </Router>
-        <Router expect path="/cars/:carId">
-          cars page
-        </Router>
-        <Router expect path="/carDetails">
-          Car Details page
-        </Router>
-        <Router expect path="/booking">
-          Booking page
-        </Router>
-        <Router expect path="/login">
-          login page
-        </Router>
-        <Router expect path="/signup">
-          signup page
-        </Router>
-        <Router expect path="/login">
-          login page
-        </Router>
-        <Router expect path="/addCar">
-          add cars page
-        </Router>
-        <Router expect path="*">
-          404 Not Found
-        </Router>
-      </Switch>
+      <ProvideAuth>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/cars">cars</Link></li>
+          <li><Link to="/cars/1">car Details</Link></li>
+          <li><Link to="/booking">booking</Link></li>
+          <li><Link to="/dashboard">booking</Link></li>
+          <li><Link to="/login">login</Link></li>
+          <li><Link to="/signup">signup</Link></li>
+        </ul>
+
+        <Switch>
+          <Route exact path="/cars">
+            cars page
+          </Route>
+          <Route exact path="/cars/:carId">
+            Car Details page
+          </Route>
+          <ProtectedRoute exact path="/booking">
+            Booking page
+          </ProtectedRoute>
+          <AdminProtectedRoute exact path="/dashboard">
+            dashboard
+          </AdminProtectedRoute>
+          <Route exact path="/login">
+            login page
+          </Route>
+          <Route exact path="/signup">
+            signup page
+          </Route>
+          <Route exact path="/">
+            home page
+          </Route>
+          <Route path="*">
+            404 Not Found
+          </Route>
+        </Switch>
+      </ProvideAuth>
+
     </div>
   );
 }
