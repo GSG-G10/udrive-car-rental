@@ -24,7 +24,7 @@ function SelectorInput({ text, handleChange, item }) {
 }
 SelectorInput.propTypes = {
   handleChange: PropTypes.bool.isRequired,
-  item: PropTypes.string.isRequired,
+  item: PropTypes.arrayOf.isRequired,
   text: PropTypes.string.isRequired,
 
 };
