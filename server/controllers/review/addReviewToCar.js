@@ -8,8 +8,7 @@ const addReviewToCar = async (req, res, next) => {
       { ...req.params, ...req.body },
     );
     await postReviewsRentalsId(comment, rentalsId, rate);
-    res.json({
-      status: 201,
+    res.status(201).json({
       message: 'Review submitted successfully',
     });
   } catch (err) {
