@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import './Style.css';
 import PropTypes from 'prop-types';
-import vector from '../../images/Vector.png';
+import seat from '../../images/Vector.png';
 import door from '../../images/door.png';
 import gear from '../../images/gear.png';
 
@@ -33,7 +33,7 @@ function CarDetails({
           Door
         </Typography>
         <Typography variant="h5" gutterBotstom component="div" className="attribute">
-          <img src={vector} alt="Not Found" className="image" />
+          <img src={seat} alt="Not Found" className="image" />
           {seats}
           {' '}
           Seats
