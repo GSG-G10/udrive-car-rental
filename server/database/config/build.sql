@@ -1,5 +1,5 @@
 BEGIN;
-DROP TABLE IF EXISTS users, types, brands, cars, rentals, comments CASCADE;
+DROP TABLE IF EXISTS users, types, brands, cars, rentals, reviews CASCADE;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -23,8 +23,8 @@ CREATE TABLE cars (
     id SERIAL PRIMARY KEY ,
     name VARCHAR(100) NOT NULL,
     door INT,
-    types_id INT REFERENCES types(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    brands_id INT REFERENCES brands(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    type_id INT REFERENCES types(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    brand_id INT REFERENCES brands(id) ON UPDATE CASCADE ON DELETE CASCADE,
     release_year INT,
     gearbox VARCHAR(100),
     price INT,
@@ -35,18 +35,18 @@ CREATE TABLE cars (
 );
 CREATE TABLE rentals (
     id SERIAL PRIMARY KEY,
-    users_id INT REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    cars_id INT REFERENCES cars(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    car_id INT REFERENCES cars(id) ON UPDATE CASCADE ON DELETE CASCADE,
     location TEXT,
     pick_up_date_time TIMESTAMPTZ,
-    pick_of_date_time TIMESTAMPTZ,
+    pick_off_date_time TIMESTAMPTZ,
     total_price INT
 );
-CREATE TABLE comments (
+CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    comment TEXT,
-    rentals_id INT REFERENCES rentals(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    rate INT
+    review TEXT,
+    rental_id INT REFERENCES rentals(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    rate FLOAT
 );
 COMMIT;
 
