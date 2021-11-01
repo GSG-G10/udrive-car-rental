@@ -1,34 +1,38 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
+import { makeStyles } from '@mui/styles';
+
 import PropTypes from 'prop-types';
 
-function Input({ label = 'inter your value', width = '1.5' }) {
+function Input({
+  label = 'inter your value',
+  widthInput = '1.5',
+  error = false,
+}) {
+  const useStyles = makeStyles({
+    input: {
+      width: `${widthInput * 200}px`,
+    },
+  });
+  const classes = useStyles();
   return (
-    <div
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
+    <TextField
+      className={classes.input}
+      id="outlined-number"
+      label={label}
       size="small"
-    >
-      <TextField
-        style={{ width: `${width * 200}px` }}
-        id="outlined-number"
-        label={label}
-        size="small"
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </div>
+      error={error}
+      InputLabelProps={{
+        shrink: true,
+      }}
+    />
   );
 }
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
+  widthInput: PropTypes.string.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 
 export default Input;
