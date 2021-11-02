@@ -8,7 +8,7 @@ import door from '../../images/door.png';
 import gear from '../../images/gear.png';
 
 function CarDetails({
-  name, rate, gearbox, type, doorNumber, seats, body,
+  name, rate, gearbox, type, doorNumber, seats, description,
 }) {
   return (
     <div className="container">
@@ -18,7 +18,7 @@ function CarDetails({
       <Rating name="read-only" sx={{ fontSize: '1.3rem' }} value={rate} readOnly />
       <div className="box1">
         <Typography variant="h5" gutterBottom component="div" className="attribute">
-          <img src={gear} alt="Not Found" className="image" />
+          <img src={gear} alt="Gear Icon" className="image" />
           {gearbox}
         </Typography>
         <Typography variant="h5" gutterBottom component="div" className="attribute">
@@ -27,13 +27,13 @@ function CarDetails({
       </div>
       <div className="box1">
         <Typography variant="h5" gutterBottom component="div" className="attribute">
-          <img src={door} alt="Not Found" className="image" />
+          <img src={door} alt="Door icon" className="image" />
           {doorNumber}
           {' '}
           Door
         </Typography>
         <Typography variant="h5" gutterBotstom component="div" className="attribute">
-          <img src={seat} alt="Not Found" className="image" />
+          <img src={seat} alt="Seat Icon" className="image" />
           {seats}
           {' '}
           Seats
@@ -43,7 +43,7 @@ function CarDetails({
         Description
       </Typography>
       <Typography variant="body1" gutterBottom className="paragraph-description">
-        {body}
+        {description}
       </Typography>
     </div>
   );
@@ -55,7 +55,7 @@ CarDetails.propTypes = {
   gearbox: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   doorNumber: PropTypes.number.isRequired,
-  body: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 
 };
 export default CarDetails;
