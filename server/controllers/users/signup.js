@@ -15,7 +15,14 @@ const signUp = async (req, res, next) => {
 
     const token = await signTokenPromise(rows[0].id, rows[0].name, rows[0].is_admin);
 
-    return res.status(201).cookie('token', token).json({ message: 'Signed Up Successfully !' });
+    return res.status(201).cookie('token', token).json({
+      message: 'Signed Up Successfully !',
+      user: {
+        id: rows[0].id,
+        name: rows[0].name,
+        isAdmin: rows[0].is_admin,
+      },
+    });
   } catch (err) {
     if (err.code === '23505') {
       return next(boomify(

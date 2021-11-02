@@ -19,7 +19,14 @@ const login = async (req, res, next) => {
     }
     const token = await signTokenPromise(rows[0].id, rows[0].name, rows[0].is_admin);
     res.cookie('token', token);
-    return res.json({ message: 'logged in successfully' });
+    return res.json({
+      message: 'logged in successfully',
+      user: {
+        id: rows[0].id,
+        name: rows[0].name,
+        isAdmin: rows[0].is_admin,
+      },
+    });
   } catch (err) {
     if (err.details) {
       res.status(400).json({
