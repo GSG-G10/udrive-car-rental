@@ -1,36 +1,34 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Rating from '@mui/material/Rating';
+import PropTypes from 'prop-types';
 
-function CustomerOpinion() {
+function CustomerOpinion({ userName, rateNumber, description }) {
   return (
-    <div sx={{ minWidth: 275 }}>
-      <Card sx={{ minWidth: 275 }}>
+    <div sx={{ maxWidth: 275 }}>
+      <Card sx={{ maxWidth: 275, margin: '20px' }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            AhmedAboAbadi
+            {userName}
           </Typography>
           <Typography variant="h5" component="div">
-            be nev o lent
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            adjective
+            <Rating name="read-only" value={rateNumber} readOnly />
           </Typography>
           <Typography variant="body2">
-            well meaning and kindly.
-            <br />
-            a benevolent smile
+            {description}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
       </Card>
     </div>
   );
 }
+
+CustomerOpinion.propTypes = {
+  userName: PropTypes.string.isRequired,
+  rateNumber: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default CustomerOpinion;
