@@ -3,7 +3,7 @@ import './style.css';
 import PropTypes from 'prop-types';
 
 function Header({
-  img, header, description, component,
+  img, header, description, children,
 }) {
   return (
     <div className="img" style={{ backgroundImage: `url(${img})` }}>
@@ -14,7 +14,7 @@ function Header({
         <div className="description">
           <p>{description}</p>
         </div>
-        <div className="component">{component}</div>
+        <div className="component">{children}</div>
       </div>
     </div>
   );
@@ -23,13 +23,13 @@ Header.defaultProps = {
   img: '',
   header: '',
   description: '',
-  component: '',
+  children: '',
 };
 Header.propTypes = {
   img: PropTypes.string,
   header: PropTypes.string,
   description: PropTypes.string,
-  component: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default Header;
