@@ -7,26 +7,12 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import DashboardTable from '../Components/Common/DashboardTable';
-import Button from '../Components/Common/Button';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
 
-        <DashboardTable
-          title="title"
-          rows={[{
-            id: 1, test1: 'hello1', test2: 'hello4',
-          }, {
-            id: 2, test1: 'hello2', test2: 'hello3',
-          }]}
-          headers={['id', 'test1', 'test2']}
-          // handleDelete={(id) => console.log(id)}
-          // handleEdit={(id) => console.log(id)}
-          addButton={<Button text="new car" loading={false} handelClick={() => console.log('hello')} />}
-        />
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>

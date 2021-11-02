@@ -17,10 +17,17 @@ import './style.css';
 function DashboardTable({
   title, headers, rows, handleEdit, handleDelete, addButton,
 }) {
-  const headersList = headers.map((header) => <TableCell key={header}>{header}</TableCell>);
+  const headersList = headers.map((header) => (
+    <TableCell
+      sx={{ fontWeight: 700 }}
+      key={header}
+    >
+      {header}
+    </TableCell>
+  ));
 
   if (handleDelete || handleEdit) {
-    headersList.push(<TableCell key="Actions">Actions</TableCell>);
+    headersList.push(<TableCell sx={{ fontWeight: 700 }} align="center" key="Actions">Actions</TableCell>);
   }
 
   const rowsList = rows.map((row) => {
@@ -36,7 +43,7 @@ function DashboardTable({
       >
         {valuesList}
         {(handleDelete || handleEdit) && (
-        <TableCell>
+        <TableCell align="center">
           {handleEdit && <IconButton key={`edit${row.id}`} onClick={() => handleEdit(row.id)}><EditIcon color="info" /></IconButton>}
           {handleDelete && <IconButton key={`delete${row.id}`} onClick={() => handleDelete(row.id)}><DeleteOutlineIcon color="error" /></IconButton>}
         </TableCell>
