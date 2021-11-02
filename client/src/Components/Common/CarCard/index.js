@@ -1,61 +1,76 @@
 import React from 'react';
-import {
-  Card, CardMedia, CardContent, Typography, Box, Rating,
-} from '@mui/material';
 import PropTypes from 'prop-types';
+import {
+  Card, CardMedia, CardContent, Typography, Box, Rating, CardActions,
+} from '@mui/material';
 import Button from '../Button';
-import seat from '../../../images/Vector.png';
+import seat from '../../../images/seat.png';
 import door from '../../../images/door.png';
 import gear from '../../../images/gear.png';
+import './Style.css';
 
-function CarCard({ handelClick }) {
+function CarCard({
+  image, carName, rating, gearbox, doors, seats, price, handelClick,
+}) {
   return (
-    <Card sx={{
-      display: 'flex', width: '50%', marginLeft: '30px', marginTop: '30px', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-    }}
+    <Card
+      className="card"
+      sx={{
+        boxShadow: '0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1)',
+      }}
     >
       <CardMedia
         component="img"
         sx={{ width: 300 }}
-        image="https://www.mclarenofgreenwich.com/imagetag/3008/main/l/New-2022-Ferrari-Portofino-M.jpg"
-        alt="Live from space album cover"
+        image={image}
+        alt="Car Image"
       />
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <CardContent sx={{ flex: '1 0 auto' }}>
-            <Typography component="div" variant="h4" sx={{ marginBottom: '5px', fontWeight: 700 }}>
-              Ferrari
-            </Typography>
-            <Rating name="read-only" value={3.2} readOnly sx={{ marginBottom: '15px' }} />
-            <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ marginBottom: '10px' }}>
-              <img src={gear} alt="Door icon" className="image" style={{ marginRight: '15px' }} />
-              Automatic gearbox
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ marginBottom: '10px' }}>
-              <img src={door} alt="Door icon" className="image" style={{ marginRight: '15px' }} />
-              3 Doors
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              <img src={seat} alt="Door icon" className="image" style={{ marginRight: '15px' }} />
-              3 seats
-            </Typography>
-          </CardContent>
-        </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <CardContent sx={{ flex: '1 0 auto' }}>
-            <Typography component="div" variant="h3" sx={{ fontWeight: 700, alignSelf: 'flex-end' }}>
-              $70
-              <Typography> per hour </Typography>
-            </Typography>
+      <Box className="contentContainer" sx={{ display: 'flex' }}>
+        <CardContent className="carContent">
+          <Typography component="div" variant="h4" calssName="carName">
+            {carName}
+          </Typography>
+          <Rating name="read-only" value={rating} readOnly className="rating" />
+          <Typography color="text.secondary" component="div" sx={{ marginBottom: '10px' }}>
+            <img src={gear} alt="Gear Icon" className="icon" />
+            {gearbox}
+          </Typography>
+          <Typography color="text.secondary" component="div" sx={{ marginBottom: '10px' }}>
+            <img src={door} alt="Door Icon" className="icon" />
+            {doors}
+            {' '}
+            Doors
+          </Typography>
+          <Typography color="text.secondary" component="div">
+            <img src={seat} alt="Seat Icon" className="icon" />
+            {seats}
+            {' '}
+            seats
+          </Typography>
+        </CardContent>
+        <Box className="priceButton">
+          <Typography component="div" variant="h3" sx={{ fontWeight: 700, marginTop: '10px' }}>
+            $
+            {price}
+            <Typography> per hour </Typography>
+          </Typography>
+          <CardActions>
             <Button loading={false} handelClick={handelClick} text="RENT" />
-          </CardContent>
+          </CardActions>
         </Box>
       </Box>
     </Card>
   );
 }
 
-CarCard.propType = {
+CarCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  carName: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  gearbox: PropTypes.string.isRequired,
+  doors: PropTypes.number.isRequired,
+  seats: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
   handelClick: PropTypes.func.isRequired,
 };
 
