@@ -17,7 +17,7 @@ function App() {
           <li><Link to="/cars">cars</Link></li>
           <li><Link to="/cars/1">car Details</Link></li>
           <li><Link to="/booking">booking</Link></li>
-          <li><Link to="/dashboard">booking</Link></li>
+          <li><Link to="/dashboard">dashboard</Link></li>
           <li><Link to="/login">login</Link></li>
           <li><Link to="/signup">signup</Link></li>
         </ul>
