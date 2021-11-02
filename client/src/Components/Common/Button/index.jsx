@@ -25,6 +25,5 @@ Button.propTypes = {
   loading: PropTypes.bool.isRequired,
   handelClick: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-
 };
 export default Button;
