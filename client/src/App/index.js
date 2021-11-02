@@ -1,10 +1,11 @@
 import React from 'react';
 import './style.css';
+import CustomerOpinion from '../Components/Common/CustomersOpinion';
 
 function App() {
   return (
     <div>
-      <h1>Hello World !</h1>
+      <CustomerOpinion />
     </div>
   );
 }
