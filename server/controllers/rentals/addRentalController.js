@@ -33,6 +33,7 @@ const addRentalController = async (req, res, next) => {
 
     return res.status(201).json({ message: 'Car rented successfully' });
   } catch (err) {
+    console.log(err);
     next(err);
   }
 };
