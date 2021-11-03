@@ -7,12 +7,13 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
+import Navbar from '../Components/Common/Navbar';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
-
+        <Navbar />
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>
