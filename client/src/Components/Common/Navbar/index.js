@@ -1,9 +1,9 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  AppBar, IconButton, Toolbar,
+  AppBar, IconButton, Toolbar, Menu, MenuItem,
 } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useHistory } from 'react-router-dom';
@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './style.css';
 import { useAuth } from '../../../App/use-auth';
 import logo from '../../../images/Logo.png';
+import Header from '../Header';
 
 const theme = createTheme({
   palette: {
@@ -33,6 +34,14 @@ const theme = createTheme({
 function Navbar() {
   const { user, logout } = useAuth();
   const history = useHistory();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,38 +61,72 @@ function Navbar() {
                 Cars
               </Link>
             </li>
-            <li className={user?.isAdmin ? 'hidden' : 'listItem'}>
-              <Link to="/booking" className="listItem">
-                booking
-              </Link>
-            </li>
+            {user && (
             <li>
-              <Link to="/dashboard" className={user?.isAdmin ? 'listItem' : 'hidden'}>
-                dashboard
+              <Link to="/booking" className="listItem">
+                Booking
+              </Link>
+              <Menu
+                id="bookMenu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={logout}>
+                  {' '}
+                  <LogoutIcon sx={{ marginRight: '3px' }} />
+                  {' '}
+                  Logout
+                </MenuItem>
+              </Menu>
+            </li>
+            )}
+            {user?.isAdmin && (
+            <li>
+              <Link to="/dashboard" className="listItem">
+                Dashboard
               </Link>
             </li>
+            )}
           </ul>
           <Toolbar className="navBtns">
-            <div className={user ? 'hidden' : 'login'}>
+            { !user && (
+            <div className="login">
               <IconButton onClick={() => history.push('/login')}>
                 <PersonOutlineIcon color="third" sx={{ marginRight: '5px' }} />
                 <span> Log in </span>
               </IconButton>
             </div>
-            <div className={user ? 'userContainer' : 'hidden'}>
-              <PersonOutlineIcon color="third" />
-              <span className="userName">{user?.name}</span>
-            </div>
-            <div className={user ? 'logoutBtn' : 'hidden'}>
-              <IconButton onClick={logout}>
-                <LogoutIcon color="third" />
-                <span>Logout</span>
+            ) }
+            { user && (
+            <div className="userContainer">
+              <IconButton
+                aria-controls="userMenu"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+              >
+                <PersonOutlineIcon color="third" />
+                <span className="userName">{user?.name}</span>
               </IconButton>
+              <Menu
+                id="userMenu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={logout}>
+                  {' '}
+                  <LogoutIcon sx={{ marginRight: '3px' }} />
+                  {' '}
+                  Logout
+                </MenuItem>
+              </Menu>
             </div>
+            ) }
           </Toolbar>
         </Toolbar>
       </AppBar>
-      <div className="img" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80)' }} />
+      <Header img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" />
     </ThemeProvider>
   );
 }
