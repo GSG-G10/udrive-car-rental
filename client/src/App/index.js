@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <ProvideAuth>
+
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>
