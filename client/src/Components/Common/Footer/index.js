@@ -8,7 +8,7 @@ import './style.css';
 
 function Footer() {
   return (
-    <div className="container">
+    <div className="footer-container">
       <div className="icons">
         <FacebookIcon className="icon" />
         <TwitterIcon className="icon" />
