@@ -6,7 +6,9 @@ import Select from '@mui/material/Select';
 import PropTypes from 'prop-types';
 import './Style.css';
 
-function SelectorInput({ text, handleChange, item }) {
+function SelectorInput({
+  text, value, handleChange, item,
+}) {
   return (
     <div>
       <FormControl fullWidth className="selectorInput" sx={{ width: '15rem' }}>
@@ -14,7 +16,7 @@ function SelectorInput({ text, handleChange, item }) {
         <Select
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
-          value={text}
+          value={value}
           label={text}
           onChange={handleChange}
         >
@@ -28,6 +30,7 @@ SelectorInput.propTypes = {
   handleChange: PropTypes.bool.isRequired,
   item: PropTypes.arrayOf(PropTypes.object).isRequired,
   text: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 
 };
 export default SelectorInput;
