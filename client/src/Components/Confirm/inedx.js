@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 
 import Button from '../Common/Button/index';
 
-function Confirm({ handelClick, carName, price }) {
-  const [open, setOpen] = React.useState(false);
-
+function Confirm({
+  handelClick, carName, price, open, setOpen,
+}) {
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -41,7 +41,7 @@ function Confirm({ handelClick, carName, price }) {
         </DialogContent>
         <DialogActions>
           <Button loading={false} handelClick={handleClose} text="Cancel" />
-          <Button autoFocus loading={false} handelClick={handelClick} text="Agree" />
+          <Button loading={false} handelClick={handelClick} text="Agree" />
         </DialogActions>
       </Dialog>
     </div>
@@ -51,5 +51,7 @@ Confirm.propTypes = {
   handelClick: PropTypes.func.isRequired,
   carName: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
 };
 export default Confirm;
