@@ -49,7 +49,6 @@ function App() {
           </Route>
         </Switch>
       </ProvideAuth>
-
     </div>
   );
 }

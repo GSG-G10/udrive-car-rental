@@ -1,0 +1,16 @@
+.img {
+  background: center center/cover no-repeat;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: '200px';
+  height: '50px';
+}
+.component {
+  display: flex;
+  flex-direction: row;
+  padding: 0 1rem;
+}
