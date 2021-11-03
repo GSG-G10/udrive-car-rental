@@ -9,14 +9,16 @@ import './Style.css';
 function SelectorInput({ text, handleChange, item }) {
   return (
     <div>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{text}</InputLabel>
+      <FormControl fullWidth className="selectorInput" sx={{ width: '15rem' }}>
+        <InputLabel id="demo-multiple-name-label">{text}</InputLabel>
         <Select
+          labelId="demo-multiple-name-label"
+          id="demo-multiple-name"
           value={text}
           label={text}
           onChange={handleChange}
         >
-          {item.map((itemMenu) => <MenuItem value={10}>{itemMenu}</MenuItem>)}
+          {item.map((itemMenu) => <MenuItem value={itemMenu.id}>{itemMenu.name}</MenuItem>)}
         </Select>
       </FormControl>
     </div>
@@ -24,7 +26,7 @@ function SelectorInput({ text, handleChange, item }) {
 }
 SelectorInput.propTypes = {
   handleChange: PropTypes.bool.isRequired,
-  item: PropTypes.arrayOf.isRequired,
+  item: PropTypes.arrayOf(PropTypes.object).isRequired,
   text: PropTypes.string.isRequired,
 
 };
