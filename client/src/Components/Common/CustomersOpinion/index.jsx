@@ -11,10 +11,13 @@ function CustomersOpinion({
 }) {
   return (
     <div sx={{ maxWidth: 275 }}>
-      <Card sx={{ maxWidth: 275, margin: '20px' }}>
+      <Card sx={{
+        maxWidth: 275, margin: '20px', boxShadow: '0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1)',
+      }}
+      >
         <CardContent>
-          <Typography sx={{ fontSize: 14, display: 'flex' }} color="text.secondary" gutterBottom>
-            <Avatar alt="Remy Sharp" src={userImg} />
+          <Typography sx={{ fontSize: 14, display: 'flex', alignItems: 'center' }} color="text.secondary" gutterBottom>
+            <Avatar sx={{ marginRight: '14px' }} alt="Remy Sharp" src={userImg} />
             {' '}
             {userName}
           </Typography>
