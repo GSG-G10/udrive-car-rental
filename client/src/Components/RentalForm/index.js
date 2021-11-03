@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import moment from 'moment';
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ import Confrim from '../Confirm/inedx';
 
 const axios = require('axios');
 
-function RentalForm({ id, price, carName }) {
+function RentalForm({ price = 10 }) {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({
     location: '', pickUpDateTime: moment().format('yyyy-MM-DDThh:mm'), pickOffDateTime: moment().format('yyyy-MM-DDThh:mm'),
@@ -17,6 +17,12 @@ function RentalForm({ id, price, carName }) {
   const [error, setError] = useState({
     location: false,
   });
+  const [totalPrice, setTotalPrice] = useState(null);
+  const duration = moment.duration(moment(data.pickOffDateTime).diff(moment(data.pickUpDateTime)));
+  const hours = duration.asHours();
+  useEffect(() => {
+    setTotalPrice(price * hours);
+  }, [hours]);
   const handleError = (callback) => {
     if (data.location === '') {
       setError({
@@ -31,26 +37,27 @@ function RentalForm({ id, price, carName }) {
   };
 
   const rental = () => {
-    handleError(() => {
-      axios.post(`/api/v1/rentals/${id}`, {
-        location: data.location,
-        pickUpDateTime: data.pickUpDateTime,
-        pickOffDateTime: data.pickOffDateTime,
-      })
-        .then(() => {
-          setOpen(false);
-        }, (err) => {
-          console.log(err);
+    handleError(async () => {
+      try {
+        await axios.post('/api/v1/rentals/1', {
+          location: data.location,
+          pickUpDateTime: data.pickUpDateTime,
+          pickOffDateTime: data.pickOffDateTime,
         });
+        setOpen(false);
+      } catch (err) {
+        console.log(err);
+      }
     });
   };
+
   return (
     <div className="container">
       <form className="rental-form">
         <Input
           label="Pick up and return location"
           className="time"
-          widthInput="1.5"
+          widthInput="1.25"
           onChange={(e) => {
             setData({ ...data, location: e.target.value });
           }}
@@ -59,6 +66,7 @@ function RentalForm({ id, price, carName }) {
         />
 
         {' '}
+        <br />
         <br />
         <DateTimePicker
           dateTime={moment().format('yyyy-MM-DDThh:mm')}
@@ -70,6 +78,7 @@ function RentalForm({ id, price, carName }) {
         />
         {' '}
         <br />
+        <br />
         <DateTimePicker
           dateTime={moment().format('yyyy-MM-DDThh:mm')}
           label="DropOf Time"
@@ -78,23 +87,27 @@ function RentalForm({ id, price, carName }) {
             setData({ ...data, pickOffDateTime: e.target.value });
           }}
         />
+        <br />
         <Typography gutterBottom variant="h6" component="div" className="price">
           Total Price :
+          {totalPrice}
         </Typography>
+        <br />
         <Confrim
           handelClick={rental}
-          carName={carName}
-          price={price}
+          carName="carName"
+          price={totalPrice}
           open={open}
           setOpen={setOpen}
+          className="confirm-btn"
         />
       </form>
     </div>
   );
 }
 RentalForm.propTypes = {
-  carName: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+//   carName: PropTypes.string.isRequired,
+//   id: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
 
 };

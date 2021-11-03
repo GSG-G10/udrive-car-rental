@@ -53,5 +53,6 @@ Confirm.propTypes = {
   price: PropTypes.number.isRequired,
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
+  // className: PropTypes.string.isRequired,
 };
 export default Confirm;
