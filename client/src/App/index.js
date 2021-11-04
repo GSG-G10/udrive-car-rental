@@ -3,18 +3,18 @@ import './style.css';
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import Navbar from '../Components/Common/Navbar';
+// import Navbar from '../Components/Common/Navbar';
+import Home from '../Pages/Home';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
-        <Navbar />
-        <ul>
+        {/* <Navbar /> */}
+        {/* <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>
           <li><Link to="/cars/1">car Details</Link></li>
@@ -22,7 +22,7 @@ function App() {
           <li><Link to="/dashboard">dashboard</Link></li>
           <li><Link to="/login">login</Link></li>
           <li><Link to="/signup">signup</Link></li>
-        </ul>
+        </ul> */}
 
         <Switch>
           <Route exact path="/cars">
@@ -51,6 +51,7 @@ function App() {
           </Route>
         </Switch>
       </ProvideAuth>
+      <Home />
     </div>
   );
 }
