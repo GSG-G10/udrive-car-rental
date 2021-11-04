@@ -15,23 +15,33 @@ function SearchBox() {
   const [brandId, setBrandId] = useState(0);
   const [types, setTypes] = useState([]);
   const [typeId, setTypeId] = useState(0);
-
+  let unmounted = false;
   useEffect(async () => {
-    try {
-      const resultBrands = await axios.get('/api/v1/brands');
-      setBrands(resultBrands.data.data);
-    } catch (err) {
-      console.log(err);
+    if (!unmounted) {
+      try {
+        const resultBrands = await axios.get('/api/v1/brands');
+        setBrands(resultBrands.data.data);
+      } catch (err) {
+        console.log(err);
+      }
     }
+    return function () {
+      unmounted = true;
+    };
   }, []);
 
   useEffect(async () => {
-    try {
-      const resultTypes = await axios.get('/api/v1/types');
-      setTypes(resultTypes.data);
-    } catch (err) {
-      console.log(err);
+    if (!unmounted) {
+      try {
+        const resultTypes = await axios.get('/api/v1/types');
+        setTypes(resultTypes.data);
+      } catch (err) {
+        console.log(err);
+      }
     }
+    return function () {
+      unmounted = true;
+    };
   }, []);
 
   const handelChangeBrands = (e) => {

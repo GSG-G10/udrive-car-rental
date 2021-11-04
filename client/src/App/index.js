@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
+import SearchBox from '../Components/Common/SearchBox';
 
 function App() {
   const location = useLocation();
@@ -48,6 +49,7 @@ function App() {
           </Route>
           <Route exact path="/">
             home page
+            <SearchBox />
           </Route>
           <Route path="*">
             404 Not Found
