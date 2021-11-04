@@ -2,12 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 import SelectorInput from '../SelectorInput';
 import DateTimePicker from '../DateTimePicker';
 import './style.css';
 import Button from '../Button';
+import Alter from '../Alter';
 
 function SearchBox() {
+  const history = useHistory();
   const [brands, setBrands] = useState([]);
   const [brandId, setBrandId] = useState(0);
   const [types, setTypes] = useState([]);
@@ -38,14 +41,22 @@ function SearchBox() {
   const handelChangeTypes = (e) => {
     setTypeId(e.target.value);
   };
-
+  const handelClick = () => {
+    if (!brandId && !typeId) {
+      return alert('error');
+    }
+    return history.push({
+      pathname: '/cars',
+      state: { typeId, brandId },
+    });
+  };
   const time = moment().format('yyyy-MM-DDThh:mm');
 
   return (
     <div className="searchBox" style={{ marginTop: '20px' }}>
       <SelectorInput text="Brands" value={brandId} item={brands} handleChange={handelChangeBrands} />
       <SelectorInput text="Type" value={typeId} item={types} handleChange={handelChangeTypes} />
-      <Button text="Search" />
+      <Button text="Search" handelClick={handelClick} />
     </div>
   );
 }
