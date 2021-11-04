@@ -8,13 +8,14 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import SearchBox from '../Components/Common/SearchBox';
+import Navbar from '../Components/Common/Navbar';
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
       <ProvideAuth>
+        <Navbar />
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>
@@ -49,7 +50,7 @@ function App() {
           </Route>
           <Route exact path="/">
             home page
-            <SearchBox />
+
           </Route>
           <Route path="*">
             404 Not Found
