@@ -8,12 +8,14 @@ import {
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import Navbar from '../Components/Common/Navbar';
+import Filter from '../Components/Filter';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
-        <Navbar navBackground="black" />
+        <Navbar />
+        <Filter />
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>
@@ -51,7 +53,6 @@ function App() {
           </Route>
         </Switch>
       </ProvideAuth>
-
     </div>
   );
 }
