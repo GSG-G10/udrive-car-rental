@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
-
+import { Link } from 'react-router-dom';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -9,6 +9,8 @@ import Footer from '../../Components/Common/Footer';
 import CustomersOpinion from '../../Components/Common/CustomersOpinion';
 import ImageCard from '../../Components/Common/ImageCard';
 import Header from '../../Components/Common/Header';
+import SearchBox from '../../Components/Common/SearchBox';
+import NavBar from '../../Components/Common/Navbar';
 import './style.css';
 
 const axios = require('axios');
@@ -17,8 +19,6 @@ function Home() {
   const [brands, setBrands] = useState([]);
   const [types, setTypes] = useState([]);
   const [review, setReview] = useState([]);
-
-  //   console.log(brands.data.data[0]);
   const getCarsBrands = async () => {
     try {
       const data = await axios.get('/api/v1/brands');
@@ -57,18 +57,27 @@ function Home() {
     <div>
       <Header img="https://images-ext-2.discordapp.net/external/fKDzIa5WJukHd7AapdproCqAthYTKUcaIHmE_M2_VMM/%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D870%26q%3D80/https/images.unsplash.com/photo-1449965408869-eaa3f722e40d?width=641&height=427">
         <div className="header">
+          <NavBar />
           <Typography variant="h2" gutterBottom className="paragraph-description" sx={{ fontSize: '40px' }}>
             First Class Car Rental & Limousine Services
           </Typography>
           <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ fontSize: '24px', paddingLeft: '25px' }}>
             We offer professional car rental & limousine services in our range of high-end vehicles.
           </Typography>
+          <SearchBox />
         </div>
       </Header>
-      <Typography variant="h5" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', paddingTop: '25px' }}>
+      <Typography variant="h5" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', paddingTop: '50px' }}>
         Find Car by Brands
       </Typography>
-      <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', paddingTop: '2px', color: '8A8A8A' }}>
+      <Typography
+        variant="body1"
+        gutterBottom
+        className="paragraph-description"
+        sx={{
+          textAlign: 'center', paddingTop: '2px', color: '8A8A8A', paddingBottom: '25px',
+        }}
+      >
         We offer professional car rental & limousine services in our range of high-end vehicles.
       </Typography>
       <Box sx={{
@@ -82,9 +91,15 @@ function Home() {
         >
           {brands && brands.map((brand) => (
             <Grid item xs={2} sm={4} md={4} key={brand.id}>
-              <Item>
-                <ImageCard img={brand.image} content={brand.name} key={brand.id} />
 
+              <Item>
+                <Link to={{
+                  pathname: '/cars',
+                  state: { brandId: brand.id },
+                }}
+                >
+                  <ImageCard img={brand.image} content={brand.name} key={brand.id} />
+                </Link>
               </Item>
             </Grid>
           ))}
@@ -93,7 +108,14 @@ function Home() {
       <Typography variant="h5" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', paddingTop: '25px' }}>
         Find Car by Type
       </Typography>
-      <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', paddingTop: '2px', color: '8A8A8A' }}>
+      <Typography
+        variant="body1"
+        gutterBottom
+        className="paragraph-description"
+        sx={{
+          textAlign: 'center', paddingTop: '2px', color: '8A8A8A', paddingBottom: '25px',
+        }}
+      >
         We offer professional car rental & limousine services in our range of high-end vehicles.
       </Typography>
       <Box sx={{
@@ -108,13 +130,17 @@ function Home() {
           {types && types.slice(0, 3).map((type) => (
             <Grid item xs={2} sm={4} md={4} key={type.id}>
               <Item>
-                <ImageCard
-                  img={type.image}
-                  content={type.name}
-                  key={type.id}
-
-                />
-
+                <Link to={{
+                  pathname: '/cars',
+                  state: { typeId: type.id },
+                }}
+                >
+                  <ImageCard
+                    img={type.image}
+                    content={type.name}
+                    key={type.id}
+                  />
+                </Link>
               </Item>
             </Grid>
           ))}

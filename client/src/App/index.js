@@ -3,13 +3,15 @@ import './style.css';
 import {
   Switch,
   Route,
+  useLocation,
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-// import Navbar from '../Components/Common/Navbar';
+import ContextData from '../ContextData/ContextData';
 import Home from '../Pages/Home';
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <ProvideAuth>
@@ -27,6 +29,9 @@ function App() {
         <Switch>
           <Route exact path="/cars">
             cars page
+            {' '}
+            {location.state?.typeId}
+            {location.state?.brandId}
           </Route>
           <Route exact path="/cars/:carId">
             Car Details page
@@ -43,15 +48,16 @@ function App() {
           <Route exact path="/signup">
             signup page
           </Route>
-          <Route exact path="/">
-            home page
-          </Route>
+          <ContextData.Provider>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </ContextData.Provider>
           <Route path="*">
             404 Not Found
           </Route>
         </Switch>
       </ProvideAuth>
-      <Home />
     </div>
   );
 }
