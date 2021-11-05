@@ -5,7 +5,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useAuth } from './use-auth';
+import { useAuth } from './useAuth';
 
 export function ProtectedRoute({ children, ...rest }) {
   const { user } = useAuth();

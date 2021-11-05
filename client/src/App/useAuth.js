@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 
 const authContext = createContext();
 
@@ -11,9 +10,8 @@ export const useAuth = () => useContext(authContext);
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
-  const history = useHistory();
 
-  const login = async (email, password) => {
+  const login = async ({ email, password }, callback = null) => {
     try {
       const res = await axios.post('/api/v1/login', {
         email,
@@ -21,14 +19,17 @@ function useProvideAuth() {
       });
 
       setUser(res.data.user);
-      history.push('/');
+      if (callback) callback(null);
     } catch (err) {
-      console.log(err);
+      if (callback) callback(err);
     }
   };
 
   const signup = async (
-    email, phone, password, confirmedPassword,
+    {
+      email, phone, password, confirmedPassword,
+    },
+    callback = null,
   ) => {
     try {
       const res = await axios.post('/api/v1/signup', {
@@ -39,20 +40,20 @@ function useProvideAuth() {
       });
 
       setUser(res.data.user);
-      history.push('/');
+      if (callback) callback(null);
     } catch (err) {
-      console.log(err);
+      if (callback) callback(err);
     }
   };
 
-  const logout = async () => {
+  const logout = async (callback = null) => {
     try {
-      await axios.get('/api/v1/logout');
+      await axios.post('/api/v1/logout');
 
       setUser(null);
-      history.push('/');
+      if (callback) callback(null);
     } catch (err) {
-      console.log(err);
+      if (callback) callback(err);
     }
   };
 
@@ -62,7 +63,7 @@ function useProvideAuth() {
 
       setUser(res.data);
     } catch (err) {
-      console.log(err);
+      setUser(null);
     }
   };
 
