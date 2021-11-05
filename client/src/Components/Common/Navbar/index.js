@@ -12,7 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './style.css';
 import { useAuth } from '../../../App/use-auth';
 import logo from '../../../images/Logo.png';
-import Header from '../Header';
+// import Header from '../Header';
 
 const theme = createTheme({
   palette: {
@@ -126,7 +126,7 @@ function Navbar() {
           </Toolbar>
         </Toolbar>
       </AppBar>
-      <Header img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" />
+      {/* <Header img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" /> */}
     </ThemeProvider>
   );
 }

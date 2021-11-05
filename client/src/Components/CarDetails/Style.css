@@ -9,15 +9,17 @@
 .description{
   font-family: 'Inter', sans-serif;
   font-weight: 700;
+  width: 100%;
 }
 .paragraph-description{
   text-align: left;
   font-size: 15px;
-  width: 30%;
+  width: 100%;
 }
 .container{
   padding-left: 30px;
-  width: 30%;
+  margin-top: 2.3rem;
+  width: 38%;;
 }
 .box1{
   display: flex;

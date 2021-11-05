@@ -9,6 +9,7 @@ import {
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import Navbar from '../Components/Common/Navbar';
+import CarDetailsPage from '../Pages/CarDetailsPage';
 
 function App() {
   const location = useLocation();
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <ProvideAuth>
         <Navbar />
+        <CarDetailsPage />
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/cars">cars</Link></li>
