@@ -10,7 +10,6 @@ import './style.css';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../../App/useAuth';
 import logo from '../../../images/Logo.png';
-import Header from '../Header';
 
 const theme = createTheme({
   palette: {
@@ -34,6 +33,7 @@ function Navbar({ backgroundColor }) {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  console.log(user);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -72,19 +72,6 @@ function Navbar({ backgroundColor }) {
               <Link to="/booking" className="listItem">
                 Booking
               </Link>
-              <Menu
-                id="bookMenu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={logout}>
-                  {' '}
-                  <LogoutIcon sx={{ marginRight: '3px' }} />
-                  {' '}
-                  Logout
-                </MenuItem>
-              </Menu>
             </li>
             )}
             {user?.isAdmin && (
@@ -132,7 +119,6 @@ function Navbar({ backgroundColor }) {
           </Toolbar>
         </Toolbar>
       </AppBar>
-      <Header img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" />
     </ThemeProvider>
   );
 }
