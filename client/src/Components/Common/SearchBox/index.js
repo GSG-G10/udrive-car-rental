@@ -7,7 +7,7 @@ import SelectorInput from '../SelectorInput';
 import DateTimePicker from '../DateTimePicker';
 import './style.css';
 import Button from '../Button';
-import Alter from '../Alter';
+import Alter from '../Alert';
 
 function SearchBox() {
   const history = useHistory();
