@@ -4,12 +4,14 @@ import {
   Switch,
   Route,
   Link,
+  useLocation,
 } from 'react-router-dom';
 import { ProvideAuth } from './use-auth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import Navbar from '../Components/Common/Navbar';
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <ProvideAuth>
@@ -27,6 +29,9 @@ function App() {
         <Switch>
           <Route exact path="/cars">
             cars page
+            {' '}
+            {location.state?.typeId}
+            {location.state?.brandId}
           </Route>
           <Route exact path="/cars/:carId">
             Car Details page
@@ -45,6 +50,7 @@ function App() {
           </Route>
           <Route exact path="/">
             home page
+
           </Route>
           <Route path="*">
             404 Not Found
