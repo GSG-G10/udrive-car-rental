@@ -3,7 +3,6 @@ import './style.css';
 import {
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
@@ -15,11 +14,6 @@ function App() {
     <div className="App">
       <ProvideAuth>
         <Navbar />
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/cars">Cars</Link></li>
-          <li><Link to="/booking">Booking</Link></li>
-        </ul>
 
         <Switch>
           {routes.map((route) => {
