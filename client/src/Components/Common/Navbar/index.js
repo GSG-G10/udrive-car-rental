@@ -33,7 +33,6 @@ function Navbar({ backgroundColor }) {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  console.log(user);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
