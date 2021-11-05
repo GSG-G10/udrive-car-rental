@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       <ProvideAuth>
         <Navbar />
-
         <Switch>
           {routes.map((route) => {
             if (route.public) {
