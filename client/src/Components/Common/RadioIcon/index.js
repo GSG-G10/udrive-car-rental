@@ -16,21 +16,21 @@ function RadioIcon({ imgs }) {
           name="radio-buttons-group"
         >
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 2, md: 2 }}>
-            {imgs.map((img, index) => (
-              <Grid item xs={2} sm={2} md={2} key={index}>
-                <FormControlLabel
-                  value="hi"
-                  control={<Radio sx={{ display: 'none' }} />}
-                  label={(
-                    <img
-                      src={img.icon}
-                      className="img"
-                      alt="tst"
-                      style={{ width: '96px', height: '96px' }}
-                    />
+            {imgs.map((img) => (
+              // <Grid item xs={2} sm={2} md={2} key={index}>
+              <FormControlLabel
+                value="hi"
+                control={<Radio sx={{ display: 'none' }} />}
+                label={(
+                  <img
+                    src={img.icon}
+                    className="img"
+                    alt="tst"
+                    style={{ width: '96px', height: '96px' }}
+                  />
               )}
-                />
-              </Grid>
+              />
+              // </Grid>
             ))}
           </Grid>
           <FormControlLabel value="other" control={<Radio />} label="Other" />
