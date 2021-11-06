@@ -5,7 +5,7 @@ import {
   Route,
   useLocation,
 } from 'react-router-dom';
-import { ProvideAuth } from './use-auth';
+import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import ContextData from '../ContextData/ContextData';
 import Home from '../Pages/Home';

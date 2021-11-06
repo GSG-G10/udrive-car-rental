@@ -1,6 +1,3 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import {
   AppBar, IconButton, Toolbar, Menu, MenuItem,
@@ -10,7 +7,8 @@ import { Link, useHistory } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './style.css';
-import { useAuth } from '../../../App/use-auth';
+import PropTypes from 'prop-types';
+import { useAuth } from '../../../App/useAuth';
 import logo from '../../../images/Logo.png';
 
 const theme = createTheme({
@@ -30,7 +28,7 @@ const theme = createTheme({
   },
 });
 
-function Navbar() {
+function Navbar({ backgroundColor }) {
   const { user, logout } = useAuth();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -42,9 +40,17 @@ function Navbar() {
     setAnchorEl(null);
   };
 
+  const handleLogout = () => {
+    logout((err) => {
+      if (!err) {
+        history.push('/');
+      }
+    });
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <AppBar color="primary" position="absolute">
+      <AppBar color={backgroundColor} position="absolute">
         <Toolbar>
           <Link to="/" className="logo">
             <img src={logo} alt="logo" />
@@ -65,19 +71,6 @@ function Navbar() {
               <Link to="/booking" className="listItem">
                 Booking
               </Link>
-              <Menu
-                id="bookMenu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={logout}>
-                  {' '}
-                  <LogoutIcon sx={{ marginRight: '3px' }} />
-                  {' '}
-                  Logout
-                </MenuItem>
-              </Menu>
             </li>
             )}
             {user?.isAdmin && (
@@ -113,7 +106,7 @@ function Navbar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={logout}>
+                <MenuItem onClick={handleLogout}>
                   {' '}
                   <LogoutIcon sx={{ marginRight: '3px' }} />
                   {' '}
@@ -128,5 +121,13 @@ function Navbar() {
     </ThemeProvider>
   );
 }
+
+Navbar.defaultProps = {
+  backgroundColor: 'primary',
+};
+
+Navbar.propTypes = {
+  backgroundColor: PropTypes.string,
+};
 
 export default Navbar;
