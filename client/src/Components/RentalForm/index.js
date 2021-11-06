@@ -36,7 +36,7 @@ function RentalForm({ price = 10 }) {
     callback();
   };
 
-  const rental = () => {
+  const rentalCar = () => {
     handleError(async () => {
       try {
         await axios.post('/api/v1/rentals/1', {
@@ -52,7 +52,7 @@ function RentalForm({ price = 10 }) {
   };
 
   return (
-    <div className="container">
+    <div className="rental-container-form">
       <form className="rental-form">
         <Input
           label="Pick up and return location"
@@ -94,7 +94,7 @@ function RentalForm({ price = 10 }) {
         </Typography>
         <br />
         <Confrim
-          handelClick={rental}
+          handelClick={rentalCar}
           carName="carName"
           price={totalPrice}
           open={open}
@@ -106,8 +106,6 @@ function RentalForm({ price = 10 }) {
   );
 }
 RentalForm.propTypes = {
-//   carName: PropTypes.string.isRequired,
-//   id: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
 
 };
