@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Stack from '@mui/material/Stack';
 import MuiButton from '@mui/material/Button';
 import { LoadingButton } from '@mui/lab';
@@ -23,8 +23,7 @@ function Button({ loading, handelClick, text }) {
 }
 Button.propTypes = {
   loading: PropTypes.bool.isRequired,
-  handelClick: PropTypes.string.isRequired,
+  handelClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
-
 };
 export default Button;

@@ -15,7 +15,8 @@
     "lint-fix": "cd server && npm run lint-fix",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "package-install": "cd server && npm i && cd ../client && npm i",
-    "install": "npm run package-install"
+    "install": "npm run package-install",
+    "start-client": "cd client && npm start"
   },
   "pre-commit": [
     "lint",
@@ -35,6 +36,7 @@
   "dependencies": {
     "@date-io/moment": "^2.11.0",
     "@mui/lab": "^5.0.0-alpha.53",
+    "@mui/styles": "^5.0.2",
     "supertest": "^6.1.6"
   }
 }

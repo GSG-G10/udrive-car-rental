@@ -1,0 +1,69 @@
+/*nav Bar*/
+.navBar {
+    background: none;
+    display: flex;
+    padding: 0.5rem 0;
+  }
+  .logo {
+    font-family: 'Megrim', cursive;
+    margin-left: 4.5rem;
+    text-decoration: none;
+    width: 15%;
+  }
+  .navList {
+    display: flex;
+    width: 25%;
+    justify-content: space-evenly;
+    list-style-type: none;
+  }
+  .listItem {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  /*nav buttons*/
+  .navBtns {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-content: center;
+  }
+  .navBtns span {
+    color: #fff;
+    font-size: 18px;
+    margin: 0;
+    padding: 2px;
+  }
+  .logoutBtn {
+    display: flex;
+  }
+
+  .login{
+    display: flex;
+
+  }
+  .cartIcon {
+    color: white;
+  }
+  .counter {
+    background-color: #99580b;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .userContainer {
+    display: flex;
+    cursor: pointer;
+  }
+  .userName {
+    color: white;
+  }
+  
+  /*nav actions*/
+  .hidden {
+    display: none;
+  }
+  .active {
+    font-weight: 700;
+  }
