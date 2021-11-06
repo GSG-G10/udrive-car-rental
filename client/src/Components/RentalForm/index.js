@@ -6,10 +6,11 @@ import DateTimePicker from '../Common/DateTimePicker/index';
 import Input from '../Common/Input/index';
 import './style.css';
 import Confrim from '../Confirm/inedx';
+import Alter from '../Common/Alert';
 
 const axios = require('axios');
 
-function RentalForm({ price = 10 }) {
+function RentalForm({ price = 10, id }) {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({
     location: '', pickUpDateTime: moment().format('yyyy-MM-DDThh:mm'), pickOffDateTime: moment().format('yyyy-MM-DDThh:mm'),
@@ -39,14 +40,14 @@ function RentalForm({ price = 10 }) {
   const rentalCar = () => {
     handleError(async () => {
       try {
-        await axios.post('/api/v1/rentals/1', {
+        await axios.post(`/api/v1/rentals/${id}`, {
           location: data.location,
           pickUpDateTime: data.pickUpDateTime,
           pickOffDateTime: data.pickOffDateTime,
         });
         setOpen(false);
       } catch (err) {
-        console.log(err);
+        <Alter className="error" title="Error" description="You Should Enter Value" />;
       }
     });
   };
@@ -107,6 +108,7 @@ function RentalForm({ price = 10 }) {
 }
 RentalForm.propTypes = {
   price: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 
 };
 export default RentalForm;
