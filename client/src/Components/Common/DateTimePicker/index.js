@@ -9,7 +9,6 @@ function DateTimePicker({ label, dateTime, onChangeHnadler }) {
       label={label}
       type="datetime-local"
       defaultValue={dateTime}
-      sx={{ width: 250 }}
       InputLabelProps={{
         shrink: true,
       }}

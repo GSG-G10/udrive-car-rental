@@ -15,7 +15,7 @@ function Alter({ className, title, description }) {
   );
 }
 Alter.propTypes = {
-  className: PropTypes.bool.isRequired,
+  className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 
