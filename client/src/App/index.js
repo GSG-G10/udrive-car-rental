@@ -6,7 +6,7 @@ import {
   Link,
   useLocation,
 } from 'react-router-dom';
-import { ProvideAuth } from './use-auth';
+import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import Navbar from '../Components/Common/Navbar';
 import CarDetailsPage from '../Pages/CarDetailsPage';
