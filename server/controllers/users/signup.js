@@ -24,7 +24,6 @@ const signUp = async (req, res, next) => {
       },
     });
   } catch (err) {
-    console.log(err);
     if (err.code === '23505') {
       return next(boomify(
         422,
@@ -41,7 +40,7 @@ const signUp = async (req, res, next) => {
       ));
     }
 
-    // return next(err);
+    return next(err);
   }
 };
 
