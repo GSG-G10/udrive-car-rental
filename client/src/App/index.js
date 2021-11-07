@@ -6,14 +6,14 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import Navbar from '../Components/Common/Navbar';
+// import Navbar from '../Components/Common/Navbar';
 import routes from './routes';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
-        <Navbar />
+        {/* <Navbar /> */}
 
         <Switch>
           {routes.map((route) => {
@@ -38,8 +38,11 @@ function App() {
             404 Not Found
           </Route>
         </Switch>
+
       </ProvideAuth>
+
     </div>
+
   );
 }
 
