@@ -11,7 +11,6 @@ import './style.css';
 function Cars() {
   const [cars, setCars] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
-  const [car, setCar] = useState({});
 
   const handleSave = () => {};
 
