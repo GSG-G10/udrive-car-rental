@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUp from '../Components/Sign Up/SignUp';
+import SignUp from '../Pages/SignUp';
 
 export default [
   {
