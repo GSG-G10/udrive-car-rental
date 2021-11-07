@@ -5,11 +5,15 @@
 }
 .reviews {
   margin-left: 2rem;
-  padding-top: 2rem;
 }
 .reviews-container{
   width: 70%;
 }
-.rental-form{
+.rental-form-car-details-page{
+  margin: 2rem 2rem 0 0 ;
   width: 30%;
+}
+.price-pre-hour{
+  font-size:50px;
+  font-weight:550;
 }

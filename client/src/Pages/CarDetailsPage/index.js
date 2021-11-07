@@ -43,7 +43,14 @@ function CarDetailsPage() {
 
         </div>
 
-        <div className="rental-form">
+        <div className="rental-form-car-details-page">
+          <p>
+            <span className="price-pre-hour">
+              {details.price}
+            </span>
+            $
+            /pre hour
+          </p>
           <RentalForm />
         </div>
       </div>
