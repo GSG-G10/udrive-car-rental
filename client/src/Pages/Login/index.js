@@ -19,7 +19,7 @@ function LoginPage() {
         <form>
           <Input label="Email" widthInput={2.5} />
           <Input label="Password" widthInput={2.5} />
-          <Button text="Sing in" className="login-btn" />
+          <Button text="Sing in" className="login-btn" width={77} />
         </form>
       </div>
     </div>
