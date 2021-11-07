@@ -8,6 +8,7 @@ import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import Navbar from '../Components/Common/Navbar';
 import routes from './routes';
+import SignUp from '../Components/Sign Up/SignUp';
 
 function App() {
   return (
@@ -39,7 +40,9 @@ function App() {
           </Route>
         </Switch>
       </ProvideAuth>
+      <SignUp />
     </div>
+
   );
 }
 
