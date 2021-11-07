@@ -27,12 +27,13 @@ function useProvideAuth() {
 
   const signup = async (
     {
-      email, phone, password, confirmedPassword,
+      name, email, phone, password, confirmedPassword,
     },
     callback = null,
   ) => {
     try {
       const res = await axios.post('/api/v1/signup', {
+        name,
         email,
         phone,
         password,
