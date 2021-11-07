@@ -8,12 +8,14 @@ import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 // import Navbar from '../Components/Common/Navbar';
 import routes from './routes';
+import LoginPage from '../Pages/Login';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
         {/* <Navbar /> */}
+        <LoginPage />
 
         <Switch>
           {routes.map((route) => {
