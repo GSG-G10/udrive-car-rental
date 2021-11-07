@@ -1,4 +1,11 @@
 .add-car-container{
     padding-top: 1rem;
     padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-car-form-input{
+    margin-bottom: 1rem;
 }
