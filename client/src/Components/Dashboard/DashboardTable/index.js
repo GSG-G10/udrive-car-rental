@@ -62,11 +62,11 @@ function DashboardTable({
         <Table sx={{ minWidth: 650 }} size="big" aria-label="tableTitle">
           <TableHead>
             <TableRow>
-              {headersList}
+              {headers && headersList}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rowsList}
+            {rows && rowsList}
           </TableBody>
         </Table>
       </TableContainer>

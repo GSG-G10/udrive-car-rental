@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 const Transition = React.forwardRef((props, ref) => <Slide direction="down" ref={ref} {...props} />);
 
 function DashboardDialog({
-  title, content, open, handleClose, cancelButton, saveButton,
+  title, children, open, handleClose, cancelButton, saveButton,
 }) {
   return (
     <div>
@@ -24,7 +24,7 @@ function DashboardDialog({
       >
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
-          {content}
+          {children}
         </DialogContent>
         <DialogActions>
           {cancelButton}
@@ -37,7 +37,7 @@ function DashboardDialog({
 
 DashboardDialog.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   cancelButton: PropTypes.node.isRequired,
