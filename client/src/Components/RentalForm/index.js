@@ -39,13 +39,15 @@ function RentalForm({ price = 10, id }) {
 
   const rentalCar = () => {
     handleError(async () => {
+      setOpen(false);
       try {
         await axios.post(`/api/v1/rentals/${id}`, {
           location: data.location,
           pickUpDateTime: data.pickUpDateTime,
           pickOffDateTime: data.pickOffDateTime,
+
         });
-        setOpen(false);
+          <Alter className="success" title="success" description="Rental Successfully" />;
       } catch (err) {
         <Alter className="error" title="Error" description="You Should Enter Value" />;
       }
