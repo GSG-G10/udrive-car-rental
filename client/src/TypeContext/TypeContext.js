@@ -6,7 +6,7 @@ export const ContextData = createContext();
 function TypeContext({ children }) {
   const [brands, setBrands] = useState([]);
   const [types, setTypes] = useState([]);
-  let unmounted = false;
+  const source = axios.CancelToken.source();
 
   const getCarsBrands = async () => {
     try {
@@ -23,21 +23,20 @@ function TypeContext({ children }) {
     } catch (err) {
       console.log(err);
     }
+    return () => {
+      source.cancel();
+    };
   };
   useEffect(() => {
-    if (!unmounted) {
-      getTCarsType();
-    }
-    return function () {
-      unmounted = true;
+    getTCarsType();
+    return () => {
+      source.cancel();
     };
   }, []);
   useEffect(() => {
-    if (!unmounted) {
-      getCarsBrands();
-    }
-    return function () {
-      unmounted = true;
+    getCarsBrands();
+    return () => {
+      source.cancel();
     };
   }, []);
   return (

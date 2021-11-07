@@ -27,7 +27,10 @@ function Home() {
       });
       setReview(data.data.data);
     } catch (err) {
-      console.log(err);
+      if (axios.isCancel(err)) {
+        return '';
+      }
+      throw err;
     }
     return () => {
       source.cancel();
