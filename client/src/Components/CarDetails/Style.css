@@ -16,10 +16,11 @@
   font-size: 15px;
   width: 100%;
 }
-.container{
+.car-details-container{
   padding-left: 30px;
   margin-top: 2.3rem;
-  width: 38%;;
+
+  width: 70%;;
 }
 .box1{
   display: flex;

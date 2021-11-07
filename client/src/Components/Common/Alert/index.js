@@ -5,7 +5,7 @@ import './style.css';
 
 function Alter({ className, title, description }) {
   return (
-    <div className="container">
+    <div className="alter-container">
       <Alert severity={className} className="alter">
         <AlertTitle>{title}</AlertTitle>
         {description}

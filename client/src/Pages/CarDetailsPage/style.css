@@ -1,5 +1,15 @@
-
+.car-rental-body{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end
+}
 .reviews {
   margin-left: 2rem;
   padding-top: 2rem;
+}
+.reviews-container{
+  width: 70%;
+}
+.rental-form{
+  width: 30%;
 }
