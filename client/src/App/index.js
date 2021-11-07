@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import ContextData from '../ContextData/ContextData';
+import TypeContext from '../TypeContext/TypeContext';
 import Home from '../Pages/Home';
 
 function App() {
@@ -15,23 +15,14 @@ function App() {
   return (
     <div className="App">
       <ProvideAuth>
-        {/* <Navbar /> */}
-        {/* <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/cars">cars</Link></li>
-          <li><Link to="/cars/1">car Details</Link></li>
-          <li><Link to="/booking">booking</Link></li>
-          <li><Link to="/dashboard">dashboard</Link></li>
-          <li><Link to="/login">login</Link></li>
-          <li><Link to="/signup">signup</Link></li>
-        </ul> */}
-
         <Switch>
           <Route exact path="/cars">
-            cars page
-            {' '}
-            {location.state?.typeId}
-            {location.state?.brandId}
+            <TypeContext>
+              cars page
+              {' '}
+              {location.state?.typeId}
+              {location.state?.brandId}
+            </TypeContext>
           </Route>
           <Route exact path="/cars/:carId">
             Car Details page
@@ -40,7 +31,9 @@ function App() {
             Booking page
           </ProtectedRoute>
           <AdminProtectedRoute exact path="/dashboard">
-            dashboard
+            <TypeContext>
+              dashboard
+            </TypeContext>
           </AdminProtectedRoute>
           <Route exact path="/login">
             login page
@@ -48,11 +41,13 @@ function App() {
           <Route exact path="/signup">
             signup page
           </Route>
-          <ContextData.Provider>
-            <Route exact path="/">
+
+          <Route exact path="/">
+            <TypeContext>
               <Home />
-            </Route>
-          </ContextData.Provider>
+            </TypeContext>
+          </Route>
+
           <Route path="*">
             404 Not Found
           </Route>

@@ -11,43 +11,27 @@ import ImageCard from '../../Components/Common/ImageCard';
 import Header from '../../Components/Common/Header';
 import SearchBox from '../../Components/Common/SearchBox';
 import NavBar from '../../Components/Common/Navbar';
+import { ContextData } from '../../TypeContext/TypeContext';
 import './style.css';
 
 const axios = require('axios');
 
 function Home() {
-  const [brands, setBrands] = useState([]);
-  const [types, setTypes] = useState([]);
+  const { brands, types } = React.useContext(ContextData);
   const [review, setReview] = useState([]);
-  const getCarsBrands = async () => {
-    try {
-      const data = await axios.get('/api/v1/brands');
-      setBrands(data.data.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  const getTCarsType = async () => {
-    try {
-      const data = await axios.get('/api/v1/types');
-      setTypes(data.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    getTCarsType();
-  }, []);
   useEffect(async () => {
-    getCarsBrands();
-  }, []);
-  useEffect(async () => {
+    const source = axios.CancelToken.source();
     try {
-      const data = await axios.get('/api/v1/reviewHome');
+      const data = await axios.get('/api/v1/reviewHome', {
+        cancelToken: source.token,
+      });
       setReview(data.data.data);
     } catch (err) {
       console.log(err);
     }
+    return () => {
+      source.cancel();
+    };
   }, []);
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.div,
@@ -89,7 +73,7 @@ function Home() {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {brands && brands.map((brand) => (
+          {brands && brands.slice(0, 6).map((brand) => (
             <Grid item xs={2} sm={4} md={4} key={brand.id}>
 
               <Item>
