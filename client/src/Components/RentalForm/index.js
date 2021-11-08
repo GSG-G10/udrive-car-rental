@@ -10,7 +10,7 @@ import Alter from '../Common/Alert';
 
 const axios = require('axios');
 
-function RentalForm({ price = 10, id = '2' }) {
+function RentalForm({ price = 10, id }) {
   const [showAlert, setShowAlert] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({
@@ -106,8 +106,11 @@ function RentalForm({ price = 10, id = '2' }) {
           className="confirm-btn"
         />
       </form>
-      {showAlert && <Alter className="success" title="success" description="Rental Successfully" />}
 
+      <div className="alert-div-success">
+
+        {showAlert && <Alter className="success" title="success" description="Rental Successfully" />}
+      </div>
     </div>
   );
 }

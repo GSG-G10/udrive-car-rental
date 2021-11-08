@@ -38,8 +38,6 @@ describe('Cars', () => {
               type: 'Sports Car',
               brand: 'Ferrai',
               rate: null,
-              pick_up_date_time: '2021-12-27T01:00:00.000Z',
-              pick_off_date_time: '2021-12-27T03:00:00.000Z',
             },
           ],
         };

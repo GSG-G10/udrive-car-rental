@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../Components/Common/Header';
 import CarDetails from '../../Components/CarDetails';
@@ -7,26 +7,25 @@ import CarDetailsReviews from '../../Components/Common/CarDetailsReviews';
 import './style.css';
 import Footer from '../../Components/Common/Footer';
 import RentalForm from '../../Components/RentalForm';
+import Alter from '../../Components/Common/Alert';
 
 function CarDetailsPage() {
-  // const { id } = useParams();
+  const { carId } = useParams();
 
   const [details, setDetails] = useState([]);
 
   useEffect(async () => {
     try {
-      const result = await axios.get('/api/v1/cars/2');
+      const result = await axios.get(`/api/v1/cars/${carId}`);
       setDetails(result.data.data[0]);
     } catch (e) {
-      console.log('ssssssssssssssssssssssssssssss', e);
+      <Alter className="error" title="Error" description="Rental Error" />;
     }
   }, []);
 
-  console.log(details);
-
   return (
     <div>
-      <Header img="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80" />
+      <Header img={details.img_car} />
       <div className="car-rental-body">
 
         <div className="reviews-container">
@@ -51,7 +50,7 @@ function CarDetailsPage() {
             $
             /pre hour
           </p>
-          <RentalForm />
+          <RentalForm id={carId} />
         </div>
       </div>
       <div className="reviews">

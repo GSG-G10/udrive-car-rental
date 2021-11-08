@@ -21,8 +21,12 @@ function Button({ loading, handelClick, text }) {
     </Stack>
   );
 }
+Button.defaultProps = {
+  loading: false,
+
+};
 Button.propTypes = {
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
   handelClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
 };

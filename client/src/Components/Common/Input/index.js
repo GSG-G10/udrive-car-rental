@@ -10,6 +10,7 @@ function Input({
   error = false,
   helperText,
   onChange,
+  type,
 }) {
   const useStyles = makeStyles({
     input: {
@@ -25,6 +26,7 @@ function Input({
       size="small"
       error={error}
       helperText={helperText}
+      type={type}
       onChange={onChange}
       InputLabelProps={{
         shrink: true,
@@ -35,6 +37,7 @@ function Input({
 Input.defaultProps = {
   helperText: '',
   error: '',
+  type: '',
 };
 
 Input.propTypes = {
@@ -43,6 +46,7 @@ Input.propTypes = {
   error: PropTypes.bool,
   helperText: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
 export default Input;

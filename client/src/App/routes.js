@@ -1,4 +1,6 @@
 import React from 'react';
+import SignUp from '../Pages/SignUp';
+import CarDetailsPage from '../Pages/CarDetailsPage';
 
 export default [
   {
@@ -18,7 +20,7 @@ export default [
   {
     name: 'Car Details',
     path: '/cars/:carId',
-    children: '', // must be a component or (Page)
+    children: <CarDetailsPage />, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },
@@ -46,7 +48,7 @@ export default [
   {
     name: 'SignUp',
     path: '/signup',
-    children: '', // must be a component or (Page)
+    children: <SignUp />, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },

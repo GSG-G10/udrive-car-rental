@@ -3,57 +3,36 @@ import './style.css';
 import {
   Switch,
   Route,
-  Link,
-  useLocation,
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
 import Navbar from '../Components/Common/Navbar';
-import CarDetailsPage from '../Pages/CarDetailsPage';
+import routes from './routes';
 
 function App() {
-  const location = useLocation();
   return (
     <div className="App">
       <ProvideAuth>
         <Navbar />
-        <CarDetailsPage />
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/cars">cars</Link></li>
-          <li><Link to="/cars/1">car Details</Link></li>
-          <li><Link to="/booking">booking</Link></li>
-          <li><Link to="/dashboard">dashboard</Link></li>
-          <li><Link to="/login">login</Link></li>
-          <li><Link to="/signup">signup</Link></li>
-        </ul>
-
         <Switch>
-          <Route exact path="/cars">
-            cars page
-            {' '}
-            {location.state?.typeId}
-            {location.state?.brandId}
-          </Route>
-          <Route exact path="/cars/:carId">
-            Car Details page
-          </Route>
-          <ProtectedRoute exact path="/booking">
-            Booking page
-          </ProtectedRoute>
-          <AdminProtectedRoute exact path="/dashboard">
-            dashboard
-          </AdminProtectedRoute>
-          <Route exact path="/login">
-            login page
-          </Route>
-          <Route exact path="/signup">
-            signup page
-          </Route>
-          <Route exact path="/">
-            home page
+          {routes.map((route) => {
+            if (route.public) {
+              return <Route exact path={route.path} key={route.name}>{route.children}</Route>;
+            }
+            if (route.isAdmin) {
+              return (
+                <AdminProtectedRoute exact path={route.path} key={route.name}>
+                  {route.children}
+                </AdminProtectedRoute>
+              );
+            }
+            return (
+              <ProtectedRoute exact path={route.path} key={route.name}>
+                {route.children}
+              </ProtectedRoute>
+            );
+          })}
 
-          </Route>
           <Route path="*">
             404 Not Found
           </Route>
