@@ -35,7 +35,7 @@ describe('Cars', () => {
               img_car: 'https://carconfigurator.ferrari.com/assets/cars/portofinom/packages/default/car-ferrari-portofino-m_splash.jpg',
               description: 'With three electric motors and a 3.9-liter V8 engine, the new hybrid Ferrari can glide silently through city streets — and reach a top speed of 340 kilometers per hour.',
               color: 'gray',
-              type: 'Sports Car',
+              type: 'Super Car',
               brand: 'Ferrai',
               rate: null,
               pick_up_date_time: '2021-12-27T01:00:00.000Z',
