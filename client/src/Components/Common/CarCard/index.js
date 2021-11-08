@@ -27,7 +27,7 @@ function CarCard({
       />
       <Box className="contentContainer" sx={{ display: 'flex' }}>
         <CardContent className="carContent">
-          <Typography component="div" variant="h4" calssName="carName" sx={{ fontWeight: 700 }}>
+          <Typography component="div" variant="h5" calssName="carName" sx={{ fontWeight: 700 }}>
             {carName}
           </Typography>
           <Rating name="read-only" value={rating} readOnly className="rating" />
@@ -49,7 +49,7 @@ function CarCard({
           </Typography>
         </CardContent>
         <Box className="priceButton">
-          <Typography component="div" variant="h3" sx={{ fontWeight: 700 }}>
+          <Typography component="div" variant="h4" sx={{ fontWeight: 700 }}>
             $
             {price}
             <Typography> per hour </Typography>
