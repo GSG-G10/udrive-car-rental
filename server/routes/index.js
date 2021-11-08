@@ -34,7 +34,7 @@ const {
 // auth routes
 router.post('/login', login);
 router.post('/signup', signUp);
-router.get('/logout', logout);
+router.post('/logout', logout);
 
 // cars
 router.get('/cars', getCars);
