@@ -23,8 +23,6 @@ function Filter({
       height: '120vh',
       border: '1px solid #C4C4C4',
       borderRadius: '10px',
-      marginLeft: '20px',
-      marginTop: '20px',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
