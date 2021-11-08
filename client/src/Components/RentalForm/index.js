@@ -10,7 +10,8 @@ import Alter from '../Common/Alert';
 
 const axios = require('axios');
 
-function RentalForm({ price = 10, id }) {
+function RentalForm({ price = 10, id = '2' }) {
+  const [showAlert, setShowAlert] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({
     location: '', pickUpDateTime: moment().format('yyyy-MM-DDThh:mm'), pickOffDateTime: moment().format('yyyy-MM-DDThh:mm'),
@@ -47,7 +48,7 @@ function RentalForm({ price = 10, id }) {
           pickOffDateTime: data.pickOffDateTime,
 
         });
-          <Alter className="success" title="success" description="Rental Successfully" />;
+        setShowAlert(true);
       } catch (err) {
         <Alter className="error" title="Error" description="You Should Enter Value" />;
       }
@@ -105,6 +106,8 @@ function RentalForm({ price = 10, id }) {
           className="confirm-btn"
         />
       </form>
+      <Alter className="success" title="success" description="Rental Successfully" />
+
     </div>
   );
 }
