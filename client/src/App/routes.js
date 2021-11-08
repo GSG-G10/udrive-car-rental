@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUp from '../Pages/SignUp';
+import LoginPage from '../Pages/Login';
 
 export default [
   {
@@ -40,7 +41,7 @@ export default [
   {
     name: 'Login',
     path: '/login',
-    children: '', // must be a component or (Page)
+    children: <LoginPage />, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },
