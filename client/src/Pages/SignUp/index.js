@@ -65,7 +65,7 @@ function SignUp() {
 
   return (
     <div className="container-main">
-      <div className="image">
+      <div className="sign-up-image">
         <img src={signupImage} alt="logofound" className="signupImage" />
       </div>
       <div className="input-conatiner">
