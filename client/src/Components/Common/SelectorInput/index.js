@@ -1,5 +1,4 @@
 import React from 'react';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -12,14 +11,18 @@ function SelectorInput({
   return (
     <div>
       <FormControl fullWidth className="selectorInput" sx={{ width: '15rem' }}>
-        <InputLabel id="demo-multiple-name-label">{text}</InputLabel>
         <Select
           labelId="demo-multiple-name-label"
           id="demo-multiple-name"
           value={value}
-          label={text}
           onChange={handleChange}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+          sx={{ background: '#fff', height: '2.5rem' }}
         >
+          <MenuItem value="">
+            <em>{text}</em>
+          </MenuItem>
           {item.map((itemMenu) => <MenuItem value={itemMenu.id}>{itemMenu.name}</MenuItem>)}
         </Select>
       </FormControl>

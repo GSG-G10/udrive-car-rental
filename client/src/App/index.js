@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <ProvideAuth>
-
         <Switch>
           <Route exact path="/cars">
             <TypeContext>
