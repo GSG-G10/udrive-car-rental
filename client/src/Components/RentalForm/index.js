@@ -106,7 +106,7 @@ function RentalForm({ price = 10, id = '2' }) {
           className="confirm-btn"
         />
       </form>
-      <Alter className="success" title="success" description="Rental Successfully" />
+      {showAlert && <Alter className="success" title="success" description="Rental Successfully" />}
 
     </div>
   );
