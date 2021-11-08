@@ -6,14 +6,12 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import Navbar from '../Components/Common/Navbar';
 import routes from './routes';
 
 function App() {
   return (
     <div className="App">
       <ProvideAuth>
-        <Navbar />
         <Switch>
           {routes.map((route) => {
             if (route.public) {
