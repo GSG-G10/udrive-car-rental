@@ -11,7 +11,7 @@ export const useAuth = () => useContext(authContext);
 function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-  const login = async ({ email, password }, callback = null) => {
+  const login = async ({ email, password }, callback) => {
     try {
       const res = await axios.post('/api/v1/login', {
         email,
@@ -21,7 +21,8 @@ function useProvideAuth() {
       setUser(res.data.user);
       if (callback) callback(null);
     } catch (err) {
-      if (callback) callback(err);
+      console.log('response', err.response.data.message);
+      if (callback) callback(err.response);
     }
   };
 
