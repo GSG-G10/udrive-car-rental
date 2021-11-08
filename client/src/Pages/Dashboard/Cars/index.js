@@ -16,11 +16,9 @@ function Cars() {
 
   const handleSave = async () => {
     try {
-      const res = await axios.post('/api/v1/admin/cars', {
+      await axios.post('/api/v1/admin/cars', {
         ...car,
       });
-
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }

@@ -1,43 +1,48 @@
 import React from 'react';
 import SignUp from '../Pages/SignUp';
 import LoginPage from '../Pages/Login';
+import Home from '../Pages/Home';
+import TypeContext from '../TypeContext/TypeContext';
+import Cars from '../Pages/Cars';
+import CarDetails from '../Pages/CarDetails';
+import DahsboardCars from '../Pages/Dashboard/Cars';
 
 export default [
   {
     name: 'Home',
     path: '/',
-    children: <div>Hello Home</div>, // must be a component or (Page)
+    children: <TypeContext><Home /></TypeContext>, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },
   {
     name: 'Cars',
     path: '/cars',
-    children: <div>Hello Cars</div>, // must be a component or (Page)
+    children: <TypeContext><Cars /></TypeContext>, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },
   {
     name: 'Car Details',
     path: '/cars/:carId',
-    children: '', // must be a component or (Page)
+    children: <CarDetails />, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },
-  {
-    name: 'Booking',
-    path: '/booking',
-    children: <div>Hello Booking</div>, // must be a component or (Page)
-    public: false,
-    isAdmin: false,
-  },
-  {
-    name: 'Dashboard',
-    path: '/dashboard',
-    children: '', // must be a component or (Page)
-    public: false,
-    isAdmin: true,
-  },
+  // {
+  //   name: 'Booking',
+  //   path: '/booking',
+  //   children: <div>Hello Booking</div>, // must be a component or (Page)
+  //   public: false,
+  //   isAdmin: false,
+  // },
+  // {
+  //   name: 'Dashboard',
+  //   path: '/dashboard',
+  //   children: '', // must be a component or (Page)
+  //   public: false,
+  //   isAdmin: true,
+  // },
   {
     name: 'Login',
     path: '/login',
@@ -51,5 +56,12 @@ export default [
     children: <SignUp />, // must be a component or (Page)
     public: true,
     isAdmin: false,
+  },
+  {
+    name: 'Cars',
+    path: '/admin/cars',
+    children: <DahsboardCars />,
+    public: false,
+    isAdmin: true,
   },
 ];
