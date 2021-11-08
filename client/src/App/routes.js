@@ -1,12 +1,14 @@
 import React from 'react';
 import SignUp from '../Pages/SignUp';
 import CarDetailsPage from '../Pages/CarDetailsPage';
+import LoginPage from '../Pages/Login';
+import Home from '../Pages/Home';
 
 export default [
   {
     name: 'Home',
     path: '/',
-    children: <div>Hello Home</div>, // must be a component or (Page)
+    children: <Home />, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },
@@ -41,7 +43,7 @@ export default [
   {
     name: 'Login',
     path: '/login',
-    children: '', // must be a component or (Page)
+    children: <LoginPage />, // must be a component or (Page)
     public: true,
     isAdmin: false,
   },

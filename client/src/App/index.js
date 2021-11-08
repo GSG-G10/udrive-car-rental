@@ -32,7 +32,6 @@ function App() {
               </ProtectedRoute>
             );
           })}
-
           <Route path="*">
             404 Not Found
           </Route>

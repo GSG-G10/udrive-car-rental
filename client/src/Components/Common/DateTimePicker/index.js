@@ -18,9 +18,9 @@ function DateTimePicker({ label, dateTime, onChangeHnadler }) {
 }
 
 DateTimePicker.propTypes = {
+  label: PropTypes.string.isRequired,
   dateTime: PropTypes.string.isRequired,
   onChangeHnadler: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
 };
 
 export default DateTimePicker;
