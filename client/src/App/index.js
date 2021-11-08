@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <ProvideAuth>
+
         <Switch>
           <Route exact path="/cars">
             <TypeContext>
@@ -52,8 +53,11 @@ function App() {
             404 Not Found
           </Route>
         </Switch>
+
       </ProvideAuth>
+
     </div>
+
   );
 }
 
