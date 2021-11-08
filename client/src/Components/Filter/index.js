@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import {
@@ -8,6 +7,7 @@ import {
 import RadioTypes from '../Common/RadioTypes';
 import SelectorInput from '../Common/SelectorInput';
 import DateTimePicker from '../Common/DateTimePicker';
+import { ContextData } from '../../TypeContext/TypeContext';
 
 function Filter({
   brandId, typeId, handelChangeBrands, handelChangePrice, handelChangeTypes, handelChangeSeats,
@@ -15,45 +15,7 @@ function Filter({
 }) {
   const defaultUp = moment().format('yyyy-MM-DDThh:mm');
   const defaultOff = moment().add(3, 'hours').format('yyyy-MM-DDThh:mm');
-
-  const [brands, setBrands] = useState([]);
-  const [types, setTypes] = useState([]);
-
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-
-    const getBrands = async () => {
-      try {
-        const resultBrands = await axios.get('/api/v1/brands');
-        setBrands(resultBrands.data.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getBrands();
-
-    return () => {
-      source.cancel();
-    };
-  }, []);
-
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-
-    const getTypes = async () => {
-      try {
-        const resultTypes = await axios.get('/api/v1/types');
-        setTypes(resultTypes.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getTypes();
-
-    return () => {
-      source.cancel();
-    };
-  }, []);
+  const { brands, types } = React.useContext(ContextData);
 
   return (
     <Box sx={{
