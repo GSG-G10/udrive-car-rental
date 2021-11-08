@@ -67,13 +67,13 @@ function Navbar({ backgroundColor }) {
                 Cars
               </Link>
             </li>
-            {user && (
+            {/* {user && (
             <li>
               <Link to="/booking" className="listItem">
                 Booking
               </Link>
             </li>
-            )}
+            )} */}
             {user?.isAdmin && (
             <li>
               <Link to="/dashboard" className="listItem">
