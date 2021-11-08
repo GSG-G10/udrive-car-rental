@@ -76,7 +76,7 @@ function Navbar({ backgroundColor }) {
             )} */}
             {user?.isAdmin && (
             <li>
-              <Link to="/dashboard" className="listItem">
+              <Link to="/admin/cars" className="listItem">
                 Dashboard
               </Link>
             </li>
