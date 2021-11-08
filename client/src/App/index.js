@@ -3,40 +3,60 @@ import './style.css';
 import {
   Switch,
   Route,
+  useLocation,
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
-import routes from './routes';
+import TypeContext from '../TypeContext/TypeContext';
+import Home from '../Pages/Home';
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <ProvideAuth>
         <Switch>
-          {routes.map((route) => {
-            if (route.public) {
-              return <Route exact path={route.path} key={route.name}>{route.children}</Route>;
-            }
-            if (route.isAdmin) {
-              return (
-                <AdminProtectedRoute exact path={route.path} key={route.name}>
-                  {route.children}
-                </AdminProtectedRoute>
-              );
-            }
-            return (
-              <ProtectedRoute exact path={route.path} key={route.name}>
-                {route.children}
-              </ProtectedRoute>
-            );
-          })}
+          <Route exact path="/cars">
+            <TypeContext>
+              cars page
+              {' '}
+              {location.state?.typeId}
+              {location.state?.brandId}
+            </TypeContext>
+          </Route>
+          <Route exact path="/cars/:carId">
+            Car Details page
+          </Route>
+          <ProtectedRoute exact path="/booking">
+            Booking page
+          </ProtectedRoute>
+          <AdminProtectedRoute exact path="/dashboard">
+            <TypeContext>
+              dashboard
+            </TypeContext>
+          </AdminProtectedRoute>
+          <Route exact path="/login">
+            login page
+          </Route>
+          <Route exact path="/signup">
+            signup page
+          </Route>
+
+          <Route exact path="/">
+            <TypeContext>
+              <Home />
+            </TypeContext>
+          </Route>
 
           <Route path="*">
             404 Not Found
           </Route>
         </Switch>
+
       </ProvideAuth>
+
     </div>
+
   );
 }
 

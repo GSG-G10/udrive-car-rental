@@ -18,6 +18,7 @@ function SelectorInput({
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label' }}
+          sx={{ background: '#fff', height: '2.5rem' }}
         >
           <MenuItem value="">
             <em>{text}</em>
