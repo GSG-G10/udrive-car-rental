@@ -58,14 +58,14 @@ function Filter({
   return (
     <Box sx={{
       width: '20%',
-      height: '110vh',
+      height: '120vh',
       border: '1px solid #C4C4C4',
       borderRadius: '10px',
       marginLeft: '20px',
       marginTop: '20px',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-evenly',
+      justifyContent: 'space-around',
       padding: '1rem 1rem',
     }}
     >
@@ -100,19 +100,7 @@ function Filter({
 
 Filter.propTypes = {
   brandId: PropTypes.number.isRequired,
-  // setBrandId: PropTypes.bool.isRequired,
-  // minPrice: PropTypes.number.isRequired,
-  // setMinPrice: PropTypes.bool.isRequired,
-  // maxPrice: PropTypes.number.isRequired,
-  // setMaxPrice: PropTypes.bool.isRequired,
   typeId: PropTypes.number.isRequired,
-  // setTypeId: PropTypes.bool.isRequired,
-  // seats: PropTypes.number.isRequired,
-  // setSeats: PropTypes.bool.isRequired,
-  // pickUp: PropTypes.string.isRequired,
-  // setPickUp: PropTypes.bool.isRequired,
-  // pickOff: PropTypes.string.isRequired,
-  // setPickOff: PropTypes.bool.isRequired,
   handelChangeBrands: PropTypes.bool.isRequired,
   handelChangePrice: PropTypes.bool.isRequired,
   handelChangeTypes: PropTypes.bool.isRequired,
