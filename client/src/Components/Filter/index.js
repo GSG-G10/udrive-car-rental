@@ -63,12 +63,12 @@ function Filter({
 Filter.propTypes = {
   brandId: PropTypes.number.isRequired,
   typeId: PropTypes.number.isRequired,
-  handelChangeBrands: PropTypes.bool.isRequired,
-  handelChangePrice: PropTypes.bool.isRequired,
-  handelChangeTypes: PropTypes.bool.isRequired,
-  handelChangeSeats: PropTypes.bool.isRequired,
-  handelChangePickUp: PropTypes.bool.isRequired,
-  handelChangePickOff: PropTypes.bool.isRequired,
+  handelChangeBrands: PropTypes.func.isRequired,
+  handelChangePrice: PropTypes.func.isRequired,
+  handelChangeTypes: PropTypes.func.isRequired,
+  handelChangeSeats: PropTypes.func.isRequired,
+  handelChangePickUp: PropTypes.func.isRequired,
+  handelChangePickOff: PropTypes.func.isRequired,
 };
 
 export default Filter;
