@@ -6,7 +6,11 @@ function ImageCard({
   img, content,
 }) {
   return (
-    <div className="image-card-container" style={{ backgroundImage: `url(${img})` }}>
+    <div
+      className="image-card-container"
+      style={{ backgroundImage: `url(${img})` }}
+
+    >
       <div className="image-card-name">
         <h3>{content}</h3>
       </div>
@@ -17,6 +21,7 @@ function ImageCard({
 ImageCard.propTypes = {
   img: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+
 };
 
 export default ImageCard;

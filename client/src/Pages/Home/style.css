@@ -1,0 +1,20 @@
+.header{
+    text-align: center;
+    padding-top: 200px;
+}
+.type{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.image-card-container {
+    position: relative;
+    color: white;
+    transition: all 0.5s;
+    border-radius: 0.5rem;
+    height: 16rem;
+    background: center center/cover no-repeat padding-box;
+    box-shadow: 2px 2px 8px 2px rgb(163 163 163);
+    cursor: pointer;
+    width: 100%;
+}

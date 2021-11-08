@@ -12,7 +12,8 @@ CREATE TABLE users (
 CREATE TABLE types (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
-    image TEXT
+    image TEXT,
+    icon TEXT
 );
 CREATE TABLE brands (
     id SERIAL PRIMARY KEY,
