@@ -1,8 +1,8 @@
 .card{
   display: flex; 
-  width: 45%; 
-  margin-left: 30px; 
-  margin-top: 30px;
+  width: 90%; 
+  /* margin-left: 30px;  */
+  margin-bottom: 30px;
 }
 .carContent{
   display: flex;
@@ -27,4 +27,5 @@
   justify-content: space-between;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }

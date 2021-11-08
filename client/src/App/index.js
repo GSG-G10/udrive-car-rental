@@ -34,11 +34,8 @@ function App() {
             404 Not Found
           </Route>
         </Switch>
-
       </ProvideAuth>
-
     </div>
-
   );
 }
 

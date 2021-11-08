@@ -11,7 +11,7 @@ function CarDetails({
   name, rate, gearbox, type, doorNumber, seats, description,
 }) {
   return (
-    <div className="container">
+    <div className="car-details-container">
       <Typography gutterBottom variant="h3" component="div" className="car-name">
         {name}
       </Typography>

@@ -4,7 +4,7 @@ import LoginPage from '../Pages/Login';
 import Home from '../Pages/Home';
 import TypeContext from '../TypeContext/TypeContext';
 import Cars from '../Pages/Cars';
-import CarDetails from '../Pages/CarDetails';
+import CarDetails from '../Pages/CarDetailsPage';
 import DahsboardCars from '../Pages/Dashboard/Cars';
 
 export default [

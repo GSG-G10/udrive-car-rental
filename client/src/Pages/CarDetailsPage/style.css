@@ -1,0 +1,19 @@
+.car-rental-body{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end
+}
+.reviews {
+  margin-left: 2rem;
+}
+.reviews-container{
+  width: 70%;
+}
+.rental-form-car-details-page{
+  margin: 2rem 2rem 0 0 ;
+  width: 30%;
+}
+.price-pre-hour{
+  font-size:50px;
+  font-weight:550;
+}
