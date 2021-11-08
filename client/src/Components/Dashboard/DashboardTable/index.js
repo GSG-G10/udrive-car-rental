@@ -32,8 +32,9 @@ function DashboardTable({
 
   const rowsList = rows.map((row) => {
     const values = Object.values(row);
+    const keys = Object.keys(row);
 
-    const valuesList = values.map((val) => <TableCell key={val}>{val}</TableCell>);
+    const valuesList = values.map((val, index) => <TableCell key={`${row.id}-${keys[index]}`}>{val}</TableCell>);
 
     return (
       <TableRow
@@ -62,11 +63,11 @@ function DashboardTable({
         <Table sx={{ minWidth: 650 }} size="big" aria-label="tableTitle">
           <TableHead>
             <TableRow>
-              {headersList}
+              {headers && headersList}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rowsList}
+            {rows && rowsList}
           </TableBody>
         </Table>
       </TableContainer>

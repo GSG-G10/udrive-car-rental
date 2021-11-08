@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import { ProvideAuth } from './useAuth';
 import { ProtectedRoute, AdminProtectedRoute } from './ProtectedRoute';
+// import Navbar from '../Components/Common/Navbar';
+import Cars from '../Pages/Dashboard/Cars';
 import TypeContext from '../TypeContext/TypeContext';
 import Home from '../Pages/Home';
 
@@ -48,6 +50,9 @@ function App() {
             </TypeContext>
           </Route>
 
+          <Route exact path="/admin/cars">
+            <Cars />
+          </Route>
           <Route path="*">
             404 Not Found
           </Route>
