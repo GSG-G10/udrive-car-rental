@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@mui/material';
 
-function DateTimePicker({ dateTime, onChangeHnadler }) {
+function DateTimePicker({ label, dateTime, onChangeHnadler }) {
   return (
     <TextField
       id="datetime-local"
-      label="Date&Time Picker"
+      label={label}
       type="datetime-local"
       defaultValue={dateTime}
       InputLabelProps={{
@@ -18,6 +18,7 @@ function DateTimePicker({ dateTime, onChangeHnadler }) {
 }
 
 DateTimePicker.propTypes = {
+  label: PropTypes.string.isRequired,
   dateTime: PropTypes.string.isRequired,
   onChangeHnadler: PropTypes.func.isRequired,
 };
