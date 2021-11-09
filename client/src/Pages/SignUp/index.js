@@ -138,7 +138,7 @@ function SignUp() {
         <Button handelClick={signups} text="Sign Up" />
         <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ paddingTop: '15px', color: '#9AA1B9' }}>
           Already have an account ?
-          <Link to="/login"> Signin </Link>
+          <Link to="/login"> Login </Link>
         </Typography>
       </div>
 

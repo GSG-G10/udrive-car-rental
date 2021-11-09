@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import Input from '../../Components/Common/Input';
 import Button from '../../Components/Common/Button';
 import logo from '../../images/Logo3.png';
@@ -9,18 +9,34 @@ import { useAuth } from '../../App/useAuth';
 function LoginPage() {
   const { login } = useAuth();
 
-  const [loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState({ email: false, password: false });
   const [userInformationLogin, setUserInformationLogin] = useState({ email: '', password: '' });
 
   const history = useHistory();
 
+  const handleErrorLogin = (callback) => {
+    if (userInformationLogin.email === '') {
+      setLoginError({
+        email: true, password: false,
+      });
+    } else if (userInformationLogin.password === '') {
+      setLoginError({
+        name: false, password: true,
+      });
+    } else {
+      callback();
+    }
+  };
+
   const loginFunc = () => {
-    login(userInformationLogin, (err) => {
-      if (err) {
-        setLoginError(err.message);
-      } else {
-        history.push('/');
-      }
+    handleErrorLogin(() => {
+      login(userInformationLogin, (err) => {
+        if (err) {
+          setLoginError(err.message);
+        } else {
+          history.push('/');
+        }
+      });
     });
   };
 
@@ -42,8 +58,8 @@ function LoginPage() {
           <Input
             label="Email"
             widthInput={2.5}
-            error={loginError}
-            helperText={loginError || ''}
+            error={loginError.email}
+            helperText={loginError.email ? 'This Field is required' : ''}
             onChange={(e) => {
               setUserInformationLogin({ ...userInformationLogin, email: e.target.value });
             }}
@@ -52,14 +68,18 @@ function LoginPage() {
             label="Password"
             type="password"
             widthInput={2.5}
-            error={loginError}
-            helperText={loginError || ''}
+            error={loginError.password}
+            helperText={loginError.password ? 'This Field is required' : ''}
             onChange={(e) => {
               setUserInformationLogin({ ...userInformationLogin, password: e.target.value });
             }}
           />
           <Button text="Sing in" className="login-btn" width={72} handelClick={loginFunc} />
         </form>
+        <div className="signup-container">
+          create an account !
+          <Link to="/signup" className="create-account-btn"> Create an Account </Link>
+        </div>
       </div>
     </div>
   );

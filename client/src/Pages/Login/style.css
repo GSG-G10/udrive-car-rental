@@ -39,3 +39,11 @@
   font-weight: bold;
   opacity: 0.5;
 }
+
+.signup-container{
+  margin-top:2rem;
+}
+
+.create-account-btn{
+  text-decoration:none;
+}
