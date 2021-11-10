@@ -145,12 +145,12 @@ function Home() {
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
-          {review && review.slice(0, 2).map((item) => (
-            <Grid item xs={6}>
-              <Item>
-                {' '}
-                <CustomersOpinion userName="UserName" rateNumber={item.rate} description={item.review} />
-              </Item>
+          {review && review.slice(0, 3).map((item) => (
+            <Grid item xs={4}>
+
+              {' '}
+              <CustomersOpinion userName="UserName" rateNumber={item.rate} description={item.review} />
+
             </Grid>
           ))}
         </Grid>
