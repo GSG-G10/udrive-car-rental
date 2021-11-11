@@ -27,21 +27,22 @@ function CarCard({
       />
       <Box className="contentContainer" sx={{ display: 'flex' }}>
         <CardContent className="carContent">
-          <Typography component="div" variant="h4" calssName="carName" sx={{ fontWeight: 700 }}>
+          <Typography component="div" variant="h5" calssName="carName" sx={{ fontWeight: 700 }}>
             {carName}
           </Typography>
           <Rating name="read-only" value={rating} readOnly className="rating" />
-          <Typography color="text.secondary" component="div" sx={{ marginBottom: '10px' }}>
+          <Typography color="text.secondary" component="div" sx={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
             <img src={gear} alt="Gear Icon" className="icon" />
-            {gearbox}
+            <Typography>{gearbox}</Typography>
+
           </Typography>
-          <Typography color="text.secondary" component="div" sx={{ marginBottom: '10px' }}>
+          <Typography color="text.secondary" component="div" sx={{ marginBottom: '10px', display: 'flex' }}>
             <img src={door} alt="Door Icon" className="icon" />
             {doors}
             {' '}
             Doors
           </Typography>
-          <Typography color="text.secondary" component="div">
+          <Typography color="text.secondary" component="div" sx={{ display: 'flex' }}>
             <img src={seat} alt="Seat Icon" className="icon" />
             {seats}
             {' '}
@@ -49,7 +50,7 @@ function CarCard({
           </Typography>
         </CardContent>
         <Box className="priceButton">
-          <Typography component="div" variant="h3" sx={{ fontWeight: 700 }}>
+          <Typography component="div" variant="h4" sx={{ fontWeight: 700 }}>
             $
             {price}
             <Typography> per hour </Typography>

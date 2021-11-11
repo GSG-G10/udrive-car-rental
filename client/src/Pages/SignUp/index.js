@@ -65,7 +65,7 @@ function SignUp() {
 
   return (
     <div className="container-main">
-      <div className="image">
+      <div className="sign-up-image">
         <img src={signupImage} alt="logofound" className="signupImage" />
       </div>
       <div className="input-conatiner">
@@ -138,7 +138,7 @@ function SignUp() {
         <Button handelClick={signups} text="Sign Up" />
         <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ paddingTop: '15px', color: '#9AA1B9' }}>
           Already have an account ?
-          <Link to="/login"> Signin </Link>
+          <Link to="/login"> Login </Link>
         </Typography>
       </div>
 

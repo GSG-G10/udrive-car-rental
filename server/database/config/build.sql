@@ -12,7 +12,8 @@ CREATE TABLE users (
 CREATE TABLE types (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
-    image TEXT
+    image TEXT,
+    icon TEXT
 );
 CREATE TABLE brands (
     id SERIAL PRIMARY KEY,
@@ -40,7 +41,7 @@ CREATE TABLE rentals (
     location TEXT,
     pick_up_date_time TIMESTAMPTZ,
     pick_off_date_time TIMESTAMPTZ,
-    total_price INT
+    total_price DECIMAL
 );
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,

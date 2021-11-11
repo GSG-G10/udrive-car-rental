@@ -11,6 +11,7 @@ import Alter from '../Common/Alert';
 const axios = require('axios');
 
 function RentalForm({ price = 10, id }) {
+  const [showAlert, setShowAlert] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState({
     location: '', pickUpDateTime: moment().format('yyyy-MM-DDThh:mm'), pickOffDateTime: moment().format('yyyy-MM-DDThh:mm'),
@@ -39,13 +40,15 @@ function RentalForm({ price = 10, id }) {
 
   const rentalCar = () => {
     handleError(async () => {
+      setOpen(false);
       try {
         await axios.post(`/api/v1/rentals/${id}`, {
           location: data.location,
           pickUpDateTime: data.pickUpDateTime,
           pickOffDateTime: data.pickOffDateTime,
+
         });
-        setOpen(false);
+        setShowAlert(true);
       } catch (err) {
         <Alter className="error" title="Error" description="You Should Enter Value" />;
       }
@@ -103,6 +106,11 @@ function RentalForm({ price = 10, id }) {
           className="confirm-btn"
         />
       </form>
+
+      <div className="alert-div-success">
+
+        {showAlert && <Alter className="success" title="success" description="Rental Successfully" />}
+      </div>
     </div>
   );
 }

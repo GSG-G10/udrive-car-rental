@@ -5,13 +5,11 @@ import './style.css';
 
 function Alter({ className, title, description }) {
   return (
-    <div className="container">
-      <Alert severity={className} className="alter">
-        <AlertTitle>{title}</AlertTitle>
-        {description}
-        {' '}
-      </Alert>
-    </div>
+    <Alert severity={className} className="alter">
+      <AlertTitle>{title}</AlertTitle>
+      {description}
+      {' '}
+    </Alert>
   );
 }
 Alter.propTypes = {

@@ -1,9 +1,11 @@
 import React from 'react';
-import { CircularProgress } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 
 function Spinner() {
   return (
-    <CircularProgress />
+    <Box sx={{ display: 'flex', justifyContent: 'canter' }}>
+      <CircularProgress sx={{ margin: 'auto' }} />
+    </Box>
   );
 }
 

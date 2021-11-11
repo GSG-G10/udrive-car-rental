@@ -42,13 +42,13 @@ function Home() {
   }));
   return (
     <div>
-      <Header img="https://images-ext-2.discordapp.net/external/fKDzIa5WJukHd7AapdproCqAthYTKUcaIHmE_M2_VMM/%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D870%26q%3D80/https/images.unsplash.com/photo-1449965408869-eaa3f722e40d?width=641&height=427">
+      <Header img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80">
         <div className="header">
           <NavBar />
-          <Typography variant="h2" gutterBottom className="paragraph-description" sx={{ fontSize: '40px' }}>
+          <Typography variant="h2" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', fontSize: '40px' }}>
             First Class Car Rental & Limousine Services
           </Typography>
-          <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ fontSize: '24px', paddingLeft: '25px' }}>
+          <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', fontSize: '24px', paddingLeft: '25px' }}>
             We offer professional car rental & limousine services in our range of high-end vehicles.
           </Typography>
           <SearchBox />
@@ -145,12 +145,12 @@ function Home() {
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
-          {review && review.slice(0, 2).map((item) => (
-            <Grid item xs={6}>
-              <Item>
-                {' '}
-                <CustomersOpinion userName="UserName" rateNumber={item.rate} description={item.review} />
-              </Item>
+          {review && review.slice(0, 3).map((item) => (
+            <Grid item xs={4}>
+
+              {' '}
+              <CustomersOpinion userName="UserName" rateNumber={item.rate} description={item.review} />
+
             </Grid>
           ))}
         </Grid>
