@@ -6,6 +6,7 @@ import Filter from '../../Components/Filter';
 import CarCard from '../../Components/Common/CarCard';
 import Navbar from '../../Components/Common/Navbar';
 import Header from '../../Components/Common/Header';
+import Spinner from '../../Components/Common/Spinner';
 
 function Cars() {
   const history = useHistory();
@@ -17,6 +18,9 @@ function Cars() {
   const [seats, setSeats] = useState();
   const [pickUp, setPickUp] = useState();
   const [pickOff, setPickOff] = useState();
+  const [loading, setLoading] = useState(true);
+
+  console.log(loading);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -31,6 +35,7 @@ function Cars() {
         if (result && result.data) {
           setCarsData(result.data.data);
         }
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -67,6 +72,9 @@ function Cars() {
     setPickOff(e.target.value);
   };
 
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <>
       <Navbar />
