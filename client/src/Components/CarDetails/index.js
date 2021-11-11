@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import './Style.css';
 import PropTypes from 'prop-types';
-import seat from '../../images/Vector.png';
+import seat from '../../images/seat.png';
 import door from '../../images/door.png';
 import gear from '../../images/gear.png';
 

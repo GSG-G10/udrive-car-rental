@@ -8,6 +8,7 @@ import './style.css';
 import Footer from '../../Components/Common/Footer';
 import RentalForm from '../../Components/RentalForm';
 import Alter from '../../Components/Common/Alert';
+import Navbar from '../../Components/Common/Navbar';
 
 function CarDetailsPage() {
   const { carId } = useParams();
@@ -25,6 +26,7 @@ function CarDetailsPage() {
 
   return (
     <div>
+      <Navbar />
       <Header img={details.img_car} />
       <div className="car-rental-body">
 

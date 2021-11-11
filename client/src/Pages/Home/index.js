@@ -45,10 +45,10 @@ function Home() {
       <Header img="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80">
         <div className="header">
           <NavBar />
-          <Typography variant="h2" gutterBottom className="paragraph-description" sx={{ fontSize: '40px' }}>
+          <Typography variant="h2" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', fontSize: '40px' }}>
             First Class Car Rental & Limousine Services
           </Typography>
-          <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ fontSize: '24px', paddingLeft: '25px' }}>
+          <Typography variant="body1" gutterBottom className="paragraph-description" sx={{ textAlign: 'center', fontSize: '24px', paddingLeft: '25px' }}>
             We offer professional car rental & limousine services in our range of high-end vehicles.
           </Typography>
           <SearchBox />
