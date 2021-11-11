@@ -18,9 +18,6 @@ function Cars() {
   const [pickUp, setPickUp] = useState();
   const [pickOff, setPickOff] = useState();
 
-  console.log(carsData);
-  console.log('brand', brandId, 'type', typeId);
-
   useEffect(() => {
     const source = axios.CancelToken.source();
 

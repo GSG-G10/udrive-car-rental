@@ -19,7 +19,7 @@ test('get brands returns a status code of 200', (done) => {
     .expect('Content-Type', /json/)
     .end((err, res) => {
       if (err) return done(err);
-      expect(res.body.data.length).toBe(6);
+      expect(res.body.data.length).toBe(7);
       return done();
     });
 });

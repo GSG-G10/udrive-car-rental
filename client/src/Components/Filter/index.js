@@ -33,12 +33,12 @@ function Filter({
       <SelectorInput text="brands" value={brandId} handleChange={handelChangeBrands} item={brands} />
       <Typography gutterBottom>PRICE RANGE</Typography>
       <Slider
-        defaultValue={[60, 160]}
+        defaultValue={[40, 160]}
         aria-label="Default"
         valueLabelDisplay="auto"
         min={20}
         step={5}
-        max={400}
+        max={200}
         onChange={handelChangePrice}
       />
       <RadioTypes icons={types} value={typeId} handleChange={handelChangeTypes} />
